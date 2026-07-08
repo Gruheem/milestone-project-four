@@ -7,6 +7,7 @@ Contents
 - [Business Goals](#business-goals)
 - [User Personas](#user-personas)
 - [User Stories](#user-stories)
+- [Data Base Schema](#db-models)
 
 ##UX
 
@@ -120,64 +121,66 @@ UX Quality & Accessibility - Intuitive interface, consistent design, action feed
 ### DB Models
 Given the type of products we stock at Reason an Entity-Attribute-Value was chosen here to allow the site admins alot of control over the categories of data attatched to the products without having to make migrations to the database. We have made some compromises and mitigations filtering through the Attribute Value Column can be lengthy as it is just one big long column so I have indexed it for faster queries. We also loose the native data type checking which may lead to bugs across the website like two cnaldes one having '40hrs' burntime while the other has 'fourty hours' or breaks in numerical logic. This is mitigated by adding a Value Type Field which will validate our input and, while being stored as a string will allow the admin to select a Data Type Label for each Attribute.
 
-User Profile: 
-User(From Djangos User Model, OnetoOneField) 
-Name(CharField)
-Phone Number(CharField)  
-Address(CharfFeld)  
-Country(CountryField)
+```
+User Profile:  
+    User(From Djangos User Model, OnetoOneField) 
+    Name(CharField)
+    Phone Number(CharField)  
+    Address(CharfFeld)  
+    Country(CountryField)
 
-Product(EAV): 
-    Category:  
-    Category(CharField)  
-
-    Product:  
-    Category(fk)
-    Sku(CharField)  
-    Name(CharField)  
-    Description(TextField)  
-    Price(DecimalField)  
-    Rating(DecimalField) 
-    ImageURL(URLField) 
-    Image(ImageField)
+Product(EAV):   
+    Category:    
+        Category(CharField)   
+ 
+    Product:   
+        Category(fk) 
+        Sku(CharField)   
+        Name(CharField)   
+        Description(TextField)   
+        Price(DecimalField)   
+        Rating(DecimalField)  
+        ImageURL(URLField)  
+        Image(ImageField)
 
     Attribute:
         "  
-        ValueType(models.TextChoices):
-            TEXT = 'text', 'Text'
-            NUMBER = 'number', 'Number'
-            BOOLEAN = 'boolean', 'Boolean'
+        ValueType(models.TextChoices):  
+            TEXT = 'text', 'Text'  
+            NUMBER = 'number', 'Number'  
+            BOOLEAN = 'boolean', 'Boolean'  
         "
-    Category(fk)  
-    Attribute(CharField)  
-    Value Type(choices=ValueType.choices, default='text') 
+        Category(fk)  
+        Attribute(CharField)  
+        Value Type(choices=ValueType.choices, default='text') 
 
     Attribute Value:  
-    Product(fk)  
-    Attribute(fk)  
-    Value(CharField, db_index=True) [db_index=True indexs the database for faster reads as this is going to be a long column]  
-    # Unique Together (Product, Attribute) [only one each each attribute:value pair is added to each product]  
+        Product(fk)  
+        Attribute(fk)  
+        Value(CharField, db_index=True) [db_index=True indexs the database for faster reads as this is going to be along column]  
+        # Unique Together (Product, Attribute) [only one eacheach attribute:value pair is added to each product]  
 
 
-Order:  
-Order Number(CharField)  
-User Profile(fk)  
-Name(CharField)   
-Email(CharField)  
-Phone Number(CharField)  
-Address(charField)  
-Country(CountryField)  
-Date(DateTimeField)  
-Delivery Cost(DecimalField)  
-Order Total(DecimalField)  
-Grand Total(DecimalField) [Order Total + Delivery]  
-Stripe PIID(CharField) [Stores the payment intent created by stripe]  
+    Order:  
+        Order Number(CharField)  
+        User Profile(fk)  
+        Name(CharField)   
+        Email(CharField)  
+        Phone Number(CharField)  
+        Address(charField)  
+        Country(CountryField)  
+        Date(DateTimeField)  
+        Delivery Cost(DecimalField)  
+        Order Total(DecimalField)  
+        Grand Total(DecimalField) [Order Total + Delivery]  
+        Stripe PIID(CharField) [Stores the payment intent created by stripe]  
 
-Order Line Item:  
-Order(fk)  
-Product(fk)
-Quantity(IntegerField)
-Line Item Total(DecimalField)
+    Order Line Item:  
+        Order(fk)  
+        Product(fk)
+        Quantity(IntegerField)
+        Line Item Total(DecimalField)
 
+```  
 
 ### Wireframes
