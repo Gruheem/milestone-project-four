@@ -25,27 +25,27 @@ The goal of the project is to create a full-stack e-commerce django site compris
 ### User Personas
 The Casual Browser:  
 Goal - Browse the site to see everything the shop has to offer
-Context - Didn't arrive to buy anything specific but is interested to see what they can find by casualy browsing while at home, at work or on the go.
-Frustrations - Poor Site Layout, Unclear Navigation, unresponsive on different devices
+Context - Didn't arrive to buy anything specific but is interested to see what they can find by casualy browsing while at home, at work or on the go.  
+Frustrations - Poor Site Layout, Unclear Navigation, unresponsive on different devices  
 Needs - Clear site navigation and Informative, Intuitive Product Navigation. Help in discovering Flagship items or best selling products to help new/casual browsers find our best products.  
 
 The Regular/Repeat Customer:
-Goal - Buy something Again with ease 
-Context - Regular customer who knows what they want to buy.
-Frustration - Not being able to quickly identify the items they know that they are looking for 
-Needs - Easy and Intuitive Navigation, Easy to Access previous orders seciton  
+Goal - Buy something Again with ease   
+Context - Regular customer who knows what they want to buy.  
+Frustration - Not being able to quickly identify the items they know that they are looking for   
+Needs - Easy and Intuitive Navigation, Easy to Access previous orders seciton    
 
 The Gift Buyer:  
-Goal - Find a gift for a specific occasion or stock up on gift supplies
-Context - Someone who may be looking for an item for a specific occasion or someone who is just looking to stock up on their gift supplies.  
-Frustrations - Unclear Occasion Categories, Difficult to find Gift Card Seciton.
-Needs - Ability to search by occasion and Buy a Gift Card.
+Goal - Find a gift for a specific occasion or stock up on gift supplies  
+Context - Someone who may be looking for an item for a specific occasion or someone who is just looking to stock up on their gift supplies.    
+Frustrations - Unclear Occasion Categories, Difficult to find Gift Card Seciton.  
+Needs - Ability to search by occasion and Buy a Gift Card.  
 
 The Vintage Collector:  
-Goal - Find one of a kind vintage products not available elsewhere.
-Context - Someone who enjoys spending time hunting for one of a kind vintage products.
-Frustration - Unclear Photographs/Condition of items. Bad Product Navigation.
-Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attributes to Provide Clarity.
+Goal - Find one of a kind vintage products not available elsewhere.  
+Context - Someone who enjoys spending time hunting for one of a kind vintage products.  
+Frustration - Unclear Photographs/Condition of items. Bad Product Navigation.  
+Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attributes to Provide Clarity.  
 
 ### User Stories
 🟢 MUST HAVE
@@ -132,13 +132,18 @@ User Profile:
 Product(EAV):   
     Category:    
         Category(CharField)   
+
+    Product Type:  
+        Category(fk)  
+        name  
  
     Product:   
         Category(fk) 
         Sku(CharField)   
         Name(CharField)   
         Description(TextField)   
-        Price(DecimalField)   
+        Price(DecimalField)  
+        Brand(CharField/Choices)   
         Rating(DecimalField)  
         ImageURL(URLField)  
         Image(ImageField)
@@ -154,32 +159,32 @@ Product(EAV):
         Attribute(CharField)  
         Value Type(choices=ValueType.choices, default='text') 
 
-    Attribute Value:  
+    Product Attribute Value:  
         Product(fk)  
         Attribute(fk)  
         Value(CharField, db_index=True) [db_index=True indexs the database for faster reads as this is going to be along column]  
         # Unique Together (Product, Attribute) [only one eacheach attribute:value pair is added to each product]  
 
 
-    Order:  
-        Order Number(CharField)  
-        User Profile(fk)  
-        Name(CharField)   
-        Email(CharField)  
-        Phone Number(CharField)  
-        Address(charField)  
-        Country(CountryField)  
-        Date(DateTimeField)  
-        Delivery Cost(DecimalField)  
-        Order Total(DecimalField)  
-        Grand Total(DecimalField) [Order Total + Delivery]  
-        Stripe PIID(CharField) [Stores the payment intent created by stripe]  
+Order:  
+    Order Number(CharField)  
+    User Profile(fk)  
+    Name(CharField)   
+    Email(CharField)  
+    Phone Number(CharField)  
+    Address(charField)  
+    Country(CountryField)  
+    Date(DateTimeField)  
+    Delivery Cost(DecimalField)  
+    Order Total(DecimalField)  
+    Grand Total(DecimalField) [Order Total + Delivery]  
+    Stripe PIID(CharField) [Stores the payment intent created by stripe]  
 
-    Order Line Item:  
-        Order(fk)  
-        Product(fk)
-        Quantity(IntegerField)
-        Line Item Total(DecimalField)
+Order Line Item:  
+    Order(fk)  
+    Product(fk)
+    Quantity(IntegerField)
+    Line Item Total(DecimalField)
 
 ```  
 
