@@ -13,16 +13,26 @@
 
     {% block extra_meta %}
     {% endblock %}
-    
+
+    <title>Reason Interiors {% block extra_title %}{% endblock %}</title>
+
     {% block corecss %}
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap">
+        <!-- Local CSS -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
+        <!-- Font Awsome -->
+         <script src="https://kit.fontawesome.com/818fed39bf.js" crossorigin="anonymous"></script>
         <!-- Bootstrap js -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     {% endblock %}
@@ -30,12 +40,53 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Reason Interiors {% block extra_title %}{% endblock %}</title>
 
 </head>
   <body>
 
-    <header class="container-fluid fixed-top"></header>
+    <header class="container-fluid fixed-top">
+        <div class="row">
+
+            <div class="col-12 col-lg-4 my-auto">
+                <form method="GET" action="" class="ps-2">
+                    <div class="input-group">
+                        <input type="text" name="q" placeholder="Search Our Products">
+                        <button type="submit">
+                            <span>
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="col-12 col-lg-4 text-center my-3">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link m-auto">
+                    <h1 class="logo-font mb-0">Reason</h1>
+                </a>
+            </div>
+            
+            <div class="col-12 col-lg-4 my-auto">
+                <ul class="list-inline me-2 d-flex justify-content-end ">
+                    <li class="list-inline-item p-2">
+                        <a href="#" class="nav-link">
+                            <div>
+                                <i class="fas fa-user fa-xl"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-inline-item p-2">
+                        <a href="#" class="nav-link">
+                            <div>
+                                <i class="fas fa-bag-shopping fa-xl"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
 
     {% if messages %}
         <div class="message-container"></div>
