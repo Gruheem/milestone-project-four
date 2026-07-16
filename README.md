@@ -188,4 +188,44 @@ Order Line Item:
 
 ```  
 
+#### Product Categories/Types
+- Home Fragrence & Candles
+  - Candles
+  - Candle Holders
+  - Diffusers
+  - Wax Melts 
+
+- Kitchen & Dining
+  - Mugs 
+  - Bowls
+  - Tea Towels
+  - Jugs
+
+- Cards & Gift Wrap
+  - Cards
+  - Wrapping paper
+  - Gift bags
+  - Tape & Ribbon
+
+- home Decor
+  - Photo Frames
+  - Book Ends
+  - baskets & Matts
+
+- Soft Furnishings
+  - Cushions
+  - Throws 
+
+- Perfume & Body
+  - Perfume
+  - Soap
+  - Moisteriser
+
+
+- Stationary
+  - Notebooks
+  - Journals 
+  - Paper Weights
+
+
 ### Wireframes
