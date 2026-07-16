@@ -9,3 +9,7 @@ body {
 .main-logo-link {
     width: fit-content;
 }
+
+.border-black {
+    border: 1px solid black !important;
+}

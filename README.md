@@ -207,7 +207,7 @@ Order Line Item:
   - Gift bags
   - Tape & Ribbon
 
-- home Decor
+- Home Decor
   - Photo Frames
   - Book Ends
   - baskets & Matts

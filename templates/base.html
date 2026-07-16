@@ -45,46 +45,54 @@
   <body>
 
     <header class="container-fluid fixed-top">
-        <div class="row">
-
+        <div class="row d-none d-lg-flex">
+            <!-- Search Bar -->
             <div class="col-12 col-lg-4 my-auto">
                 <form method="GET" action="" class="ps-2">
                     <div class="input-group">
-                        <input type="text" name="q" placeholder="Search Our Products">
-                        <button type="submit">
+                        <input class=" border-black" type="text" name="q" placeholder=" Search Our Products">
+                        <button class="btn" type="submit">
                             <span>
-                                <i class="fas fa-search"></i>
+                                <i class="fas fa-search fa-l"></i>
                             </span>
                         </button>
                     </div>
                 </form>
             </div>
-            
+            <!-- Main Logo -->
             <div class="col-12 col-lg-4 text-center my-3">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link m-auto">
-                    <h1 class="logo-font mb-0">Reason</h1>
+                    <h1 class="logo-font mb-0">Reason Interiors</h1>
                 </a>
             </div>
-            
+            <!-- Top Right Icons -->
             <div class="col-12 col-lg-4 my-auto">
                 <ul class="list-inline me-2 d-flex justify-content-end ">
                     <li class="list-inline-item p-2">
                         <a href="#" class="nav-link">
                             <div>
-                                <i class="fas fa-user fa-xl"></i>
+                                <i class="fas fa-user fa-lg"></i>
                             </div>
                         </a>
                     </li>
                     <li class="list-inline-item p-2">
                         <a href="#" class="nav-link">
                             <div>
-                                <i class="fas fa-bag-shopping fa-xl"></i>
+                                <i class="fas fa-bag-shopping fa-lg"></i>
                             </div>
                         </a>
                     </li>
                 </ul>
             </div>
-
+        </div>
+        <!-- Main Nav -->
+        <div class="row">
+            <nav class="navbar navbar-expand-lg w-100">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/main_nav.html' %}
+            </nav>
         </div>
     </header>
 
