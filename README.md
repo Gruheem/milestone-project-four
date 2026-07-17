@@ -163,7 +163,7 @@ Product(EAV):
         Product(fk)  
         Attribute(fk)  
         Value(CharField, db_index=True) [db_index=True indexs the database for faster reads as this is going to be along column]  
-        # Unique Together (Product, Attribute) [only one eacheach attribute:value pair is added to each product]  
+        # Unique Together (Product, Attribute) [only one of each attribute:value pair is added to each product]  
 
 
 Order:  
