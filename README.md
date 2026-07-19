@@ -121,6 +121,7 @@ UX Quality & Accessibility - Intuitive interface, consistent design, action feed
 ### DB Models
 Given the type of products we stock at Reason an Entity-Attribute-Value was chosen here to allow the site admins alot of control over the categories of data attatched to the products without having to make migrations to the database. We have made some compromises and mitigations filtering through the Attribute Value Column can be lengthy as it is just one big long column so I have indexed it for faster queries. We also loose the native data type checking which may lead to bugs across the website like two cnaldes one having '40hrs' burntime while the other has 'fourty hours' or breaks in numerical logic. This is mitigated by adding a Value Type Field which will validate our input and, while being stored as a string will allow the admin to select a Data Type Label for each Attribute.
 
+Initial plan:  
 ```
 User Profile:  
     User(From Djangos User Model, OnetoOneField) 
@@ -187,6 +188,13 @@ Order Line Item:
     Line Item Total(DecimalField)
 
 ```  
+
+Things that turned out were depreciated during the build of the project:  
+- Unique together class of model replaced with Constraints.   
+- AllAuth settings for setting the required login fields.  
+
+Using PROTECT on Product.product_type so on delete the products linked to it won't all just get deleted if a product type were to be deleted by mistake.
+
 
 #### Product Categories/Types
 - Home Fragrence & Candles
