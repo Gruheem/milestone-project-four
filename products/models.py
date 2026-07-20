@@ -3,6 +3,9 @@ from django.utils.text import slugify
 
 # Create your models here.
 class Category(models.Model):
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     category_name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(max_length=254, unique=True, blank=True)
     category_friendly_name = models.CharField(max_length=254, null=True, blank=True)
