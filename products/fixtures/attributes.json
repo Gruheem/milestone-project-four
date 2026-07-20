@@ -1,0 +1,622 @@
+[
+    {
+        "model": "products.attribute",
+        "pk": 1,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Candle Type",
+            "attribute_friendly_name": "Candle Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 2,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Burn Time",
+            "attribute_friendly_name": "Burn Time",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 3,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Wax Type",
+            "attribute_friendly_name": "Wax Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 4,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Scent",
+            "attribute_friendly_name": "Scent",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 5,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 6,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Patterned",
+            "attribute_friendly_name": "Patterned",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 7,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Height",
+            "attribute_friendly_name": "Height",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 8,
+        "fields": {
+            "product_type": 1,
+            "attribute": "Diameter",
+            "attribute_friendly_name": "Diameter",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 9,
+        "fields": {
+            "product_type": 2,
+            "attribute": "Holds Candle Type",
+            "attribute_friendly_name": "Holds Candle Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 10,
+        "fields": {
+            "product_type": 2,
+            "attribute": "Height",
+            "attribute_friendly_name": "Height",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 11,
+        "fields": {
+            "product_type": 2,
+            "attribute": "Length",
+            "attribute_friendly_name": "Length",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 12,
+        "fields": {
+            "product_type": 2,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 13,
+        "fields": {
+            "product_type": 3,
+            "attribute": "Scent",
+            "attribute_friendly_name": "Scent",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 14,
+        "fields": {
+            "product_type": 3,
+            "attribute": "Reeds Included",
+            "attribute_friendly_name": "Reeds Included",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 15,
+        "fields": {
+            "product_type": 4,
+            "attribute": "Burn Time",
+            "attribute_friendly_name": "Burn Time",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 16,
+        "fields": {
+            "product_type": 4,
+            "attribute": "Scent",
+            "attribute_friendly_name": "Scent",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 17,
+        "fields": {
+            "product_type": 4,
+            "attribute": "Wax Type",
+            "attribute_friendly_name": "Wax Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 18,
+        "fields": {
+            "product_type": 5,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 19,
+        "fields": {
+            "product_type": 5,
+            "attribute": "Capacity",
+            "attribute_friendly_name": "Capacity",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 20,
+        "fields": {
+            "product_type": 5,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 21,
+        "fields": {
+            "product_type": 6,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 22,
+        "fields": {
+            "product_type": 6,
+            "attribute": "Width",
+            "attribute_friendly_name": "Width",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 23,
+        "fields": {
+            "product_type": 6,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 24,
+        "fields": {
+            "product_type": 7,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 25,
+        "fields": {
+            "product_type": 7,
+            "attribute": "Patterned",
+            "attribute_friendly_name": "Patterned",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 26,
+        "fields": {
+            "product_type": 7,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 27,
+        "fields": {
+            "product_type": 8,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 28,
+        "fields": {
+            "product_type": 8,
+            "attribute": "Volume",
+            "attribute_friendly_name": "Volume",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 29,
+        "fields": {
+            "product_type": 9,
+            "attribute": "Occasion",
+            "attribute_friendly_name": "Occasion",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 30,
+        "fields": {
+            "product_type": 10,
+            "attribute": "Format",
+            "attribute_friendly_name": "Format",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 31,
+        "fields": {
+            "product_type": 11,
+            "attribute": "Bag Type",
+            "attribute_friendly_name": "Bag Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 32,
+        "fields": {
+            "product_type": 11,
+            "attribute": "Size",
+            "attribute_friendly_name": "Size",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 33,
+        "fields": {
+            "product_type": 12,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 34,
+        "fields": {
+            "product_type": 12,
+            "attribute": "Type",
+            "attribute_friendly_name": "Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 35,
+        "fields": {
+            "product_type": 13,
+            "attribute": "Size",
+            "attribute_friendly_name": "Size",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 36,
+        "fields": {
+            "product_type": 13,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 37,
+        "fields": {
+            "product_type": 14,
+            "attribute": "Height",
+            "attribute_friendly_name": "Height",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 38,
+        "fields": {
+            "product_type": 14,
+            "attribute": "Length",
+            "attribute_friendly_name": "Length",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 39,
+        "fields": {
+            "product_type": 14,
+            "attribute": "Depth",
+            "attribute_friendly_name": "Depth",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 40,
+        "fields": {
+            "product_type": 14,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 41,
+        "fields": {
+            "product_type": 15,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 42,
+        "fields": {
+            "product_type": 15,
+            "attribute": "Length",
+            "attribute_friendly_name": "Length",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 43,
+        "fields": {
+            "product_type": 15,
+            "attribute": "Width",
+            "attribute_friendly_name": "Width",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 44,
+        "fields": {
+            "product_type": 16,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 45,
+        "fields": {
+            "product_type": 16,
+            "attribute": "Patterned",
+            "attribute_friendly_name": "Patterned",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 46,
+        "fields": {
+            "product_type": 16,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 47,
+        "fields": {
+            "product_type": 16,
+            "attribute": "Removable Cover",
+            "attribute_friendly_name": "Removable Cover",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 48,
+        "fields": {
+            "product_type": 17,
+            "attribute": "Colour",
+            "attribute_friendly_name": "Colour",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 49,
+        "fields": {
+            "product_type": 17,
+            "attribute": "Patterned",
+            "attribute_friendly_name": "Patterned",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 50,
+        "fields": {
+            "product_type": 17,
+            "attribute": "Length",
+            "attribute_friendly_name": "Length",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 51,
+        "fields": {
+            "product_type": 17,
+            "attribute": "Width",
+            "attribute_friendly_name": "Width",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 52,
+        "fields": {
+            "product_type": 17,
+            "attribute": "Material",
+            "attribute_friendly_name": "Material",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 53,
+        "fields": {
+            "product_type": 18,
+            "attribute": "Scent",
+            "attribute_friendly_name": "Scent",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 54,
+        "fields": {
+            "product_type": 18,
+            "attribute": "Volume",
+            "attribute_friendly_name": "Volume",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 55,
+        "fields": {
+            "product_type": 19,
+            "attribute": "Scent",
+            "attribute_friendly_name": "Scent",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 56,
+        "fields": {
+            "product_type": 20,
+            "attribute": "Scent",
+            "attribute_friendly_name": "Scent",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 57,
+        "fields": {
+            "product_type": 20,
+            "attribute": "Volume",
+            "attribute_friendly_name": "Volume",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 58,
+        "fields": {
+            "product_type": 21,
+            "attribute": "Lined",
+            "attribute_friendly_name": "Lined",
+            "value_type": "boolean"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 59,
+        "fields": {
+            "product_type": 21,
+            "attribute": "Cover Type",
+            "attribute_friendly_name": "Cover Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 60,
+        "fields": {
+            "product_type": 21,
+            "attribute": "Page Count",
+            "attribute_friendly_name": "Page Count",
+            "value_type": "number"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 61,
+        "fields": {
+            "product_type": 22,
+            "attribute": "Cover Type",
+            "attribute_friendly_name": "Cover Type",
+            "value_type": "text"
+        }
+    },
+    {
+        "model": "products.attribute",
+        "pk": 62,
+        "fields": {
+            "product_type": 22,
+            "attribute": "Page Count",
+            "attribute_friendly_name": "Page Count",
+            "value_type": "number"
+        }
+    }
+]

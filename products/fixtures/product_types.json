@@ -1,0 +1,232 @@
+[
+    {
+        "model": "products.producttype",
+        "pk": 1,
+        "fields": {
+            "category": 1,
+            "product_type": "Candles",
+            "slug": "candles",
+            "product_type_friendly_name": "Candles"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 2,
+        "fields": {
+            "category": 1,
+            "product_type": "Candle Holders",
+            "slug": "candle-holders",
+            "product_type_friendly_name": "Candle Holders"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 3,
+        "fields": {
+            "category": 1,
+            "product_type": "Diffusers",
+            "slug": "diffusers",
+            "product_type_friendly_name": "Diffusers"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 4,
+        "fields": {
+            "category": 1,
+            "product_type": "Wax Melts",
+            "slug": "wax-melts",
+            "product_type_friendly_name": "Wax Melts"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 5,
+        "fields": {
+            "category": 2,
+            "product_type": "Mugs",
+            "slug": "mugs",
+            "product_type_friendly_name": "Mugs"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 6,
+        "fields": {
+            "category": 2,
+            "product_type": "Bowls",
+            "slug": "bowls",
+            "product_type_friendly_name": "Bowls"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 7,
+        "fields": {
+            "category": 2,
+            "product_type": "Tea Towels",
+            "slug": "tea-towels",
+            "product_type_friendly_name": "Tea Towels"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 8,
+        "fields": {
+            "category": 2,
+            "product_type": "Jugs",
+            "slug": "jugs",
+            "product_type_friendly_name": "Jugs"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 9,
+        "fields": {
+            "category": 3,
+            "product_type": "Cards",
+            "slug": "cards",
+            "product_type_friendly_name": "Cards"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 10,
+        "fields": {
+            "category": 3,
+            "product_type": "Wrapping Paper",
+            "slug": "wrapping-paper",
+            "product_type_friendly_name": "Wrapping Paper"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 11,
+        "fields": {
+            "category": 3,
+            "product_type": "Gift Bags",
+            "slug": "gift-bags",
+            "product_type_friendly_name": "Gift Bags"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 12,
+        "fields": {
+            "category": 3,
+            "product_type": "Tape & Ribbon",
+            "slug": "tape-ribbon",
+            "product_type_friendly_name": "Tape & Ribbon"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 13,
+        "fields": {
+            "category": 4,
+            "product_type": "Photo Frames",
+            "slug": "photo-frames",
+            "product_type_friendly_name": "Photo Frames"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 14,
+        "fields": {
+            "category": 4,
+            "product_type": "Book Ends",
+            "slug": "book-ends",
+            "product_type_friendly_name": "Book Ends"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 15,
+        "fields": {
+            "category": 4,
+            "product_type": "Baskets & Mats",
+            "slug": "baskets-mats",
+            "product_type_friendly_name": "Baskets & Mats"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 16,
+        "fields": {
+            "category": 5,
+            "product_type": "Cushions",
+            "slug": "cushions",
+            "product_type_friendly_name": "Cushions"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 17,
+        "fields": {
+            "category": 5,
+            "product_type": "Throws",
+            "slug": "throws",
+            "product_type_friendly_name": "Throws"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 18,
+        "fields": {
+            "category": 6,
+            "product_type": "Perfume",
+            "slug": "perfume",
+            "product_type_friendly_name": "Perfume"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 19,
+        "fields": {
+            "category": 6,
+            "product_type": "Soap",
+            "slug": "soap",
+            "product_type_friendly_name": "Soap"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 20,
+        "fields": {
+            "category": 6,
+            "product_type": "Moisturiser",
+            "slug": "moisturiser",
+            "product_type_friendly_name": "Moisturiser"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 21,
+        "fields": {
+            "category": 7,
+            "product_type": "Notebooks",
+            "slug": "notebooks",
+            "product_type_friendly_name": "Notebooks"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 22,
+        "fields": {
+            "category": 7,
+            "product_type": "Journals",
+            "slug": "journals",
+            "product_type_friendly_name": "Journals"
+        }
+    },
+    {
+        "model": "products.producttype",
+        "pk": 23,
+        "fields": {
+            "category": 7,
+            "product_type": "Paper Weights",
+            "slug": "paper-weights",
+            "product_type_friendly_name": "Paper Weights"
+        }
+    }
+]

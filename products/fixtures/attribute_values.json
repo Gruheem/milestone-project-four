@@ -1,0 +1,2226 @@
+[
+    {
+        "model": "products.attributevalue",
+        "pk": 1,
+        "fields": {
+            "attribute": 1,
+            "attribute_value": "Tin"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 2,
+        "fields": {
+            "attribute": 1,
+            "attribute_value": "Pot"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 3,
+        "fields": {
+            "attribute": 1,
+            "attribute_value": "Tealight"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 4,
+        "fields": {
+            "attribute": 1,
+            "attribute_value": "Dinner"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 5,
+        "fields": {
+            "attribute": 1,
+            "attribute_value": "Taper"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 6,
+        "fields": {
+            "attribute": 2,
+            "attribute_value": "2.5hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 7,
+        "fields": {
+            "attribute": 2,
+            "attribute_value": "5hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 8,
+        "fields": {
+            "attribute": 2,
+            "attribute_value": "10hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 9,
+        "fields": {
+            "attribute": 2,
+            "attribute_value": "20hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 10,
+        "fields": {
+            "attribute": 2,
+            "attribute_value": "30hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 11,
+        "fields": {
+            "attribute": 2,
+            "attribute_value": "40hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 12,
+        "fields": {
+            "attribute": 3,
+            "attribute_value": "Paraffin"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 13,
+        "fields": {
+            "attribute": 3,
+            "attribute_value": "Soy"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 14,
+        "fields": {
+            "attribute": 3,
+            "attribute_value": "Beeswax"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 15,
+        "fields": {
+            "attribute": 3,
+            "attribute_value": "Stearin"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 16,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Bay & Rosemary"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 17,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Bergamot & Nettle"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 18,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Embers"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 19,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Fig"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 20,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Geranium Leaf"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 21,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Granite & Moss"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 22,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Grapefruit & Lime"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 23,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Inspiritus"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 24,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Moss"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 25,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Orange & Cinnamon"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 26,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Orange Blossom"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 27,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Potager"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 28,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Sandalwood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 29,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Sandalwood & Cedar"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 30,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Sea Garden"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 31,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Sea Moss & Driftwood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 32,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Sea Salt"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 33,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Sweet Pea"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 34,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Thyme & Mint"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 35,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Tranquillity"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 36,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Vintage Rose"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 37,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Walled Garden"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 38,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Wild Gorse"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 39,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Wild Rhubarb"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 40,
+        "fields": {
+            "attribute": 4,
+            "attribute_value": "Winter Thyme"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 41,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 42,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Ivory"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 43,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Cream"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 44,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Natural"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 45,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Beige"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 46,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Taupe"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 47,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Grey"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 48,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Black"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 49,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Brown"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 50,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Gold"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 51,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Silver"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 52,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Copper"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 53,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Yellow"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 54,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Orange"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 55,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Terracotta"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 56,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Red"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 57,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Burgundy"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 58,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Pink"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 59,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Blush Pink"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 60,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Purple"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 61,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Lavender"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 62,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Blue"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 63,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Navy"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 64,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Teal"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 65,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 66,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Sage Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 67,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Olive Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 68,
+        "fields": {
+            "attribute": 5,
+            "attribute_value": "Forest Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 69,
+        "fields": {
+            "attribute": 6,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 70,
+        "fields": {
+            "attribute": 6,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 71,
+        "fields": {
+            "attribute": 7,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 72,
+        "fields": {
+            "attribute": 7,
+            "attribute_value": "15cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 73,
+        "fields": {
+            "attribute": 7,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 74,
+        "fields": {
+            "attribute": 7,
+            "attribute_value": "25cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 75,
+        "fields": {
+            "attribute": 7,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 76,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "1cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 77,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "2cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 78,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "3cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 79,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "4cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 80,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "5cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 81,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 82,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "15cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 83,
+        "fields": {
+            "attribute": 8,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 84,
+        "fields": {
+            "attribute": 9,
+            "attribute_value": "Dinner Candle"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 85,
+        "fields": {
+            "attribute": 9,
+            "attribute_value": "Taper Candle"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 86,
+        "fields": {
+            "attribute": 9,
+            "attribute_value": "Pillar Candle"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 87,
+        "fields": {
+            "attribute": 10,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 88,
+        "fields": {
+            "attribute": 10,
+            "attribute_value": "15cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 89,
+        "fields": {
+            "attribute": 10,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 90,
+        "fields": {
+            "attribute": 10,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 91,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "5cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 92,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 93,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 94,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 95,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "50cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 96,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "100cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 97,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "150cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 98,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "200cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 99,
+        "fields": {
+            "attribute": 11,
+            "attribute_value": "250cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 100,
+        "fields": {
+            "attribute": 12,
+            "attribute_value": "Glass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 101,
+        "fields": {
+            "attribute": 12,
+            "attribute_value": "Ceramic"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 102,
+        "fields": {
+            "attribute": 12,
+            "attribute_value": "Brass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 103,
+        "fields": {
+            "attribute": 12,
+            "attribute_value": "Mixed Metal"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 104,
+        "fields": {
+            "attribute": 12,
+            "attribute_value": "Porcelain"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 105,
+        "fields": {
+            "attribute": 12,
+            "attribute_value": "Stoneware"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 106,
+        "fields": {
+            "attribute": 13,
+            "attribute_value": "Bay & Rosemary"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 107,
+        "fields": {
+            "attribute": 13,
+            "attribute_value": "Bergamot & Nettle"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 108,
+        "fields": {
+            "attribute": 13,
+            "attribute_value": "Fig"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 109,
+        "fields": {
+            "attribute": 13,
+            "attribute_value": "Sandalwood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 110,
+        "fields": {
+            "attribute": 13,
+            "attribute_value": "Sea Salt"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 111,
+        "fields": {
+            "attribute": 14,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 112,
+        "fields": {
+            "attribute": 14,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 113,
+        "fields": {
+            "attribute": 15,
+            "attribute_value": "2.5hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 114,
+        "fields": {
+            "attribute": 15,
+            "attribute_value": "5hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 115,
+        "fields": {
+            "attribute": 15,
+            "attribute_value": "10hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 116,
+        "fields": {
+            "attribute": 15,
+            "attribute_value": "20hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 117,
+        "fields": {
+            "attribute": 15,
+            "attribute_value": "30hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 118,
+        "fields": {
+            "attribute": 15,
+            "attribute_value": "40hrs"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 119,
+        "fields": {
+            "attribute": 16,
+            "attribute_value": "Bay & Rosemary"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 120,
+        "fields": {
+            "attribute": 16,
+            "attribute_value": "Fig"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 121,
+        "fields": {
+            "attribute": 16,
+            "attribute_value": "Sandalwood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 122,
+        "fields": {
+            "attribute": 17,
+            "attribute_value": "Paraffin"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 123,
+        "fields": {
+            "attribute": 17,
+            "attribute_value": "Soy"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 124,
+        "fields": {
+            "attribute": 17,
+            "attribute_value": "Beeswax"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 125,
+        "fields": {
+            "attribute": 17,
+            "attribute_value": "Stearin"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 126,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 127,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "Black"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 128,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "Cream"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 129,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "Blue"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 130,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 131,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "Pink"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 132,
+        "fields": {
+            "attribute": 18,
+            "attribute_value": "Yellow"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 133,
+        "fields": {
+            "attribute": 19,
+            "attribute_value": "100ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 134,
+        "fields": {
+            "attribute": 19,
+            "attribute_value": "200ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 135,
+        "fields": {
+            "attribute": 19,
+            "attribute_value": "300ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 136,
+        "fields": {
+            "attribute": 19,
+            "attribute_value": "400ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 137,
+        "fields": {
+            "attribute": 19,
+            "attribute_value": "500ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 138,
+        "fields": {
+            "attribute": 20,
+            "attribute_value": "Ceramic"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 139,
+        "fields": {
+            "attribute": 20,
+            "attribute_value": "Porcelain"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 140,
+        "fields": {
+            "attribute": 20,
+            "attribute_value": "Stoneware"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 141,
+        "fields": {
+            "attribute": 21,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 142,
+        "fields": {
+            "attribute": 21,
+            "attribute_value": "Black"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 143,
+        "fields": {
+            "attribute": 21,
+            "attribute_value": "Cream"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 144,
+        "fields": {
+            "attribute": 21,
+            "attribute_value": "Blue"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 145,
+        "fields": {
+            "attribute": 21,
+            "attribute_value": "Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 146,
+        "fields": {
+            "attribute": 22,
+            "attribute_value": "5cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 147,
+        "fields": {
+            "attribute": 22,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 148,
+        "fields": {
+            "attribute": 22,
+            "attribute_value": "15cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 149,
+        "fields": {
+            "attribute": 22,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 150,
+        "fields": {
+            "attribute": 22,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 151,
+        "fields": {
+            "attribute": 23,
+            "attribute_value": "Ceramic"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 152,
+        "fields": {
+            "attribute": 23,
+            "attribute_value": "Porcelain"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 153,
+        "fields": {
+            "attribute": 23,
+            "attribute_value": "Stoneware"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 154,
+        "fields": {
+            "attribute": 24,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 155,
+        "fields": {
+            "attribute": 24,
+            "attribute_value": "Cream"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 156,
+        "fields": {
+            "attribute": 24,
+            "attribute_value": "Grey"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 157,
+        "fields": {
+            "attribute": 24,
+            "attribute_value": "Blue"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 158,
+        "fields": {
+            "attribute": 24,
+            "attribute_value": "Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 159,
+        "fields": {
+            "attribute": 25,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 160,
+        "fields": {
+            "attribute": 25,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 161,
+        "fields": {
+            "attribute": 26,
+            "attribute_value": "Cotton"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 162,
+        "fields": {
+            "attribute": 26,
+            "attribute_value": "Linen"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 163,
+        "fields": {
+            "attribute": 26,
+            "attribute_value": "Polyester"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 164,
+        "fields": {
+            "attribute": 27,
+            "attribute_value": "Glass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 165,
+        "fields": {
+            "attribute": 27,
+            "attribute_value": "Ceramic"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 166,
+        "fields": {
+            "attribute": 27,
+            "attribute_value": "Porcelain"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 167,
+        "fields": {
+            "attribute": 27,
+            "attribute_value": "Stoneware"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 168,
+        "fields": {
+            "attribute": 28,
+            "attribute_value": "100ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 169,
+        "fields": {
+            "attribute": 28,
+            "attribute_value": "200ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 170,
+        "fields": {
+            "attribute": 28,
+            "attribute_value": "300ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 171,
+        "fields": {
+            "attribute": 28,
+            "attribute_value": "500ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 172,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "Birthday"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 173,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "Wedding"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 174,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "Thank You"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 175,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "Congratulations"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 176,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "New Home"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 177,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "New Baby"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 178,
+        "fields": {
+            "attribute": 29,
+            "attribute_value": "Sympathy"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 179,
+        "fields": {
+            "attribute": 30,
+            "attribute_value": "Wrap Sheet"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 180,
+        "fields": {
+            "attribute": 30,
+            "attribute_value": "Roll"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 181,
+        "fields": {
+            "attribute": 30,
+            "attribute_value": "Tissue Paper"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 182,
+        "fields": {
+            "attribute": 31,
+            "attribute_value": "Gift Bag"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 183,
+        "fields": {
+            "attribute": 31,
+            "attribute_value": "Bottle Bag"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 184,
+        "fields": {
+            "attribute": 32,
+            "attribute_value": "Small"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 185,
+        "fields": {
+            "attribute": 32,
+            "attribute_value": "Medium"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 186,
+        "fields": {
+            "attribute": 32,
+            "attribute_value": "Large"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 187,
+        "fields": {
+            "attribute": 33,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 188,
+        "fields": {
+            "attribute": 33,
+            "attribute_value": "Black"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 189,
+        "fields": {
+            "attribute": 33,
+            "attribute_value": "Gold"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 190,
+        "fields": {
+            "attribute": 33,
+            "attribute_value": "Silver"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 191,
+        "fields": {
+            "attribute": 34,
+            "attribute_value": "Tape"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 192,
+        "fields": {
+            "attribute": 34,
+            "attribute_value": "Ribbon"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 193,
+        "fields": {
+            "attribute": 35,
+            "attribute_value": "4x6 inch"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 194,
+        "fields": {
+            "attribute": 35,
+            "attribute_value": "5x7 inch"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 195,
+        "fields": {
+            "attribute": 35,
+            "attribute_value": "8x10 inch"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 196,
+        "fields": {
+            "attribute": 35,
+            "attribute_value": "A4"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 197,
+        "fields": {
+            "attribute": 36,
+            "attribute_value": "Glass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 198,
+        "fields": {
+            "attribute": 36,
+            "attribute_value": "Wood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 199,
+        "fields": {
+            "attribute": 36,
+            "attribute_value": "Metal"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 200,
+        "fields": {
+            "attribute": 36,
+            "attribute_value": "Brass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 201,
+        "fields": {
+            "attribute": 37,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 202,
+        "fields": {
+            "attribute": 37,
+            "attribute_value": "15cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 203,
+        "fields": {
+            "attribute": 37,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 204,
+        "fields": {
+            "attribute": 37,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 205,
+        "fields": {
+            "attribute": 38,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 206,
+        "fields": {
+            "attribute": 38,
+            "attribute_value": "20cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 207,
+        "fields": {
+            "attribute": 38,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 208,
+        "fields": {
+            "attribute": 39,
+            "attribute_value": "5cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 209,
+        "fields": {
+            "attribute": 39,
+            "attribute_value": "10cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 210,
+        "fields": {
+            "attribute": 39,
+            "attribute_value": "15cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 211,
+        "fields": {
+            "attribute": 40,
+            "attribute_value": "Wood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 212,
+        "fields": {
+            "attribute": 40,
+            "attribute_value": "Metal"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 213,
+        "fields": {
+            "attribute": 40,
+            "attribute_value": "Brass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 214,
+        "fields": {
+            "attribute": 41,
+            "attribute_value": "Rattan"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 215,
+        "fields": {
+            "attribute": 41,
+            "attribute_value": "Bamboo"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 216,
+        "fields": {
+            "attribute": 41,
+            "attribute_value": "Seagrass"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 217,
+        "fields": {
+            "attribute": 42,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 218,
+        "fields": {
+            "attribute": 42,
+            "attribute_value": "50cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 219,
+        "fields": {
+            "attribute": 42,
+            "attribute_value": "100cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 220,
+        "fields": {
+            "attribute": 43,
+            "attribute_value": "30cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 221,
+        "fields": {
+            "attribute": 43,
+            "attribute_value": "50cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 222,
+        "fields": {
+            "attribute": 43,
+            "attribute_value": "100cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 223,
+        "fields": {
+            "attribute": 44,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 224,
+        "fields": {
+            "attribute": 44,
+            "attribute_value": "Cream"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 225,
+        "fields": {
+            "attribute": 44,
+            "attribute_value": "Grey"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 226,
+        "fields": {
+            "attribute": 44,
+            "attribute_value": "Green"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 227,
+        "fields": {
+            "attribute": 45,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 228,
+        "fields": {
+            "attribute": 45,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 229,
+        "fields": {
+            "attribute": 46,
+            "attribute_value": "Cotton"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 230,
+        "fields": {
+            "attribute": 46,
+            "attribute_value": "Linen"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 231,
+        "fields": {
+            "attribute": 46,
+            "attribute_value": "Velvet"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 232,
+        "fields": {
+            "attribute": 47,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 233,
+        "fields": {
+            "attribute": 47,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 234,
+        "fields": {
+            "attribute": 48,
+            "attribute_value": "White"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 235,
+        "fields": {
+            "attribute": 48,
+            "attribute_value": "Cream"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 236,
+        "fields": {
+            "attribute": 48,
+            "attribute_value": "Grey"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 237,
+        "fields": {
+            "attribute": 49,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 238,
+        "fields": {
+            "attribute": 49,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 239,
+        "fields": {
+            "attribute": 50,
+            "attribute_value": "100cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 240,
+        "fields": {
+            "attribute": 50,
+            "attribute_value": "150cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 241,
+        "fields": {
+            "attribute": 50,
+            "attribute_value": "200cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 242,
+        "fields": {
+            "attribute": 51,
+            "attribute_value": "100cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 243,
+        "fields": {
+            "attribute": 51,
+            "attribute_value": "150cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 244,
+        "fields": {
+            "attribute": 51,
+            "attribute_value": "200cm"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 245,
+        "fields": {
+            "attribute": 52,
+            "attribute_value": "Cotton"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 246,
+        "fields": {
+            "attribute": 52,
+            "attribute_value": "Linen"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 247,
+        "fields": {
+            "attribute": 53,
+            "attribute_value": "Bay & Rosemary"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 248,
+        "fields": {
+            "attribute": 53,
+            "attribute_value": "Fig"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 249,
+        "fields": {
+            "attribute": 53,
+            "attribute_value": "Sandalwood"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 250,
+        "fields": {
+            "attribute": 53,
+            "attribute_value": "Sea Salt"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 251,
+        "fields": {
+            "attribute": 54,
+            "attribute_value": "50ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 252,
+        "fields": {
+            "attribute": 54,
+            "attribute_value": "100ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 253,
+        "fields": {
+            "attribute": 54,
+            "attribute_value": "150ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 254,
+        "fields": {
+            "attribute": 54,
+            "attribute_value": "200ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 255,
+        "fields": {
+            "attribute": 55,
+            "attribute_value": "Bay & Rosemary"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 256,
+        "fields": {
+            "attribute": 55,
+            "attribute_value": "Lavender"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 257,
+        "fields": {
+            "attribute": 55,
+            "attribute_value": "Rose"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 258,
+        "fields": {
+            "attribute": 56,
+            "attribute_value": "Lavender"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 259,
+        "fields": {
+            "attribute": 56,
+            "attribute_value": "Rose"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 260,
+        "fields": {
+            "attribute": 57,
+            "attribute_value": "50ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 261,
+        "fields": {
+            "attribute": 57,
+            "attribute_value": "100ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 262,
+        "fields": {
+            "attribute": 57,
+            "attribute_value": "200ml"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 263,
+        "fields": {
+            "attribute": 58,
+            "attribute_value": "True"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 264,
+        "fields": {
+            "attribute": 58,
+            "attribute_value": "False"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 265,
+        "fields": {
+            "attribute": 59,
+            "attribute_value": "Soft Back"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 266,
+        "fields": {
+            "attribute": 59,
+            "attribute_value": "Hard Back"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 267,
+        "fields": {
+            "attribute": 60,
+            "attribute_value": "30"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 268,
+        "fields": {
+            "attribute": 60,
+            "attribute_value": "50"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 269,
+        "fields": {
+            "attribute": 60,
+            "attribute_value": "100"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 270,
+        "fields": {
+            "attribute": 60,
+            "attribute_value": "150"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 271,
+        "fields": {
+            "attribute": 60,
+            "attribute_value": "200"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 272,
+        "fields": {
+            "attribute": 61,
+            "attribute_value": "Soft Back"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 273,
+        "fields": {
+            "attribute": 61,
+            "attribute_value": "Hard Back"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 274,
+        "fields": {
+            "attribute": 62,
+            "attribute_value": "30"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 275,
+        "fields": {
+            "attribute": 62,
+            "attribute_value": "50"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 276,
+        "fields": {
+            "attribute": 62,
+            "attribute_value": "100"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 277,
+        "fields": {
+            "attribute": 62,
+            "attribute_value": "150"
+        }
+    },
+    {
+        "model": "products.attributevalue",
+        "pk": 278,
+        "fields": {
+            "attribute": 62,
+            "attribute_value": "200"
+        }
+    }
+]

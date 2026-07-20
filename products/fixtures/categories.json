@@ -1,0 +1,65 @@
+[
+    {
+        "model": "products.category",
+        "pk": 1,
+        "fields": {
+            "category_name": "Home Fragrance & Candles",
+            "slug": "home-fragrance-candles",
+            "category_friendly_name": "Home Fragrance & Candles"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 2,
+        "fields": {
+            "category_name": "Kitchen & Dining",
+            "slug": "kitchen-dining",
+            "category_friendly_name": "Kitchen & Dining"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 3,
+        "fields": {
+            "category_name": "Cards & Gift Wrap",
+            "slug": "cards-gift-wrap",
+            "category_friendly_name": "Cards & Gift Wrap"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 4,
+        "fields": {
+            "category_name": "Home Decor",
+            "slug": "home-decor",
+            "category_friendly_name": "Home Decor"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 5,
+        "fields": {
+            "category_name": "Soft Furnishings",
+            "slug": "soft-furnishings",
+            "category_friendly_name": "Soft Furnishings"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 6,
+        "fields": {
+            "category_name": "Perfume & Body",
+            "slug": "perfume-body",
+            "category_friendly_name": "Perfume & Body"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 7,
+        "fields": {
+            "category_name": "Stationery",
+            "slug": "stationery",
+            "category_friendly_name": "Stationery"
+        }
+    }
+]
