@@ -196,44 +196,106 @@ Things that turned out were depreciated during the build of the project:
 Using PROTECT on Product.product_type so on delete the products linked to it won't all just get deleted if a product type were to be deleted by mistake.
 
 
-#### Product Categories/Types
+#### Product Categories/Types/Attributes
 - Home Fragrence & Candles
   - Candles
+    - Candle Type
+    - Burn Time
+    - Wax Type 
+    - Scent
+    - Colour
+    - Patterned
+    - Height
+    - Diameter
   - Candle Holders
+   - Holds Candle Type
+   - Height
+   - Length
+   - Material
   - Diffusers
+   - Scent
+   - Reeds Included
   - Wax Melts 
+   - Burn Time(hrs)
+   - Scent
+   - Wax Type
 
 - Kitchen & Dining
   - Mugs 
+    - Colour
+    - Capacity
+    - Material
   - Bowls
+    - Colour
+    - Width
+    - Material
   - Tea Towels
+    - Colour
+    - Patterned
+    - Material
   - Jugs
+    - Material
+    - Volume
 
 - Cards & Gift Wrap
   - Cards
+   - Occasion
   - Wrapping paper
+   - Format
   - Gift bags
+   - Gift Bag
+   - Bottle Bag
+   - Size
   - Tape & Ribbon
+   - Colour
+   - Type
 
 - Home Decor
   - Photo Frames
+    - Size
+    - Material
   - Book Ends
+    - Height
+    - Length
+    - Depth
+    - Material
   - baskets & Matts
+    - Material
+    - Length
+    - Width
 
 - Soft Furnishings
   - Cushions
+    - Colour
+    - Patterned
+    - Material
+    - Removable Cover
   - Throws 
-
+    - Colour
+    - Patterned
+    - Length(cm)
+    - Width(cm)
+    - Material
 - Perfume & Body
   - Perfume
+    - Scent
+    - Volume
   - Soap
+    - Scent
   - Moisteriser
-
+    - Scent
+    - Volume
 
 - Stationary
   - Notebooks
+    - Lined
+    - Cover Type
+    - Page count
   - Journals 
+    - Cover type
+    - Page Count
   - Paper Weights
+    
 
 
 ### Wireframes
