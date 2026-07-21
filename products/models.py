@@ -84,6 +84,17 @@ class AttributeValue(models.Model):
     attribute = models.ForeignKey('Attribute', on_delete=models.CASCADE)
     attribute_value = models.CharField(max_length=254, db_index=True)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=[
+                    'attribute',
+                    'attribute_value'
+                ],
+                name='unique_attribute_value'
+            )
+        ]
+
     def __str__(self):
         return self.attribute_value
     

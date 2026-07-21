@@ -296,6 +296,209 @@ Using PROTECT on Product.product_type so on delete the products linked to it won
     - Page Count
   - Paper Weights
     
+Candle Type:
+- Tin
+- Pot
+- Tealight
+- Dinner
+- Taper
 
+Burn Time:
+- 2.5hrs
+- 5hrs
+- 10hrs
+- 20hrs
+- 30hrs
+- 40hrs
+
+Wax Type:
+- Parafin
+- Soy
+- Beeswax
+- Steerin
+
+Scent:
+- Bay & Rosemary
+- Bergamot & Nettle
+- Embers
+- Fig
+- Geranium Leaf
+- Granite & Moss
+- Grapefruit & Lime
+- Inspiritus
+- Moss
+- Orange & Cinnamon
+- Orange Blossom
+- Potager
+- Sandalwood
+- Sandalwood & Cedar
+- Sea Garden
+- Sea Moss & Driftwood
+- Sea Salt
+- Sweet Pea
+- Thyme & Mint
+- Tranquillity
+- Vintage Rose
+- Walled Garden
+- Wild Gorse
+- Wild Rhubarb
+- Winter Thyme
+
+Colour:
+- White
+- Ivory
+- Cream
+- Natural
+- Beige
+- Taupe
+- Grey
+- Black
+- Brown
+- Gold
+- Silver
+- Copper
+- Yellow
+- Orange
+- Terracotta
+- Red
+- Burgundy
+- Pink
+- Blush Pink
+- Purple
+- Lavender
+- Blue
+- Navy
+- Teal
+- Green
+- Sage Green
+- Olive Green
+- Forest Green
+
+Patterned:
+(True / False)
+
+Height:
+- 10cm
+- 15cm
+- 20cm
+- 25cm
+- 30cm
+
+Diameter:
+- 1cm
+- 2cm 
+- 3cm
+- 4cm
+- 5cm
+- 10cm
+- 15cm
+- 20cm
+
+Holds Candle Type:
+- Dinner Candle
+- Taper Candle
+- Pillar Candle
+
+Length:
+- 5cm
+- 10cm
+- 20cm
+- 30cm
+- 50cm
+- 100cm
+- 150cm
+- 200cm
+- 250cm
+
+Material:
+- Glass
+- Ceramic
+- Brass
+- Mixed Metal
+- Porcelaine
+- Stonewear
+
+Reeds Included:
+(True / False)
+
+Capacity:
+- 100ml
+- 200ml
+- 300ml
+- 400ml
+- 500ml
+
+Width:
+- 5cm
+- 10cm 
+- 15cm
+- 20cm
+- 30cm
+- 40cm
+- 50cm
+
+Volume:
+- 50ml
+- 100ml
+- 150ml
+- 200ml
+- 300ml
+- 400ml
+- 500ml
+- 750ml
+- 1000ml
+
+Occasion:
+- Birthday
+- Wedding
+- Thankyou
+- Congratulations
+- New Home
+- New Baby
+- Sympathy
+
+Format:
+- Wrap Sheet
+- Roll
+- Tissue Paper
+
+Bag Type:
+- Gift Bag
+- Bottle Bag
+
+Size:
+- Small
+- Medium
+- Large
+
+Type:
+- Tape 
+- Ribbon
+
+Depth:
+- 5cm
+- 10cm  
+- 15cm
+- 20cm
+- 30cm
+- 40cm
+- 50cm
+
+Removable Cover:
+(True / False)
+
+Lined:
+(True / False)
+
+Cover Type:
+- Soft Back
+- Hard Back
+
+Page Count:
+- 30
+- 50
+- 100
+- 150
+- 200
 
 ### Wireframes
