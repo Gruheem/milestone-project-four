@@ -70,7 +70,26 @@ class ProductAttributeValueInline(admin.TabularInline):
         ).exclude(id__in=existing_attributes).count()
     
 
+
 class ProductAdmin(admin.ModelAdmin):
+    fields = [
+        'image',
+        'product_name',
+        'stock',
+        'price',
+        'brand',
+        'description',
+        'product_type',
+    ]
+
+    exclude = [
+        'sku',
+        'available',
+        'slug',
+        'rating',
+        'imageURL',
+    ]
+
     list_display = [
         'product_type',
         'sku',
