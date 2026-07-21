@@ -86,10 +86,31 @@ document.addEventListener("DOMContentLoaded", function () {
         loadAttributeValues(attributeSelect, "");
     }
 
+    // ---- Remove every non-empty-form inline row from the DOM and ----
+    // reset TOTAL_FORMS to match. Used when the user actively switches ----
+    // product type, since the old rows no longer apply. ----
+    function clearAttributeRows() {
+        const totalFormsInput = document.querySelector(
+            `input[name="${PREFIX}-TOTAL_FORMS"]`
+        );
+
+        document.querySelectorAll(ATTRIBUTE_SELECT).forEach(function (select) {
+            const row = getRow(select);
+            if (!row || row.classList.contains("empty-form")) return;
+            row.remove();
+        });
+
+        if (totalFormsInput) totalFormsInput.value = 0;
+    }
+
     // ---- Add rows for any attribute belonging to the product type ----
-    // that doesn't already have a row on the page ----
-    function syncAttributeRows(productTypeId) {
+    // that doesn't already have a row on the page. Pass clearFirst: true ----
+    // to wipe existing rows before rebuilding (used on user-triggered ----
+    // product type changes so old attributes don't just keep piling up) ----
+    function syncAttributeRows(productTypeId, { clearFirst = false } = {}) {
         if (!productTypeId) return;
+
+        if (clearFirst) clearAttributeRows();
 
         fetch(`/products/get-attributes/?product_type_id=${productTypeId}`)
             .then((response) => response.json())
@@ -131,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             syncAttributeRows(productTypeSelect.value);
         }
         productTypeSelect.addEventListener("change", function () {
-            syncAttributeRows(this.value);
+            syncAttributeRows(this.value, { clearFirst: true });
         });
     }
 
