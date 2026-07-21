@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import Category, ProductType, Product, Attribute, AttributeValue, ProductAttributeValue
 from django.forms.models import BaseInlineFormSet
 from django import forms
-# Register your models here.
+
+
 
 class ProductAttributeValueInlineForm(forms.ModelForm):
     class Meta:
@@ -67,7 +68,7 @@ class ProductAttributeValueInline(admin.TabularInline):
         return Attribute.objects.filter(
             product_type=obj.product_type
         ).exclude(id__in=existing_attributes).count()
-
+    
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = [
@@ -91,7 +92,6 @@ class ProductAdmin(admin.ModelAdmin):
         ProductAttributeValueInline,
     ]
 
-    
     def save_formset(self, request, form, formset, change):
         if formset.model is not ProductAttributeValue:
             return super().save_formset(request, form, formset, change)

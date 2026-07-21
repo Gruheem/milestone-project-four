@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+import random
+import string
 
 # Create your models here.
 class Category(models.Model):
@@ -99,6 +101,10 @@ class AttributeValue(models.Model):
         return self.attribute_value
     
 
+def generate_sku():
+    '''Genrates a random string for a SKU to make the slug unique'''
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+
 class Product(models.Model):
     product_type = models.ForeignKey('ProductType', on_delete=models.PROTECT)
     sku = models.CharField(max_length=254, null=True, blank=True)
@@ -117,8 +123,16 @@ class Product(models.Model):
         return self.product_name
     
     def save(self, *args, **kwargs):
+        ''' Ensures the SKU is unique and creates slug out of Product name + SKU '''
+        if not self.sku:
+            new_sku = generate_sku()
+            while Product.objects.filter(sku=new_sku).exists():
+                new_sku = generate_sku()
+            self.sku = new_sku
+
         if not self.slug:
-            self.slug = slugify(self.product_name)
+            self.slug = slugify(f"{self.product_name}-{self.sku}") # Combine Product Name with SKU to maintain uniqueness accross same product with different sttributes e.g. dinner candles with different colours.
+        
         super().save(*args, **kwargs)
 
 
