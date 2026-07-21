@@ -14,6 +14,7 @@ class ProductAttributeValueInlineForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['attribute_value'].required = False
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = [
         'category_name',
@@ -21,13 +22,24 @@ class CategoryAdmin(admin.ModelAdmin):
         'category_friendly_name',
     ]
 
+    ordering = ['category_name']
+
+
 class ProductTypeAdmin(admin.ModelAdmin):
     list_display = [
-        'category',
         'product_type',
+        'category',
         'slug',
         'product_type_friendly_name',
     ]
+
+    ordering = ['product_type']
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'category':
+            kwargs['queryset'] = Category.objects.order_by('category_name')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
 
 class ProductAttributeValueInlineFormSet(BaseInlineFormSet):
 
@@ -54,10 +66,19 @@ class ProductAttributeValueInlineFormSet(BaseInlineFormSet):
         kwargs['initial'] = initial
         super().__init__(*args, **kwargs)
 
+
 class ProductAttributeValueInline(admin.TabularInline):
     model = ProductAttributeValue
     formset = ProductAttributeValueInlineFormSet
     form = ProductAttributeValueInlineForm
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        ''' Overides formfield_for_foreighnkey to order the dropdowns in alphebetical order. '''
+        if db_field.name == 'attribute':
+            kwargs['queryset'] = Attribute.objects.order_by('attribute')
+        if db_field.name == 'attribute_value':
+            kwargs['queryset'] = AttributeValue.objects.order_by('attribute_value')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def get_extra(self, request, obj=None, **kwargs):
         if not obj or not obj.pk:
@@ -111,6 +132,12 @@ class ProductAdmin(admin.ModelAdmin):
         ProductAttributeValueInline,
     ]
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        '''Overides formfield_for_foreighnkey to order the dropdowns in alphebetical order.'''
+        if db_field.name == 'product_type':
+            kwargs['queryset'] = ProductType.objects.order_by('product_type')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
     def save_formset(self, request, form, formset, change):
         if formset.model is not ProductAttributeValue:
             return super().save_formset(request, form, formset, change)
@@ -140,17 +167,32 @@ class ProductAdmin(admin.ModelAdmin):
 
 class AttributeAdmin(admin.ModelAdmin):
     list_display = [
-        'product_type',
         'attribute', 
+        'product_type',
         'attribute_friendly_name',
         'value_type',
     ]
 
+    ordering = ['attribute']
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'product_type':
+            kwargs['queryset'] = ProductType.objects.order_by('product_type')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+
 class AttributeValueAdmin(admin.ModelAdmin):
     list_display = [
-        'attribute',
         'attribute_value',
+        'attribute',
     ]
+
+    ordering = ['attribute__attribute']
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'attribute':
+            kwargs['queryset'] = Attribute.objects.order_by('attribute')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 admin.site.register(Category, CategoryAdmin)

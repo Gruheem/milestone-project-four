@@ -76,7 +76,7 @@ class Attribute(models.Model):
         ]
 
     def __str__(self):
-        return self.attribute
+        return f"{self.attribute} ({self.product_type})"
     
     def get_attribute_friendly_name(self):
         return self.attribute_friendly_name
@@ -96,6 +96,7 @@ class AttributeValue(models.Model):
                 name='unique_attribute_value'
             )
         ]
+    
 
     def __str__(self):
         return self.attribute_value
