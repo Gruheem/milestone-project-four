@@ -112,17 +112,13 @@ class ProductAdmin(admin.ModelAdmin):
     ]
 
     list_display = [
-        'product_type',
+        'product_name',
         'sku',
         'stock',
-        'available',
-        'product_name',
-        'slug',
-        'description',
         'price',
+        'product_type',
         'brand',
         'rating',
-        'imageURL',
         'image',
     ]
 
