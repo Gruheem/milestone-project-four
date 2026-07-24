@@ -8,10 +8,11 @@
                 Candles & Home Fragrence 
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="candles-and-home-fragrence-link">
-                <a href="#" class="dropdown-item">Candles</a>
-                <a href="#" class="dropdown-item">Candle Holders</a>
-                <a href="#" class="dropdown-item">Diffusers</a>
-                <a href="#" class="dropdown-item">Wax Melts</a>
+                <a href="{% url 'products' %}?product_types=candles" class="dropdown-item">Candles</a>
+                <a href="{% url 'products' %}?product_types=candle-holders" class="dropdown-item">Candle Holders</a>
+                <a href="{% url 'products' %}?product_types=diffusers" class="dropdown-item">Diffusers</a>
+                <a href="{% url 'products' %}?product_types=wax-melts" class="dropdown-item">Wax Melts</a>
+                <a href="{% url 'products' %}?product_types=candles,candle-holders,diffusers,wax-melts" class="dropdown-item">All Candles & Home Frangrence</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -19,10 +20,10 @@
                 Kitchen & Dining
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="kitchen-and-dining=link">
-                <a href="#" class="dropdown-item">Mugs</a>
-                <a href="#" class="dropdown-item">Bowls</a>
-                <a href="#" class="dropdown-item">Tea Towels</a>
-                <a href="#" class="dropdown-item">Jugs</a>
+                <a href="{% url 'products' %}?product_types=mugs" class="dropdown-item">Mugs</a>
+                <a href="{% url 'products' %}?product_types=bowls" class="dropdown-item">Bowls</a>
+                <a href="{% url 'products' %}?product_types=tea-towels" class="dropdown-item">Tea Towels</a>
+                <a href="{% url 'products' %}?product_types=jugs" class="dropdown-item">Jugs</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -30,10 +31,10 @@
                 Cards & Gift Wrap
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="cards-and-gift-wrapping">
-                <a href="#" class="dropdown-item">Cards</a>
-                <a href="#" class="dropdown-item">Wrapping paper</a>
-                <a href="#" class="dropdown-item">Gift bags</a>
-                <a href="#" class="dropdown-item">Tape & Ribbon</a>
+                <a href="{% url 'products' %}?product_types=cards" class="dropdown-item">Cards</a>
+                <a href="{% url 'products' %}?product_types=wrapping-paper" class="dropdown-item">Wrapping paper</a>
+                <a href="{% url 'products' %}?product_types=gift-bags" class="dropdown-item">Gift bags</a>
+                <a href="{% url 'products' %}?product_types=tape-ribbon" class="dropdown-item">Tape & Ribbon</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -41,9 +42,9 @@
                 Home Decor
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="home-decor-link">
-                <a href="#" class="dropdown-item">Photo Frames</a>
-                <a href="#" class="dropdown-item">Book Ends</a>
-                <a href="#" class="dropdown-item">Baskets & Mats</a>
+                <a href="{% url 'products' %}?product_types=photo-frames" class="dropdown-item">Photo Frames</a>
+                <a href="{% url 'products' %}?product_types=book-ends" class="dropdown-item">Book Ends</a>
+                <a href="{% url 'products' %}?product_types=baskets-mats" class="dropdown-item">Baskets & Mats</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -51,8 +52,8 @@
                 Soft Furnishings
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="soft-furnishings-link">
-                <a href="#" class="dropdown-item">Cushions</a>
-                <a href="#" class="dropdown-item">Throws </a>
+                <a href="{% url 'products' %}?product_types=cushions" class="dropdown-item">Cushions</a>
+                <a href="{% url 'products' %}?product_types=throws" class="dropdown-item">Throws </a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -60,9 +61,9 @@
                 Perfume & Body
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="">
-                <a href="#" class="dropdown-item">Perfume</a>
-                <a href="#" class="dropdown-item">Soap</a>
-                <a href="#" class="dropdown-item">Moisteriser</a>
+                <a href="{% url 'products' %}?product_types=perfume" class="dropdown-item">Perfume</a>
+                <a href="{% url 'products' %}?product_types=soap" class="dropdown-item">Soap</a>
+                <a href="{% url 'products' %}?product_types=moisturiser" class="dropdown-item">Moisteriser</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -70,9 +71,9 @@
                 Stationary
             </a>
             <div class="dropdown-menu w-100 border-0" aria-labelledby="">
-                <a href="#" class="dropdown-item">Notebooks</a>
-                <a href="#" class="dropdown-item">Journals </a>
-                <a href="#" class="dropdown-item">Paper Weights</a>
+                <a href="{% url 'products' %}?product_types=notebooks" class="dropdown-item">Notebooks</a>
+                <a href="{% url 'products' %}?product_types=journals" class="dropdown-item">Journals </a>
+                <a href="{% url 'products' %}?product_types=paper-weights" class="dropdown-item">Paper Weights</a>
             </div>
         </li>
     </ul>

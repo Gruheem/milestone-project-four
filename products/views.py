@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Attribute, AttributeValue, Product
+from .models import Attribute, AttributeValue, Product, ProductType
 
 
 def get_attributes(request):
@@ -35,8 +35,17 @@ def all_products(request):
     ''' Functin to return Products for the Products Page '''
     products = Product.objects.all()
 
+    product_types = None
+
+    if request.GET:
+        if 'product_types' in request.GET:
+            product_types = request.GET['product_types'].split(',')
+            products = products.filter(product_type__slug__in=product_types)
+            product_types = ProductType.objects.filter(slug__in=product_types)
+
     context = {
-        'products' : products
+        'products' : products,
+        'current_product_types' : product_types,
     }
 
     return render(request, 'products/products.html', context)
