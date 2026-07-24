@@ -42,10 +42,12 @@ def all_products(request):
             product_types = request.GET['product_types'].split(',')
             products = products.filter(product_type__slug__in=product_types)
             product_types = ProductType.objects.filter(slug__in=product_types)
+            attributes = Attribute.objects.filter(product_type__in=product_types).prefetch_related('values')
 
     context = {
         'products' : products,
         'current_product_types' : product_types,
+        'attributes' : attributes,
     }
 
     return render(request, 'products/products.html', context)

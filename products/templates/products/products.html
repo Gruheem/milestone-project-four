@@ -4,35 +4,57 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            {% for product in products %}
-            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card mb-2">
+            <div class="col-lg-3">
+                <ul id="attribute-list">
+                    {% for attribute in attributes %}
+                        <li>
+                            {{attribute.attribute_friendly_name}}
+                            <ul>
+                                {% for value in attribute.values.all %}
+                                    <li>
+                                        {{ value.attribute_value }}
+                                        <input type="checkbox" value="{{ value.slug }}">
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                {% for product in products %}
                     
-                        {% if product.image %}
-                            <a href="">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.product_name }}">
-                            </a>
-                        {% else %}
-                            <a href="">
-                                <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.product_name }}">
-                            </a>
-                        {% endif %}
-                        <div class="card-body">
-                            <p class="mb-0">{{ product.product_name }}</p>
-                        </div>
-                        <div class="card-footer bg-white border-0">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0">£{{ product.price }}</p>
-                                </div>
-                                <div class="col-12">
-                                    <p></p>
+                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card mb-2">
+                            {% if product.image %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.product_name }}">
+                                </a>
+                            {% else %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.product_name }}">
+                                </a>
+                            {% endif %}
+                            <div class="card-body">
+                                <p class="mb-0">{{ product.product_name }}</p>
+                            </div>
+                            <div class="card-footer bg-white border-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="mb-0">£{{ product.price }}</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
     </div>
 {% endblock %}

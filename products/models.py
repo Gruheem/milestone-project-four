@@ -83,7 +83,7 @@ class Attribute(models.Model):
     
 
 class AttributeValue(models.Model):
-    attribute = models.ForeignKey('Attribute', on_delete=models.CASCADE)
+    attribute = models.ForeignKey('Attribute', related_name="values", on_delete=models.CASCADE)
     attribute_value = models.CharField(max_length=254, db_index=True)
 
     class Meta:
