@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="card">
+                    
+                        {% if product.image %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.product_name }}">
+                            </a>
+                        {% else %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.product_name }}">
+                            </a>
+                        {% endif %}
+                        <div class="card-body">
+                            <p class="">{{ product.product_name }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="">£{{ product.price }}</p>
+                                </div>
+                                <div class="col-12">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

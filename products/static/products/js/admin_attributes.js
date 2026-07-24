@@ -1,3 +1,6 @@
+// This File is Not Not Original Code.
+// AJAX Script to Update the Attribute Options Available when Selecting a Product Type in the Add Product Admin Page
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const ATTRIBUTE_SELECT = 'select[name$="-attribute"]';
