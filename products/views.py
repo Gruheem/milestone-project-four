@@ -1,5 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.db.models import Prefetch
+
 from .models import Attribute, AttributeValue, Product, ProductType
 
 
@@ -42,7 +44,19 @@ def all_products(request):
             product_types = request.GET['product_types'].split(',')
             products = products.filter(product_type__slug__in=product_types)
             product_types = ProductType.objects.filter(slug__in=product_types)
-            attributes = Attribute.objects.filter(product_type__in=product_types).prefetch_related('values')
+            
+            # This fetches only the attributes that have values and only the values ghat have been assigned to an available product
+            attributes = Attribute.objects.filter(
+                product_type__in=product_types,
+                values__productattributevalue__product__in=products
+            ).distinct().prefetch_related(
+                Prefetch(
+                    'values',
+                    queryset=AttributeValue.objects.filter(
+                        productattributevalue__product__in=products
+                    ).distinct()
+                )
+            )
 
     context = {
         'products' : products,

@@ -195,6 +195,23 @@ Things that turned out were depreciated during the build of the project:
 
 Using PROTECT on Product.product_type so on delete the products linked to it won't all just get deleted if a product type were to be deleted by mistake.
 
+n+1 query problem:
+``` python
+# This fetches only the attributes that have values and only the values ghat have been assigned to an available product
+            attributes = Attribute.objects.filter(
+                product_type__in=product_types,
+                values__productattributevalue__product__in=products
+            ).distinct().prefetch_related(
+                Prefetch(
+                    'values',
+                    queryset=AttributeValue.objects.filter(
+                        productattributevalue__product__in=products
+                    ).distinct()
+                )
+            )
+```  
+Prefetch here drasticaly cuts the number of queries on the database within our iteration nested inside another iteration while dynamically creating our product filters, from our attributes and values.
+
 
 #### Product Categories/Types/Attributes
 - Home Fragrence & Candles
