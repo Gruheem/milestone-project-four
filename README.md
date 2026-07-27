@@ -189,9 +189,11 @@ Order Line Item:
 
 ```  
 
-As developement progressed I realised I would neet an extra table to combine the product with its attributes and values so I created the ProductAttributeValue table.
+Fixtures were used to load starting data into the Category, ProductType, Attribute and AttributeValue Tables.
 
-For the filter I chose the approach of Using JavaScript to create url based on the filter lists state. The state is decided by which chekcboxes are ticked at any given moment. As I was creating the logic for the filter I realised I was going to need to give the Attribute and AttributeValue tables a slug in order to avoid any potential bugs. For example some of the values have the character '&' in them. I also chose to make the slug non-unique, this was because I wanted to create a page where you can filter through all the products in a category and be able to see all the products with the same scent/colour in the category, without having multiple of the same atttribute to tick multiple of the same value, temporarily parting them from their product type. Initialy I have chosen to develope a page reload rather than use AJAX  API in order to keep the project more managable.
+When it came to adding the products through the admin I realised I would neet an extra table to combine the product with its attributes and values so I created the ProductAttributeValue table.
+
+For the filter I chose the approach of Using JavaScript to create url based on the filter lists state. The state is decided by which chekcboxes are ticked at any given moment. As I was creating the logic for the filter I realised I was going to need to give the Attribute and AttributeValue tables a slug in order to avoid any potential bugs. For example some of the values have the character '&' in them. I also chose to make the slug non-unique, this was because I wanted to create a page where you can filter through all the products in a category and be able to see all the products with the same scent/colour in the category, without having multiple of the same atttribute to tick multiple of the same value, temporarily parting them from their product type. Initialy I have chosen to develope a page reload rather than use AJAX API in order to keep the project more managable.
 
 After creating the slug I used python to iternate through the current entries in the shell to generte the slug formt he names.
 ```python
@@ -231,6 +233,14 @@ n+1 query problem:
             )
 ```  
 Prefetch here drasticaly cuts the number of queries on the database within our iteration nested inside another iteration while dynamically creating our product filters, from our attributes and values.
+
+## Technologies Used
+
+### APIs
+- URLSearchParams()
+- Django QuerySet API
+  - Prefetch()
+  - prefetch_related()
 
 
 #### Product Categories/Types/Attributes

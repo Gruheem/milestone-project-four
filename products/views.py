@@ -38,6 +38,7 @@ def all_products(request):
     products = Product.objects.all()
 
     product_types = None
+    attributes = None
 
     if request.GET:
         if 'product_types' in request.GET:
