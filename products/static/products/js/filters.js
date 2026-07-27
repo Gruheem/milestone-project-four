@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const checkedBoxes = filterPanel.querySelectorAll('input[type="checkbox"]:checked');
         // Creates a new empty URLSearchParam Object
         const params = new URLSearchParams();
+
+        // Preserves product_types from the current URL and adds them to the start of the query before adding checkbox values
+        const currentParams = new URLSearchParams(window.location.search);
+        if (currentParams.has('product_types')) {
+            params.append('product_types', currentParams.get('product_types'));
+        }
     
         // For each checked box append the inputs name and value to params
         checkedBoxes.forEach(function(checkbox) {

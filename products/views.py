@@ -42,19 +42,39 @@ def all_products(request):
 
     if request.GET:
         if 'product_types' in request.GET:
+            # Parses the Product Types into list
             product_types = request.GET['product_types'].split(',')
+            # Filters the Products by Product Type
             products = products.filter(product_type__slug__in=product_types)
+            # Turns the Product typ list into a list of ProductType table Objects
             product_types = ProductType.objects.filter(slug__in=product_types)
+
+            # Captures a product list for the filters
+            available_filter_products = products
+
+            # Take the key value pairings we have sent across in our URL (iterate over them)
+            for key, value in request.GET.items():
+                # Ignores product_type key and its value as it is the attrribute and value were after
+                if key == 'product_types':
+                    continue
+                
+                # Creates a values list from the keys we are iterating over
+                values_list = request.GET.getlist(key)
+                # Retrieves the products with the Attribute/Value pairing
+                products = products.filter(
+                    productattributevalue__attribute__slug=key,
+                    productattributevalue__attribute_value__slug__in=values_list
+                )
             
-            # This fetches only the attributes that have values and only the values ghat have been assigned to an available product
+            # This fetches the attributes and their values from the all the products in a product type(s)
             attributes = Attribute.objects.filter(
                 product_type__in=product_types,
-                values__productattributevalue__product__in=products
+                values__productattributevalue__product__in=available_filter_products
             ).distinct().prefetch_related(
                 Prefetch(
                     'values',
                     queryset=AttributeValue.objects.filter(
-                        productattributevalue__product__in=products
+                        productattributevalue__product__in=available_filter_products
                     ).distinct()
                 )
             )
