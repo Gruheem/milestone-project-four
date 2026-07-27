@@ -14,7 +14,14 @@
                                 {% for value in attribute.values.all %}
                                     <li>
                                         {{ value.attribute_value }}
-                                        <input type="checkbox" value="{{ value.slug }}" name="{{value.attribute.slug}}">
+                                        <input 
+                                            type="checkbox" 
+                                            value="{{ value.slug }}" 
+                                            name="{{value.attribute.slug}}"
+                                            {% if value.slug in selected_values %}
+                                                checked
+                                            {% endif %}
+                                            >
                                     </li>
                                 {% endfor %}
                             </ul>

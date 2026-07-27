@@ -57,7 +57,7 @@ def all_products(request):
                 # Ignores product_type key and its value as it is the attrribute and value were after
                 if key == 'product_types':
                     continue
-                
+
                 # Creates a values list from the keys we are iterating over
                 values_list = request.GET.getlist(key)
                 # Retrieves the products with the Attribute/Value pairing
@@ -65,6 +65,12 @@ def all_products(request):
                     productattributevalue__attribute__slug=key,
                     productattributevalue__attribute_value__slug__in=values_list
                 )
+
+            selected_values = []
+            # Creates a list of selected values for persistant checkbox ticks ignoring product_types key
+            for key in request.GET:
+                if key != 'product_types':
+                    selected_values.extend(request.GET.getlist(key))
             
             # This fetches the attributes and their values from the all the products in a product type(s)
             attributes = Attribute.objects.filter(
@@ -83,6 +89,7 @@ def all_products(request):
         'products' : products,
         'current_product_types' : product_types,
         'attributes' : attributes,
+        'selected_values' : selected_values,
     }
 
     return render(request, 'products/products.html', context)
