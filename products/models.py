@@ -62,6 +62,7 @@ class Attribute(models.Model):
     product_type = models.ForeignKey('ProductType', on_delete=models.CASCADE)
     attribute = models.CharField(max_length=254)
     attribute_friendly_name = models.CharField(max_length=254)
+    slug = models.SlugField(max_length=254)
     value_type = models.CharField(max_length=10, choices=ValueType.choices, default=ValueType.TEXT)    
 
     class Meta:
@@ -75,6 +76,11 @@ class Attribute(models.Model):
             )
         ]
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.attribute)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.attribute} ({self.product_type})"
     
@@ -85,6 +91,7 @@ class Attribute(models.Model):
 class AttributeValue(models.Model):
     attribute = models.ForeignKey('Attribute', related_name="values", on_delete=models.CASCADE)
     attribute_value = models.CharField(max_length=254, db_index=True)
+    slug = models.SlugField(max_length=254)
 
     class Meta:
         constraints = [
@@ -97,6 +104,10 @@ class AttributeValue(models.Model):
             )
         ]
     
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.attribute_value)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.attribute_value
