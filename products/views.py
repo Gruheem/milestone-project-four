@@ -39,6 +39,7 @@ def all_products(request):
 
     product_types = None
     attributes = None
+    selected_values = {}
 
     if request.GET:
         if 'product_types' in request.GET:
@@ -66,7 +67,6 @@ def all_products(request):
                     productattributevalue__attribute_value__slug__in=values_list
                 )
 
-            selected_values = {}
             # Creates a dictionary of attribute:value pairs for us to iterate over for the filter.
             for key in request.GET:
                 if key != 'product_types':

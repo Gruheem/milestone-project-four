@@ -73,6 +73,14 @@
                             </div>
                         </div>
                     {% endfor %}
+                    {% if not products %}
+                        <div class="col-12 text-center d-flex flex-column">
+                            <p>
+                            No Results Match Your Search
+                            </p>
+                            <span><a href="{% url 'home' %}">Home</a></span>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
