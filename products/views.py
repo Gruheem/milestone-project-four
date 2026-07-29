@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Prefetch, Q
+from collections import OrderedDict
+
 
 from .models import Attribute, AttributeValue, Product, ProductType
 
@@ -41,6 +43,7 @@ def all_products(request):
     product_types = None
     attributes = None
     selected_values = {}
+    query = None
 
     if request.GET:
         if 'product_types' in request.GET:
@@ -54,46 +57,78 @@ def all_products(request):
             # Captures a product list for the filters
             available_filter_products = products
 
-            # Take the key value pairings we have sent across in our URL (iterate over them)
-            for key, value in request.GET.items():
-                # Ignores product_type key and its value as it is the attrribute and value were after
-                if key == 'product_types':
-                    continue
-
-                # Creates a values list from the keys we are iterating over
-                values_list = request.GET.getlist(key)
-                # Retrieves the products with the Attribute/Value pairing
-                products = products.filter(
-                    productattributevalue__attribute__slug=key,
-                    productattributevalue__attribute_value__slug__in=values_list
-                )
-
-            # Creates a dictionary of attribute:value pairs for us to iterate over for the filter.
-            for key in request.GET:
-                if key != 'product_types':
-                    selected_values[key] = request.GET.getlist(key)
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "Please Enter Your Search Terms")
+                return redirect(reverse('products'))
             
-            # This fetches the attributes and their values from the all the products in a product type(s)
-            attributes = Attribute.objects.filter(
-                product_type__in=product_types,
-                values__productattributevalue__product__in=available_filter_products
-            ).distinct().prefetch_related(
-                Prefetch(
-                    'values',
-                    queryset=AttributeValue.objects.filter(
-                        productattributevalue__product__in=available_filter_products
-                    ).distinct()
-                )
+            queries = Q(product_name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
+        available_filter_products = products
+
+        # Take the key value pairings we have sent across in our URL (iterate over them)
+        for key, value in request.GET.items():
+            # Ignores product_type key and its value as it is the attrribute and value were after
+            if key in ('product_types', 'q'):
+                continue
+
+            # Creates a values list from the keys we are iterating over
+            values_list = request.GET.getlist(key)
+            # Retrieves the products with the Attribute/Value pairing
+            products = products.filter(
+                productattributevalue__attribute__slug=key,
+                productattributevalue__attribute_value__slug__in=values_list
+            )
+
+        # Creates a dictionary of attribute:value pairs for us to iterate over for the filter.
+        for key in request.GET:
+            if key != 'product_types':
+                selected_values[key] = request.GET.getlist(key)
+        
+        # This fetches the attributes and their values from the all the products in a product type(s)
+        attributes = Attribute.objects.filter(
+            values__productattributevalue__product__in=available_filter_products
+        ).distinct().prefetch_related(
+            Prefetch(
+                'values',
+                queryset=AttributeValue.objects.filter(
+                    productattributevalue__product__in=available_filter_products
+                ).distinct()
+            )
+        )
+
+        grouped_attributes = OrderedDict()
+
+        for attribute in attributes:
+            key = attribute.slug
+            if key not in grouped_attributes:
+                grouped_attributes[key] = {
+                    'name': attribute.attribute_friendly_name,
+                    'slug': attribute.slug,
+                    'values': {}  # keyed by value.slug to dedupe merged values
+                }
+            for value in attribute.values.all():
+                grouped_attributes[key]['values'][value.slug] = value
+
+        # Convert each group's values dict into a sorted list for the template
+        for key in grouped_attributes:
+            grouped_attributes[key]['values'] = sorted(
+                grouped_attributes[key]['values'].values(),
+                key=lambda v: v.attribute_value
             )
 
     context = {
         'products' : products,
         'current_product_types' : product_types,
-        'attributes' : attributes,
+        'attributes' : grouped_attributes.values(),
         'selected_values' : selected_values,
+        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)
+
 
 def product_detail(request, product_id):
 

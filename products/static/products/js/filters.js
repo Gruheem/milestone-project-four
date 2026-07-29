@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentParams.has('product_types')) {
             params.append('product_types', currentParams.get('product_types'));
         }
+
+        // Preserve the search term from the current URL
+        if (currentParams.has('q')) {
+            params.append('q', currentParams.get('q'));
+        }
     
         // For each checked box append the inputs name and value to params
         checkedBoxes.forEach(function(checkbox) {

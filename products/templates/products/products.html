@@ -8,36 +8,34 @@
             <!-- Filter -->
             <div class="col-lg-3 " id="filter-panel">
                 <ul id="attribute-list" class="unstyled">
-                    {% for attribute in attributes %}
-                        <li>
-                            <span>
-                                {{attribute.attribute_friendly_name}}
-                            </span>
-                            <ul class="unstyled ">
-                                {% for value in attribute.values.all %}
-                                    <li class="">
-                                        <div class="form-check">
-                                            <label for="{{ attribute.slug}}-{{value.slug }}" class="d-flex justify-content-between form-check-label">
-                                                <span>
-                                                    {{ value.attribute_value }}
-                                                </span>   
-                                                <input 
-                                                    class="form-check-input"
-                                                    type="checkbox" 
-                                                    id="{{ attribute.slug}}-{{value.slug }}"
-                                                    value="{{ value.slug }}" 
-                                                    name="{{value.attribute.slug}}"
-                                                    {% if value.slug in selected_values|get_item:attribute.slug %}
-                                                        checked
-                                                    {% endif %}
-                                                    >
-                                            </label>  
-                                        </div>
+                    
+                                {% for attribute in attributes %}
+                                    <li>
+                                        <span>{{ attribute.name }}</span>
+                                        <ul class="unstyled">
+                                            {% for value in attribute.values %}
+                                                <li>
+                                                    <div class="form-check">
+                                                        <label for="{{ attribute.slug }}-{{ value.slug }}" class="d-flex justify-content-between form-check-label">
+                                                            <span>{{ value.attribute_value }}</span>
+                                                            <input
+                                                                class="form-check-input"
+                                                                type="checkbox"
+                                                                id="{{ attribute.slug }}-{{ value.slug }}"
+                                                                value="{{ value.slug }}"
+                                                                name="{{ attribute.slug }}"
+                                                                {% if value.slug in selected_values|get_item:attribute.slug %}
+                                                                    checked
+                                                                {% endif %}
+                                                            >
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
                                     </li>
                                 {% endfor %}
-                            </ul>
-                        </li>
-                    {% endfor %}
+                        
                 </ul>
             </div>
 
