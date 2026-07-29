@@ -245,7 +245,7 @@ Prefetch here drasticaly cuts the number of queries on the database within our i
 
 ## Bugs
 
-- The Filter had a bug where by if two attributes had the same value e.g. '15cm' the template logic would tick both boxes. As I could only untick one box at a time before the page reloads as another box with that same value was ticked both would retick and there was no way to remove the filter. 
+- The Filter had a bug where by if two attributes had the same value e.g. '15cm' the template logic would tick both boxes. As I could only untick one box at a time before the page reloads as another box with that same value was ticked both would retick and there was no way to remove the filter. This also means that multiple <Li> may also be generated with same ``` id="" ``` and this is not correct html. I chosen to try to keep the attribute data with the value data I can do this using a python dictonary making them key, value pairs. As the DTL '.' look up dosn't work on nested variables e.g. ``` {{ selected_values.{{ attribute.slug }} }} ```, I have crated a small custom filter 
 
 
 #### Product Categories/Types/Attributes

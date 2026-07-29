@@ -66,11 +66,11 @@ def all_products(request):
                     productattributevalue__attribute_value__slug__in=values_list
                 )
 
-            selected_values = []
-            # Creates a list of selected values for persistant checkbox ticks ignoring product_types key
+            selected_values = {}
+            # Creates a dictionary of attribute:value pairs for us to iterate over for the filter.
             for key in request.GET:
                 if key != 'product_types':
-                    selected_values.extend(request.GET.getlist(key))
+                    selected_values[key] = request.GET.getlist(key)
             
             # This fetches the attributes and their values from the all the products in a product type(s)
             attributes = Attribute.objects.filter(

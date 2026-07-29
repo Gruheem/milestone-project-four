@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load products_extras %}
 
 {% block content %}
     <div class="container">
@@ -16,17 +17,17 @@
                                 {% for value in attribute.values.all %}
                                     <li class="">
                                         <div class="form-check">
-                                            <label for="{{ value.slug }}" class="d-flex justify-content-between form-check-label">
+                                            <label for="{{ attribute.slug}}-{{value.slug }}" class="d-flex justify-content-between form-check-label">
                                                 <span>
                                                     {{ value.attribute_value }}
                                                 </span>   
                                                 <input 
                                                     class="form-check-input"
                                                     type="checkbox" 
-                                                    id="{{ value.slug }}"
+                                                    id="{{ attribute.slug}}-{{value.slug }}"
                                                     value="{{ value.slug }}" 
                                                     name="{{value.attribute.slug}}"
-                                                    {% if value.slug in selected_values %}
+                                                    {% if value.slug in selected_values|get_item:attribute.slug %}
                                                         checked
                                                     {% endif %}
                                                     >
