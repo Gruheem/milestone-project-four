@@ -183,6 +183,10 @@ class AttributeValueAdmin(admin.ModelAdmin):
         'attribute',
     ]
 
+    search_fields = (
+        "attribute_value",
+    )
+
     ordering = ['attribute__attribute']
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):

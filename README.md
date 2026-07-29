@@ -243,6 +243,11 @@ Prefetch here drasticaly cuts the number of queries on the database within our i
   - prefetch_related()
 
 
+## Bugs
+
+- The Filter had a bug where by if two attributes had the same value e.g. '15cm' the template logic would tick both boxes. As I could only untick one box at a time before the page reloads as another box with that same value was ticked both would retick and there was no way to remove the filter. 
+
+
 #### Product Categories/Types/Attributes
 - Home Fragrence & Candles
   - Candles

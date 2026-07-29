@@ -1,5 +1,6 @@
 body {
     margin-top: 168px;
+    font-family: Inter, sans-serif;
 }
 
 .logo-font {
@@ -12,4 +13,18 @@ body {
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.unstyled {
+    list-style: none;
+}
+
+#attribute-list > li >span {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#main-nav > ul >li > a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

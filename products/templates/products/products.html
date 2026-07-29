@@ -5,23 +5,33 @@
     <div class="container">
         <div class="row">
             <!-- Filter -->
-            <div class="col-lg-3" id="filter-panel">
-                <ul id="attribute-list">
+            <div class="col-lg-3 " id="filter-panel">
+                <ul id="attribute-list" class="unstyled">
                     {% for attribute in attributes %}
                         <li>
-                            {{attribute.attribute_friendly_name}}
-                            <ul>
+                            <span>
+                                {{attribute.attribute_friendly_name}}
+                            </span>
+                            <ul class="unstyled ">
                                 {% for value in attribute.values.all %}
-                                    <li>
-                                        {{ value.attribute_value }}
-                                        <input 
-                                            type="checkbox" 
-                                            value="{{ value.slug }}" 
-                                            name="{{value.attribute.slug}}"
-                                            {% if value.slug in selected_values %}
-                                                checked
-                                            {% endif %}
-                                            >
+                                    <li class="">
+                                        <div class="form-check">
+                                            <label for="{{ value.slug }}" class="d-flex justify-content-between form-check-label">
+                                                <span>
+                                                    {{ value.attribute_value }}
+                                                </span>   
+                                                <input 
+                                                    class="form-check-input"
+                                                    type="checkbox" 
+                                                    id="{{ value.slug }}"
+                                                    value="{{ value.slug }}" 
+                                                    name="{{value.attribute.slug}}"
+                                                    {% if value.slug in selected_values %}
+                                                        checked
+                                                    {% endif %}
+                                                    >
+                                            </label>  
+                                        </div>
                                     </li>
                                 {% endfor %}
                             </ul>
