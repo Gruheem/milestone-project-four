@@ -1,6 +1,7 @@
 from django.http import JsonResponse
-from django.shortcuts import render
-from django.db.models import Prefetch
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
+from django.db.models import Prefetch, Q
 
 from .models import Attribute, AttributeValue, Product, ProductType
 
@@ -93,3 +94,13 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+def product_detail(request, product_id):
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    context = {
+        'product' : product,
+    }
+
+    return render(request, 'products/product_detail.html', context)

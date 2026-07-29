@@ -48,13 +48,13 @@
                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
                             <div class="card mb-2 border-0 rounded-0">
                                 {% if product.image %}
-                                    <a href="">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <div class="card-img-wrapper rounded-0">
                                             <img class="card-img-top img-fluid rounded-0" src="{{ product.image.url }}" alt="{{ product.product_name }}">
                                         </div>
                                     </a>
                                 {% else %}
-                                    <a href="">
+                                    <a href="{% url 'product_detail' product.id %}">
                                         <div class="card-img-wrapper rounded-0"></div>
                                             <img class="card-img-top img-fluid rounded-0" src="{% static 'images/noimage.webp' %}" alt="{{ product.product_name }}">
                                         </div>

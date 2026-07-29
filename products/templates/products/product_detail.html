@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row d-flex justify-content-evenly">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div>
+                {% if product.image %}
+                    <a href="{{ product.image.url }}" target="_blank">
+                        <div class="card-img-wrapper rounded-0">
+                            <img class="card-img-top img-fluid rounded-0" src="{{ product.image.url }}" alt="{{ product.product_name }}">
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="">
+                        <div class="card-img-wrapper rounded-0"></div>
+                            <img class="card-img-top img-fluid rounded-0" src="{% static 'images/noimage.webp' %}" alt="{{ product.product_name }}">
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 my-4">
+            <h2>{{ product.product_name }}</h2>
+            <p>£{{ product.price }}</p>
+            <p>{{ product.description }}</p>
+            {% if product.rating %}
+            <p>{{ product.rating }}</p>
+            {% else %}
+            <p>No Ratings Yet</p>
+            {% endif %}
+
+            <form action=""></form>
+        </div>
+    </div>
+</div>
+{% endblock %}
