@@ -5,37 +5,51 @@
 {% block content %}
     <div class="container">
         <div class="row">
+            <!-- Sort Dropdown -->
+            <div class="col-12">
+                <div class="select-wrapper">
+                    <select name="sort-select" id="sort-select">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                        <option value="product_name_asc" {% if current_sorting == 'product_name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="product_name_desc" {% if current_sorting == 'product_name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <!-- Filter -->
             <div class="col-lg-3 " id="filter-panel">
                 <ul id="attribute-list" class="unstyled">
-                    
-                                {% for attribute in attributes %}
+                    {% for attribute in attributes %}
+                        <li>
+                            <span>{{ attribute.name }}</span>
+                            <ul class="unstyled">
+                                {% for value in attribute.values %}
                                     <li>
-                                        <span>{{ attribute.name }}</span>
-                                        <ul class="unstyled">
-                                            {% for value in attribute.values %}
-                                                <li>
-                                                    <div class="form-check">
-                                                        <label for="{{ attribute.slug }}-{{ value.slug }}" class="d-flex justify-content-between form-check-label">
-                                                            <span>{{ value.attribute_value }}</span>
-                                                            <input
-                                                                class="form-check-input"
-                                                                type="checkbox"
-                                                                id="{{ attribute.slug }}-{{ value.slug }}"
-                                                                value="{{ value.slug }}"
-                                                                name="{{ attribute.slug }}"
-                                                                {% if value.slug in selected_values|get_item:attribute.slug %}
-                                                                    checked
-                                                                {% endif %}
-                                                            >
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
+                                        <div class="form-check">
+                                            <label for="{{ attribute.slug }}-{{ value.slug }}" class="d-flex justify-content-between form-check-label">
+                                                <span>{{ value.attribute_value }}</span>
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="{{ attribute.slug }}-{{ value.slug }}"
+                                                    value="{{ value.slug }}"
+                                                    name="{{ attribute.slug }}"
+                                                    {% if value.slug in selected_values|get_item:attribute.slug %}
+                                                        checked
+                                                    {% endif %}
+                                                >
+                                            </label>
+                                        </div>
                                     </li>
                                 {% endfor %}
-                        
+                            </ul>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -53,7 +67,7 @@
                                     </a>
                                 {% else %}
                                     <a href="{% url 'product_detail' product.id %}">
-                                        <div class="card-img-wrapper rounded-0"></div>
+                                        <div class="card-img-wrapper rounded-0">
                                             <img class="card-img-top img-fluid rounded-0" src="{% static 'images/noimage.webp' %}" alt="{{ product.product_name }}">
                                         </div>
                                     </a>

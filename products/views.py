@@ -1,3 +1,4 @@
+from django.db.models.functions import Lower
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
@@ -44,8 +45,27 @@ def all_products(request):
     attributes = None
     selected_values = {}
     query = None
+    sort = None
+    direction = None
 
     if request.GET:
+        # Product Sorting
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+
+            if sortkey == 'category':
+                sortkey = 'category__name'
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
         if 'product_types' in request.GET:
             # Parses the Product Types into list
             product_types = request.GET['product_types'].split(',')
@@ -74,7 +94,7 @@ def all_products(request):
         # Take the key value pairings we have sent across in our URL (iterate over them)
         for key, value in request.GET.items():
             # Ignores product_type key and and q with its respective value as it is the attrribute and value were after
-            if key in ('product_types', 'q'):
+            if key in ('product_types', 'q', 'sort', 'direction'):
                 continue
 
             # Creates a values list from the keys we are iterating over
@@ -130,12 +150,15 @@ def all_products(request):
                 key=lambda v: v.attribute_value
             )
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'products' : products,
         'current_product_types' : product_types,
         'attributes' : grouped_attributes.values(),
         'selected_values' : selected_values,
         'search_term': query,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)

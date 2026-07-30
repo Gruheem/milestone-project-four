@@ -33,4 +33,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set the URL to specification. Using '.search' only changes the query seciton of the url. Changes made to the URL are automatically executed.
         window.location.search = params.toString();
     });
+
+
+    document.getElementById('sort-select').addEventListener('change', function() {
+
+        const currentUrl = new URL(window.location);
+        const selectedVal = this.value;
+
+        if (selectedVal !== "reset") {
+
+            const parts = selectedVal.split("_");
+            const direction = parts.pop();
+            const sort = parts.join("_");
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+        }
+    });
 });
