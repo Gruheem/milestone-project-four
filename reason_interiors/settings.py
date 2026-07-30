@@ -159,5 +159,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) # Expected to be a Tuple
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-FREE_DELIVERY_THRESHOLD = 50.00
+FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
