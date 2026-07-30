@@ -24,4 +24,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # Django All-Auth
     path('', include('home.urls')),  # Home app URLs
     path('products/', include('products.urls')),
+    path('bag/', include('bag.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

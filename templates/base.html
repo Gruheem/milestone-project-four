@@ -9,6 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Discover unique homeware, candles, gifts and interior accessories from our Bristol store on Gloucester Road. Beautifully curated pieces for your home.">
     {% endblock %}
 
     {% block extra_meta %}
@@ -40,14 +41,13 @@
     {% block extra_js %}
     {% endblock %}
 
-
 </head>
   <body>
     <header class="container-fluid fixed-top bg-white">
         <div class="row d-none d-lg-flex">
             <!-- Search Bar -->
             <div class="col-12 col-lg-4 my-auto">
-                <form method="GET" action="{% url 'products' %}" class="w-75">
+                <form method="get" action="{% url 'products' %}" class="w-75">
                     <div class="input-group">
                         <input class="form-control border-black rounded-0" type="text" name="q" placeholder=" Search Our Products">
                         <button class="btn" type="submit">
@@ -93,6 +93,11 @@
                 {% include 'includes/mobile_header.html' %}
                 {% include 'includes/main_nav.html' %}
             </nav>
+        </div>
+        <div id="delivery-banner" class="row text-center">
+            <div class="col-12 bg-black text-white">
+                <h4 class="mb-0 logo-font p-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
+            </div>
         </div>
     </header>
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',  # Django All-Auth
     'home',  # Home app
     'products', # Products app
+    'bag', # Bag apps
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', # Required by Django All-Auth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents', # For the bag_contents context processor to be available in all templates
             ],
         },
     },
@@ -156,3 +158,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) # Expected to be a Tuple
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+FREE_DELIVERY_THRESHOLD = 50.00
+STANDARD_DELIVERY_PERCENTAGE = 10
