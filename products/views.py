@@ -57,20 +57,23 @@ def all_products(request):
             # Captures a product list for the filters
             available_filter_products = products
 
+        # Search bar filtering
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "Please Enter Your Search Terms")
                 return redirect(reverse('products'))
             
+            # We search in the product_name and description for the query
             queries = Q(product_name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+        # This creates a snpashot of the products after either a search or a product category filter.
         available_filter_products = products
 
         # Take the key value pairings we have sent across in our URL (iterate over them)
         for key, value in request.GET.items():
-            # Ignores product_type key and its value as it is the attrribute and value were after
+            # Ignores product_type key and and q with its respective value as it is the attrribute and value were after
             if key in ('product_types', 'q'):
                 continue
 
@@ -82,15 +85,18 @@ def all_products(request):
                 productattributevalue__attribute_value__slug__in=values_list
             )
 
-        # Creates a dictionary of attribute:value pairs for us to iterate over for the filter.
+        # This creates a dictionary to remember which key:value pairs we have which allows us to keep the filter checkbox ticked on reload 
         for key in request.GET:
             if key != 'product_types':
                 selected_values[key] = request.GET.getlist(key)
         
-        # This fetches the attributes and their values from the all the products in a product type(s)
+        # Creates a list of Attributes, and any populated values to populate the filter, uses the available_filter_products snapshot not 
+        # products as to not shrink our filter options(as displayed product reduce) when we apply our filter.
         attributes = Attribute.objects.filter(
             values__productattributevalue__product__in=available_filter_products
+                   # prefetch_related negated the n + 1 query problem by fetching all value in one extra query
         ).distinct().prefetch_related(
+          # Prefetch instructs to only fetch values attatched to the attribute which have existing data in them.
             Prefetch(
                 'values',
                 queryset=AttributeValue.objects.filter(
@@ -99,20 +105,25 @@ def all_products(request):
             )
         )
 
+        # Creates an empty ordered dictionary. We use a Dictionary as it deduplicates for us automatically Ordering the 
+        # dictionary(explicitly as technically done automaticaly onw) allows ur to reliably iterate over it
         grouped_attributes = OrderedDict()
 
+        # Creates the structure for this dictionary iterating over the attributes to create keys
         for attribute in attributes:
             key = attribute.slug
             if key not in grouped_attributes:
                 grouped_attributes[key] = {
                     'name': attribute.attribute_friendly_name,
                     'slug': attribute.slug,
-                    'values': {}  # keyed by value.slug to dedupe merged values
+                    'values': {}  # Using a Dictionary here deduplicates the values in the list.
                 }
+            # Iterates over the attributes again to add values to the keys 
             for value in attribute.values.all():
                 grouped_attributes[key]['values'][value.slug] = value
 
-        # Convert each group's values dict into a sorted list for the template
+        # Convert each group's values dict into a sorted list for the template to use more easily, as we no longer need to know what the keys are just the values. 
+        # Use 'lambda' as the key argument for sorted as it expects a function. We use it to return attribute_value to sort by. 
         for key in grouped_attributes:
             grouped_attributes[key]['values'] = sorted(
                 grouped_attributes[key]['values'].values(),
