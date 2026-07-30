@@ -53,12 +53,12 @@ def all_products(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-
-            if sortkey == 'category':
-                sortkey = 'category__name'
+            # This is a special case for sorting by product_name as we want to ignore case sensitivity when sorting by name.
+            if sortkey == 'product_name':
+                sortkey = 'lower_product_name'
+                products = products.annotate(
+                    lower_product_name=Lower('product_name')
+                )
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
