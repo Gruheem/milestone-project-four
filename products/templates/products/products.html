@@ -4,11 +4,14 @@
 
 {% block content %}
     <div class="container">
+        <!-- Sort Dropdown -->
         <div class="row">
-            <!-- Sort Dropdown -->
-            <div class="col-12">
+            <div class="col-6">
+                <p>Showing {{ products|length }} Products</p>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
                 <div class="select-wrapper">
-                    <select name="sort-select" id="sort-select">
+                    <select name="sort-select custom-select custom-select-sm" id="sort-select">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>

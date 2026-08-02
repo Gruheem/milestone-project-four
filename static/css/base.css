@@ -19,13 +19,25 @@ body {
     list-style: none;
 }
 
-#attribute-list > li > span {
+#attribute-list > li {
+    > span {
+        font-size: 0.9rem;
     text-transform: uppercase;
+    }
+    > ul > li >div> label > span {
+        font-size: 0.9rem;
+    }
 }
 
-#main-nav > ul >li > a {
+#main-nav > ul >li {
+    > a {
+        font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    }
+    > div > a {
+        font-size: 0.9rem;
+    }
 }
 
 .card-img-wrapper {
