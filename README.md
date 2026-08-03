@@ -234,7 +234,12 @@ n+1 query problem:
 ```  
 Prefetch here drasticaly cuts the number of queries on the database within our iteration nested inside another iteration while dynamically creating our product filters, from our attributes and values.
 
-## Technologies Used
+## Technologies and Approaches Used
+
+### Defensive Programming
+
+Perorming multiple checks to control button presses and inputs when submitting quantity changes for bag and button disabling on quantity select forms:
+
 
 ### APIs
 - URLSearchParams()
@@ -246,6 +251,18 @@ Prefetch here drasticaly cuts the number of queries on the database within our i
 ## Bugs
 
 - The Filter had a bug where by if two attributes had the same value e.g. '15cm' the template logic would tick both boxes. As I could only untick one box at a time before the page reloads as another box with that same value was ticked both would retick and there was no way to remove the filter. This also means that multiple <Li> may also be generated with same ``` id="" ``` and this is not correct html. I chosen to try to keep the attribute data with the value data I can do this using a python dictonary making them key, value pairs. As the DTL '.' look up dosn't work on nested variables e.g. ``` {{ selected_values.{{ attribute.slug }} }} ```, I have crated a small custom filter 
+
+- Problem: Comparing different data types.  
+Trying to delete an item from the bag using this: 
+``` python
+if item_id in bag:
+  bag.pop(item_id)
+```
+was failing silently. I had to convert item_id into a string before i could search the bag contents for it as thi is how these session bag saves it.  
+Fix add to make the data types the same:  
+``` python
+item_id = str(item_id)
+```
 
 
 #### Product Categories/Types/Attributes

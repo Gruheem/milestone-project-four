@@ -10,6 +10,7 @@
         </div>
         <div class="row">
             <div class="col-12">
+                <!-- Bag Table -->
                 {% if bag_items %}
                     <div class="table-responsive">
                         <table class="table table-sm table-borderless">
@@ -34,7 +35,8 @@
                                         <p class="my-0">£{{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form action="" method="post" class="form update-form">
+                                        <!-- Form to adjust quantity of item in bag -->
+                                        <form action="{% url 'adjust_bag' item.item_id %}" method="post" class="form update-form">
                                             {% csrf_token %}
                                             <div class="row">
                                                 <div class="col-12">
@@ -73,6 +75,8 @@
                                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                             </div>
                                         </form>
+                                        <!-- Remove item from bag -->
+                                        <a class="remove-item text-danger float-end" id="remove_{{ item.item_id }}" href="{% url 'remove_from_bag' item.item_id %}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.subtotal }}</p>
@@ -87,6 +91,10 @@
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-danger">
                                             You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
+                                        </p>
+                                    {% else %}
+                                        <p class="mb-1 text-success">
+                                            Good News! You have qualified for free delivery!
                                         </p>
                                     {% endif %}
                                 </td>

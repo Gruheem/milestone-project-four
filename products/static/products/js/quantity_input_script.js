@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Selecting by class name, so that we can use this script on multiple product pages if needed.
-    const incButton = document.querySelectorAll('.increment-qty');
-    const decButton = document.querySelectorAll('.decrement-qty');
-    const qtyInput = document.querySelectorAll('.qty-input');
+    // Returns a list of all the button with the class...
+    const incButtons = document.querySelectorAll('.increment-qty');
+    const decButtons = document.querySelectorAll('.decrement-qty');
 
-    // Checks the current value of the input and disables the increment or decrement buttons if the value is at the min or max.
-    function updateButtonState() {
-        let currentValue = parseInt(qtyInput.value);
+
+    // Checks the value of the input and disables the increment or decrement buttons if the value is at the min or max. Given arguments for reusability
+    function updateButtonState(input, incButton, decButton) {
+        let currentValue = parseInt(input.value);
         if (currentValue <= 1) {
             decButton.disabled = true;
         } else {
@@ -20,18 +20,60 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Increment Button function
-    incButton.addEventListener('click', function() {
-        let currentValue = parseInt(qtyInput.value);
-        qtyInput.value = currentValue + 1;
-        updateButtonState();
+    // Iterates through the increment button list
+    incButtons.forEach(button => {
+        
+        button.addEventListener('click', function() {
+            // Define our inputs to alter and feed to the updateButtonState function
+            const item_id = this.dataset.item_id;
+            const input = document.getElementById(`id_qty_${item_id}`);
+            const decButton = document.getElementById(`decrement-qty_${item_id}`);
+
+            // Get the current value of the input
+            let currentValue = parseInt(input.value);
+
+            // Defensive Programming incase the check in the updateButtonState function fails
+            if (currentValue < 99) {
+                // Increment the value of the input by 1
+                input.value = currentValue + 1;
+            }
+
+            updateButtonState(input, this, decButton);
+
+            this.closest('.update-form').submit();
+        });
+    });
+    
+
+    // Iterates through the decrement button list
+    decButtons.forEach(button => {
+        
+        button.addEventListener('click', function() {
+            // Define our inputs to alter and feed to the updateButtonState function
+            const item_id = this.dataset.item_id;
+            const input = document.getElementById(`id_qty_${item_id}`);
+            const incButton = document.getElementById(`increment-qty_${item_id}`);
+
+            // Get the current value of the input
+            let currentValue = parseInt(input.value);
+
+            // Defensive Programming incase the check in the updateButtonState function fails
+            if (currentValue > 1) {
+                // Decrement the value of the input by 1
+                input.value = currentValue - 1;
+            }
+
+            updateButtonState(input, incButton, this);
+
+            this.closest('.update-form').submit();
+        });
     });
 
-    // Decrement Button function
-    decButton.addEventListener('click', function() {
-        let currentValue = parseInt(qtyInput.value);
-        qtyInput.value = currentValue - 1;
-        updateButtonState();
+    // Iterates through all the quantity inputs to set their state on page load
+    document.querySelectorAll('.qty-input').forEach(input => {
+        const item_id = input.dataset.item_id;
+        const incButton = document.getElementById(`increment-qty_${item_id}`);
+        const decButton = document.getElementById(`decrement-qty_${item_id}`);
+        updateButtonState(input, incButton, decButton);
     });
-    updateButtonState();
-})
+});
