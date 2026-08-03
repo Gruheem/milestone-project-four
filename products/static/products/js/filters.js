@@ -35,20 +35,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+    // Sort selctor Dropdown Listener
     document.getElementById('sort-select').addEventListener('change', function() {
 
+        // Creates a blank URL object
         const currentUrl = new URL(window.location);
         const selectedVal = this.value;
 
         if (selectedVal !== "reset") {
-
+            
+            // Split the selected value into sort and direction. Accounting for some names having underscores in them
             const parts = selectedVal.split("_");
             const direction = parts.pop();
             const sort = parts.join("_");
 
+            // Set the sort and direction parameters in the URL object
             currentUrl.searchParams.set("sort", sort);
             currentUrl.searchParams.set("direction", direction);
 
+            // replaces the current url with the URL object
             window.location.replace(currentUrl);
         } else {
             currentUrl.searchParams.delete("sort");

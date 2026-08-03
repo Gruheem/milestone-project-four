@@ -68,3 +68,28 @@ body {
     background: black;
     color: white;
 }
+
+/* Remove Focus Outline for Quantity Input */
+.qty-input {
+    pointer-events: none;
+}
+
+.btn-black:disabled {
+    background-color: #555 !important;
+    border-color: #555 !important;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+.btn-black:active {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+.btn-black:focus {
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    box-shadow: none;
+}

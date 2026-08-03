@@ -59,14 +59,14 @@
                 </form>
             </div>
             <!-- Main Logo -->
-            <div class="col-12 col-lg-4 text-center my-3">
+            <div class="col-12 col-lg-4 text-center mt-3">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link m-auto">
                     <h1 class="logo-font mb-0">Reason Interiors</h1>
                 </a>
             </div>
             <!-- Top Right Icons -->
             <div class="col-12 col-lg-4 my-auto">
-                <ul class="list-inline me-2 d-flex justify-content-end ">
+                <ul class="list-inline mb-0 d-flex justify-content-end ">
                     <li class="list-inline-item p-2">
                         <a href="#" class="nav-link">
                             <div>
@@ -76,8 +76,15 @@
                     </li>
                     <li class="list-inline-item p-2">
                         <a href="{% url 'view_bag' %}" class="nav-link">
-                            <div>
-                                <i class="fas fa-bag-shopping fa-lg"></i>
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <i class="fas fa-bag-shopping fa-lg my-2 pt-1"></i>
+                                <p class="mt-2">
+                                    {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    £0.00
+                                    {% endif %}
+                                </p>
                             </div>
                         </a>
                     </li>

@@ -45,14 +45,17 @@
                             </button>
 
                             <input
-                                class="form-control qty_input"
+                                class="form-control qty-input"
                                 type="number"
                                 name="quantity"
                                 value="1"
                                 min="1"
                                 max="99"
+                                readonly
+                                tabindex="-1"
                                 data-item_id="{{ product.id }}"
-                                id="id_qty_{{ product.id }}">
+                                id="id_qty_{{ product.id }}"
+                                >
 
                             <button
                                 class="btn btn-black rounded-0 increment-qty"
@@ -75,4 +78,9 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+        <script src="{% static 'products/js/quantity_input_script.js' %}"></script>
 {% endblock %}
