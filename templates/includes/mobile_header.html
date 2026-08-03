@@ -5,24 +5,24 @@
 
 <ul class="list-inline me-2 d-flex justify-content-end d-lg-none">
     <li class="list-inline-item p-2">
-    <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-search fa-lg"></i></div>
-        </div>
-    </a>
-    <div class="dropdown-menu w-100 border-0" aria-labelledby="mobile-search">
-        <form method="get" action="{% url 'products' %}" class="w-100 px-3">
-            <div class="input-group">
-                <input class="form-control border-black rounded-0" type="text" name="q" placeholder=" Search Our Products">
-                <button class="btn" type="submit">
-                    <span>
-                        <i class="fas fa-search fa-lg"></i>
-                    </span>
-                </button>
+        <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-center">
+                <div><i class="fas fa-search fa-lg"></i></div>
             </div>
-        </form>
-    </div>
-</li>
+        </a>
+        <div class="dropdown-menu w-100 border-0 rounded-0" aria-labelledby="mobile-search">
+            <form method="get" action="{% url 'products' %}" class="w-100 px-3">
+                <div class="input-group">
+                    <input class="form-control border-black rounded-0" type="text" name="q" placeholder=" Search Our Products">
+                    <button class="btn" type="submit">
+                        <span>
+                            <i class="fas fa-search fa-lg"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </li>
     <li class="list-inline-item p-2">
         <a href="#" class="nav-link">
             <div>

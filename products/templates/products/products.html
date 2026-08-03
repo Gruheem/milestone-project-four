@@ -29,28 +29,40 @@
                 <ul id="attribute-list" class="unstyled">
                     {% for attribute in attributes %}
                         <li>
-                            <span>{{ attribute.name }}</span>
-                            <ul class="unstyled">
-                                {% for value in attribute.values %}
-                                    <li>
-                                        <div class="form-check">
-                                            <label for="{{ attribute.slug }}-{{ value.slug }}" class="d-flex justify-content-between form-check-label">
-                                                <span>{{ value.attribute_value }}</span>
-                                                <input
-                                                    class="form-check-input"
-                                                    type="checkbox"
-                                                    id="{{ attribute.slug }}-{{ value.slug }}"
-                                                    value="{{ value.slug }}"
-                                                    name="{{ attribute.slug }}"
-                                                    {% if value.slug in selected_values|get_item:attribute.slug %}
-                                                        checked
-                                                    {% endif %}
-                                                >
-                                            </label>
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                            </ul>
+                            <a
+                                class="text-decoration-none text-reset"
+                                data-bs-toggle="collapse"
+                                href="#attribute-{{ attribute.id }}"
+                                role="button"
+                                aria-expanded="{% if selected_values|get_item:attribute.slug %}true{% else %}false{% endif %}"
+                                aria-controls="attribute-{{ attribute.id }}"
+                            >
+                                <span>{{ attribute.name }}</span>
+                            </a>
+
+                            <div class="collapse {% if selected_values|get_item:attribute.slug %}show{% endif %}" id="attribute-{{ attribute.id }}">
+                                <ul class="unstyled">
+                                    {% for value in attribute.values %}
+                                        <li>
+                                            <div class="form-check">
+                                                <label for="{{ attribute.slug }}-{{ value.slug }}" class="d-flex justify-content-between form-check-label">
+                                                    <span>{{ value.attribute_value }}</span>
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        id="{{ attribute.slug }}-{{ value.slug }}"
+                                                        value="{{ value.slug }}"
+                                                        name="{{ attribute.slug }}"
+                                                        {% if value.slug in selected_values|get_item:attribute.slug %}
+                                                            checked
+                                                        {% endif %}
+                                                    >
+                                                </label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>

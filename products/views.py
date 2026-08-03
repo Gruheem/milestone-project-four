@@ -134,6 +134,7 @@ def all_products(request):
             key = attribute.slug
             if key not in grouped_attributes:
                 grouped_attributes[key] = {
+                    'id': attribute.id,
                     'name': attribute.attribute_friendly_name,
                     'slug': attribute.slug,
                     'values': {}  # Using a Dictionary here deduplicates the values in the list.
