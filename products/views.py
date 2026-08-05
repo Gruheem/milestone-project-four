@@ -47,6 +47,7 @@ def all_products(request):
     query = None
     sort = None
     direction = None
+    grouped_attributes = OrderedDict()
 
     if request.GET:
         # Product Sorting
@@ -127,7 +128,7 @@ def all_products(request):
 
         # Creates an empty ordered dictionary. We use a Dictionary as it deduplicates for us automatically Ordering the 
         # dictionary(explicitly as technically done automaticaly onw) allows ur to reliably iterate over it
-        grouped_attributes = OrderedDict()
+        # grouped_attributes = OrderedDict()
 
         # Creates the structure for this dictionary iterating over the attributes to create keys
         for attribute in attributes:

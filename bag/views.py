@@ -1,5 +1,8 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
+from django.contrib import messages
+
+from products.models import Product
 
 # Create your views here.
 def view_bag(request):
@@ -11,15 +14,21 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     ''' Add a quantity of the specified product to the shopping bag '''
 
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
+    # Bug fix for item_id being stored as a string in the session bag dictionary, while our item_id from the request is an integer. 
+    # So 'if item_id in bag:' was always resolving as false and skippin to the 'else:' block.
+    item_id = str(item_id)
 
     if item_id in bag:
         bag[item_id] += quantity
+        messages.success(request, f"Updated {product.product_name} quantity to {bag[item_id]}.")
     else:
         bag[item_id] = quantity
+        messages.success(request, f"{product.product_name} has been added to your bag.")
 
     request.session['bag'] = bag
 
@@ -31,11 +40,14 @@ def adjust_bag(request, item_id):
     ''' Adjust the quantity of the specified product in the shopping bag '''
 
     quantity = int(request.POST.get('quantity'))
+    product = get_object_or_404(Product, pk=item_id)
 
     bag = request.session.get('bag', {})
 
     if quantity >= 1:
         bag[item_id] = quantity
+        messages.success(request, f"Updated {product.product_name} quantity to {bag[item_id]}.")
+
     
 
     request.session['bag'] = bag
@@ -45,6 +57,7 @@ def adjust_bag(request, item_id):
 def remove_from_bag(request, item_id):
     ''' Remove the specified product from the shopping bag '''
 
+    product = get_object_or_404(Product, pk=item_id)
     bag = request.session.get('bag', {})
 
     # Convert item_id into a string to match the data stored in the sessions bag dictionary
@@ -52,6 +65,10 @@ def remove_from_bag(request, item_id):
 
     if item_id in bag:
         bag.pop(item_id)
+        messages.success(request, f"Removed {product.product_name} from your bag.")
+
+
+
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))  

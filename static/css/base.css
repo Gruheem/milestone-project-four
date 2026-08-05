@@ -20,7 +20,7 @@ body {
 }
 
 #attribute-list > li {
-    > span {
+    > a > span {
         font-size: 0.9rem;
     text-transform: uppercase;
     }
@@ -92,4 +92,20 @@ body {
     border-color: #000;
     color: white;
     box-shadow: none;
+}
+
+/* Toasts */
+.message-container {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    z-index: 9999;
+}
+
+.toast-topper {
+    height: 0.3rem;
+}
+
+.custom-toast {
+    overflow: visible;
 }

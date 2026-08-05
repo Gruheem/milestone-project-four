@@ -264,6 +264,8 @@ Fix add to make the data types the same:
 item_id = str(item_id)
 ```
 
+- bag/views.py line 23 bug and fix
+
 
 #### Product Categories/Types/Attributes
 - Home Fragrence & Candles
