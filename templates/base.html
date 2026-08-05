@@ -44,9 +44,9 @@
 </head>
   <body>
     <header class="container-fluid fixed-top bg-white">
-        <div class="row d-none d-lg-flex">
+        <div class="row d-none d-md-flex mt-4 mb-3">
             <!-- Search Bar -->
-            <div class="col-12 col-lg-4 my-auto">
+            <div class="col-12 col-md-4 my-auto">
                 <form method="get" action="{% url 'products' %}" class="w-75">
                     <div class="input-group">
                         <input class="form-control border-black rounded-0" type="text" name="q" placeholder=" Search Our Products">
@@ -59,33 +59,30 @@
                 </form>
             </div>
             <!-- Main Logo -->
-            <div class="col-12 col-lg-4 text-center mt-3">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link m-auto">
-                    <h1 class="logo-font mb-0">Reason Interiors</h1>
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h1 class="logo-font mb-0 text-nowrap">Reason Interiors</h1>
                 </a>
             </div>
             <!-- Top Right Icons -->
-            <div class="col-12 col-lg-4 my-auto">
-                <ul class="list-inline mb-0 d-flex justify-content-end ">
-                    <li class="list-inline-item p-2">
-                        <a href="#" class="nav-link">
-                            <div>
-                                <i class="fas fa-user fa-lg"></i>
-                            </div>
+            <div class="col-12 col-md-4">
+                <ul class="list-inline d-flex justify-content-end align-items-center mb-0">
+                    <li class="list-inline-item">
+                        <a href="#" class="nav-link d-flex flex-column align-items-center px-3">
+                            <i class="fas fa-user fa-lg mt-4"></i>
+                            <span class="small my-3">Account</span>
                         </a>
                     </li>
-                    <li class="list-inline-item p-2">
-                        <a href="{% url 'view_bag' %}" class="nav-link">
-                            <div class="d-flex flex-column justify-content-center align-items-center">
-                                <i class="fas fa-bag-shopping fa-lg my-2 pt-1"></i>
-                                <p class="mt-2">
-                                    {% if grand_total %}
-                                    £{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                    £0.00
-                                    {% endif %}
-                                </p>
-                            </div>
+                    <li class="list-inline-item">
+                        <a href="{% url 'view_bag' %}" class="nav-link d-flex flex-column align-items-center px-3">
+                            <i class="fas fa-bag-shopping fa-lg mt-4"></i>
+                            <span class="small my-3">
+                                {% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </span>
                         </a>
                     </li>
                 </ul>
@@ -93,9 +90,9 @@
         </div>
         <!-- Main Nav -->
         <div class="row">
-            <nav class="navbar navbar-expand-lg w-100">
+            <nav class="navbar navbar-expand-md w-100 d-flex align-items-center">
                 <button 
-                    class="navbar-toggler border-0 text-black" 
+                    class="navbar-toggler border-0 text-black nav-icon" 
                     type="button" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#main-nav" 
@@ -108,9 +105,11 @@
                 {% include 'includes/main_nav.html' %}
             </nav>
         </div>
+
+        <!-- Delivery Banner -->
         <div id="delivery-banner" class="row text-center">
             <div class="col-12 bg-black text-white">
-                <h4 class="mb-0 logo-font pt-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
+                <h4 class="mb-0 logo-font py-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
             </div>
         </div>
     </header>

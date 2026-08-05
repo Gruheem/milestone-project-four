@@ -2,6 +2,7 @@ body {
     margin-top: 168px;
     font-family: "Open Sans", sans-serif;
 }
+/* Header and Nav Styling */
 
 .logo-font {
     font-family: 'Cinzel', serif;
@@ -40,6 +41,17 @@ body {
     }
 }
 
+.nav-icon{
+    font-size: 1.25rem;
+}
+
+#delivery-banner h4 {
+    font-size: 1.3rem;
+    transform: translateY(1px);
+}
+
+
+/* Products Styling */
 .card-img-wrapper {
     aspect-ratio: 3 / 4;
     overflow: hidden;
@@ -103,9 +115,83 @@ body {
 }
 
 .toast-topper {
-    height: 0.3rem;
+    height: 0.15rem;
 }
 
 .custom-toast {
     overflow: visible;
+}
+
+/* Arrow for toast */
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    max-height: 17rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Media Queries */
+@media (max-width: 540px) {
+    h1.logo-font {
+        font-size: 1.35rem;
+    }
+
+    .nav-icon {
+        font-size: 1rem;
+    }
+
+    #mobile-icons > .buncher {
+        padding-right: 0rem !important;
+    }
+
+    #delivery-banner h4 {
+        font-size: 0.9rem;
+    }
+
+
 }
