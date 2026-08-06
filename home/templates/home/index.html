@@ -1,8 +1,137 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
-    <h1 class="display-4 text-center">Home Page Content</h1>
-    <p>This is some writing to populate the area</p>
+    <div class="container"> 
+        <!-- Hero Section -->
+        <div class="row my-3">
+            <div class="col-12 hero-container my-3">
+                <img src="{% static 'images/noimage.webp' %}" alt="Hero Image" class="hero-image">
+                <span class="hero-text">A Touch of Vintage for Your Home</span>
+            </div>
+        </div>
+        <!-- Who we are Section -->
+        <div class="row my-3">
+            <div class="col-12">
+                <h2 class="text-center mt-4">Who we are...</h2>
+            </div>
+            <div class="col-12">
+                <p class="text-center my-3">
+                    Reason Interiors is an independent, family-run shop that has been part of the 
+                    Gloucester Road community since 2010. For over 15 years, we've been sharing our 
+                    love of thoughtfully chosen homeware, vintage finds and unique gifts, right in the 
+                    heart of one of the UK's best-known independent shopping streets.
+                </p>
+                <p class="text-center my-3">
+                    Everything we stock is chosen with care, from pre-loved pieces given a new lease of 
+                    life to beautiful new home accessories. Whether you're looking for something special 
+                    for your own home or the perfect gift, we're passionate about helping you discover something 
+                    you'll love.
+                </p>
+            </div>
+        </div>
+        <!-- Categories Section -->
+        <div class="row my-3">
+            <div class="col-12">
+                <h2 class="text-center mb-4 d-block">Shop by Category</h2>
+            </div>
+            <div class="col-12 d-flex flex-wrap justify-content-center">
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Candles & Home Fragrance" class="tile-image">
+                        <span class="tile-span text-black">Candles & Home Fragrances</span>
+                    </a>
+                </div>
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Kitchen & Dining" class="tile-image">
+                        <span class="tile-span text-black">Kitchen & Dining</span>
+                    </a>
+                </div>
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Cards & Gift Wrap" class="tile-image">
+                        <span class="tile-span text-black">Cards & Gift Wrap</span>
+                    </a>
+                </div>
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Home Decor" class="tile-image">
+                        <span class="tile-span text-black">Home Decor</span>
+                    </a>
+                </div>
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Soft Furnishings" class="tile-image">
+                        <span class="tile-span text-black">Soft Furnishings</span>
+                    </a>
+                </div>
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Perfume and Body" class="tile-image">
+                        <span class="tile-span text-black">Perfume and Body</span>
+                    </a>
+                </div>
+                <div class="tile m-3">
+                    <a href="#">
+                        <img src="{% static 'images/noimage.webp' %}" alt="Stationary" class="tile-image">
+                        <span class="tile-span text-black">Stationary</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimony -->
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-4">What Our Customers Say</h2>
+            </div>
+            <div class="col-12 d-flex flex-column align-items-center">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="true">
+                    
+                    <div class="carousel-inner text-center">
+                        <div class="carousel-item active">
+                            <p class="fst-italic">
+                                "A beautiful shop with so many unique finds. I always leave with something special."
+                            </p>
+                            <p class="fw-bold">— Sarah</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p class="fst-italic">
+                                "The staff are always helpful and the selection changes constantly."
+                            </p>
+                            <p class="fw-bold">— James</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p class="fst-italic">
+                                "I love the variety of products and the friendly atmosphere."
+                            </p>
+                            <p class="fw-bold">— Emily</p>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    <div class="carousel-indicators position-static">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
