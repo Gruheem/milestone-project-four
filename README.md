@@ -52,10 +52,14 @@ Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attrib
 🟡 SHOULD HAVE
 🔵 COULD HAVE
 
+*To Do*
+- Make category dropdowns category product selecion buttons
+- Style product filters
+
 (from casual browser)  
-🟢 As a visitor, I want to browse products without needing to create an account so that I can explore the site freely.  
-🟢 As a visitor, I want clear navigation menus and categories so that I can easily find products of interest.  
-🟢 As a visitor, I want search and filtering tools so that I can refine product listings easily.  
+🟢 [x] As a visitor, I want to browse products without needing to create an account so that I can explore the site freely.  
+🟢 [x] As a visitor, I want clear navigation menus and categories so that I can easily find products of interest.  
+🟢 [x] As a visitor, I want search and filtering tools so that I can refine product listings easily.  
 🟡 As a visitor, I want to see featured and best-selling products so that I can quickly understand what the store offers.  
 🟢 As a visitor, I want the site to work well on mobile and desktop so that I can browse comfortably on any device.  
 🟢 As a visitor, I want product pages to load quickly and display clear information so that I can make informed browsing decisions.  
@@ -63,7 +67,7 @@ Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attrib
 (from regular customer)  
 🟡 As a customer, I want an “Order History” section so that I can view past purchases and track what I have already bought.  
 🟡 As a customer, I want the checkout process to be fast and pre-filled with my saved details so that I can complete purchases efficiently.  
-🟢 As a customer, I want my basket updates to appear instantly so that I always know what I am about to purchase.  
+🟢 [x] As a customer, I want my basket updates to appear instantly so that I always know what I am about to purchase.  
 
 (from gift giver)   
 🟡 As a customer, I want to browse products by occasion (e.g. birthdays, anniversaries) so that I can quickly find suitable gifts.    
@@ -83,22 +87,22 @@ Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attrib
 🟢 As a user, I want role-based access (customer/admin) so that only authorised users can manage products and orders.  
 
 (checkout and basket)  
-🟢 As a user, I want to add and remove items from my basket so that I can control my purchase before checkout.  
-🟢 As a user, I want cart updates to update immediately in the UI so that I always see accurate totals.  
+🟢 [x] As a user, I want to add and remove items from my basket so that I can control my purchase before checkout.  
+🟢 [x] As a user, I want cart updates to update immediately in the UI so that I always see accurate totals.  
 🟡 As a user, I want a smooth checkout process so that I can complete purchases quickly.  
 🟢 As a user, I want to pay securely using an integrated payment system so that I can trust the transaction.  
 🟢 As a user, I want an order confirmation page so that I know my purchase was successful.  
 
 (admin)  
-🟢 As an admin, I want to create, update, and delete products so that I can manage the store catalogue.  
-🟢 As an admin, I want to manage stock levels so that availability is always accurate.  
+🟢 [x] As an admin, I want to create, update, and delete products so that I can manage the store catalogue.  
+🟢 [x] As an admin, I want to manage stock levels so that availability is always accurate.  
 🟢 As an admin, I want to view and manage customer orders so that I can fulfil purchases efficiently.  
-🟢 As an admin, I want to categorise products so that users can navigate the store easily.  
+🟢 [x] As an admin, I want to categorise products so that users can navigate the store easily.  
 
 (general)  
 🟢 As a user, I want the interface to be intuitive so that I can navigate without instructions.  
 🟢 As a user, I want consistent layout and design across pages so that the experience feels professional.  
-🟡 As a user, I want immediate feedback when I perform actions (add to cart, update quantity, delete item) so that I know the system has responded.  
+🟡 [x] As a user, I want immediate feedback when I perform actions (add to cart, update quantity, delete item) so that I know the system has responded.  
 🟡 As a user, I want error messages that are clear and helpful so that I can fix problems easily.  
 🟢 As a user, I want accessibility support so that I can use the site regardless of ability.  
 

@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'products', # Products app
     'bag', # Bag apps
     'checkout', # Checkout app
+
+    'crispy_forms',  # Django Crispy Forms
+    'crispy_bootstrap5',  # Django Crispy Forms Bootstrap 5
 ]
 
 MIDDLEWARE = [
@@ -60,6 +63,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'reason_interiors.urls'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -76,6 +82,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents', # For the bag_contents context processor to be available in all templates
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

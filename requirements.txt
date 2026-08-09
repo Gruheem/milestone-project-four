@@ -1,5 +1,16 @@
 asgiref==3.11.1
+click==8.4.2
+crispy-bootstrap5==2026.3
+cssbeautifier==2.0.3
 Django==5.2.16
 django-allauth==65.18.0
+django-crispy-forms==2.7
+djlint==1.43.1
+EditorConfig==0.17.1
+jsbeautifier==2.0.3
+json5==0.15.0
+pathspec==1.1.1
 pillow==12.3.0
+PyYAML==6.0.3
+regex==2026.7.19
 sqlparse==0.5.5
