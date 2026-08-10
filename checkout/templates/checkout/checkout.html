@@ -54,7 +54,7 @@
                     </div>
                 {% endfor %}
                 </div>
-                <div class="row text-black text-end py-5">
+                <div class="row text-end py-5">
                     <div class="col-7">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
@@ -72,13 +72,13 @@
                 <p class="text-muted py-2 mb-0">Please fill out the form below to complete your order:</p>
                 <form action="{% url 'checkout' %}" method="post" id="payment-form">
                     {% csrf_token %}
-                    <fieldset class="checkout-fieldset">
-                        <legend class="fieldset-label text-black w-auto pt-3 pb-2 px-1">Details</legend>
+                    <fieldset class="checkout-fieldset" id="details-fieldset">
+                        <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="checkout-fieldset">
-                        <legend class="fieldset-label text-black w-auto pt-3 pb-2 px-1">Delivery</legend>
+                    <fieldset class="checkout-fieldset" id="delivery-fieldset">
+                        <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
@@ -98,35 +98,32 @@
 							{% endif %}
 						</div>
                     </fieldset>
-                    <fieldset class="checkout-fieldset">
-                        <legend class="fieldset-label text-black w-auto pt-3 pb-2 px-1">Payment</legend>
-                        <!-- A Stripe card element will go here -->
-                        <div class="mb-3" id="card-element"></div>
+                    <fieldset class="checkout-fieldset" id="checkout-fieldset">
+                        <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Payment</legend>
+                        <div id="checkout">
+                            <!-- Checkout will insert the payment form here -->
+                        </div>
                         <!-- Used to display form errors -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <div class="mb-3 text-danger" id="checkout-error" role="alert"></div>
                     </fieldset>
-                    <div class="submit-button text-end">                    
-						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
-							<span class="icon">
-								<i class="fas fa-chevron-left"></i>
-							</span>
-							<span class="font-weight-bold">Adjust Bag</span>
-						</a>
-						<button id="submit-button" class="btn btn-black rounded-0">
-							<span class="font-weight-bold">Complete Order</span>
-							<span class="icon">
-								<i class="fas fa-lock"></i>
-							</span>
-						</button>
-						<p class="small text-danger my-1">
-							<span class="icon">
-								<i class="fas fa-exclamation-circle"></i>
-							</span>
-							<span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
-						</p>
-					</div>
+                    <div class="submit-button text-end">
+                        <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">Adjust Bag</a>
+                        <button type="button" id="continue-button" class="btn btn-black rounded-0">Continue to Payment</button>
+                        <button type="submit" id="pay-button" class="btn btn-black rounded-0">
+                            Pay £{{ grand_total|floatformat:2 }}
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postload_js %} 
+    {{ block.super}}
+    <script>
+        const checkoutSessionUrl = "{% url 'create_checkout_session' %}";
+        const stripe = Stripe("{{ stripe_public_key }}");
+    </script>
+    <script src="{% static 'checkout/js/checkout.js' %}"></script>
 {% endblock %}

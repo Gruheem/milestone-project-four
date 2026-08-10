@@ -1,7 +1,21 @@
+
+:root {
+    --bg-light: #fff;
+    --bg-mid: #F7F7F7;
+    --bg-dark: #353d48;
+    --text-colour: #353d48;
+
+}
+
 body {
     font-family: "Open Sans", sans-serif;
+    color: var(--text-colour);
 }
 /* Header and Nav Styling */
+
+.header-container {
+    background-color: var(--bg-mid);
+}
 
 .logo-font {
     font-family: 'Cinzel', serif;
@@ -44,11 +58,14 @@ body {
     font-size: 1.25rem;
 }
 
+#delivery-banner {
+    background-color: var(--bg-dark);
+}
+
 #delivery-banner h4 {
     font-size: 1.3rem;
     transform: translateY(1px);
 }
-
 
 /* Products Styling */
 .card-img-wrapper {

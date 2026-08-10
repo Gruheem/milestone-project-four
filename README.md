@@ -240,9 +240,23 @@ Prefetch here drasticaly cuts the number of queries on the database within our i
 
 ## Technologies and Approaches Used
 
+EAV Model  - Entity Attribute Value Style Schema
+For creating dynamic filters and product listings.
+
+Dispatch Table Pattern - Verify - Route - Handle  
+Approach used for recieving webhooks.
+
+
+
 ### Defensive Programming
 
 Perorming multiple checks to control button presses and inputs when submitting quantity changes for bag and button disabling on quantity select forms:
+
+form validation before passing it to stripe checkout/views.py 
+
+checking if there is a bag before continuing with chekcout and throing an error if not.
+
+creating final price to be charged from the bag_contents and product models, not reallying on the wat the users browser is telling us.
 
 
 ### APIs
@@ -269,6 +283,16 @@ item_id = str(item_id)
 ```
 
 - bag/views.py line 23 bug and fix
+
+## Resources
+
+Stripe:
+https://docs.stripe.com/payments/accept-a-payment?payment-ui=checkout&ui=embedded-page&lang=python  
+https://docs.stripe.com/api  
+
+
+The checkout flow: capture info using our checkout form - validate it, to makesure its trustworthy before handing it to stripe - use it to start a checkout session, this renders the stripe payment widget - payment is made - meta data from the webhook we recieve back creates our order, this is most reliable way of knowing a successfulll payment has been made hearing from stripe rather than the users web browser - return to success/confirmation page.  
+
 
 
 #### Product Categories/Types/Attributes

@@ -36,14 +36,16 @@
          <script src="https://kit.fontawesome.com/818fed39bf.js" crossorigin="anonymous"></script>
         <!-- Bootstrap js -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    {% endblock %}
+        <!-- Stripe JS-->
+        <script src="https://js.stripe.com/clover/stripe.js"></script>
+        {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
 </head>
   <body>
-    <header class="container-fluid fixed-top bg-white">
+    <header class="container-fluid fixed-top header-container">
         <div class="row d-none d-md-flex mt-4 mb-3">
             <!-- Search Bar -->
             <div class="col-12 col-md-4 my-auto">
@@ -92,7 +94,7 @@
         <div class="row">
             <nav class="navbar navbar-expand-md w-100 d-flex align-items-center">
                 <button 
-                    class="navbar-toggler border-0 text-black nav-icon" 
+                    class="navbar-toggler border-0 nav-icon" 
                     type="button" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#main-nav" 
@@ -108,7 +110,7 @@
 
         <!-- Delivery Banner -->
         <div id="delivery-banner" class="row text-center">
-            <div class="col-12 bg-black text-white">
+            <div class="col-12 text-white">
                 <h4 class="mb-0 logo-font py-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
             </div>
         </div>
