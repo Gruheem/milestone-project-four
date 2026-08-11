@@ -246,6 +246,9 @@ For creating dynamic filters and product listings.
 Dispatch Table Pattern - Verify - Route - Handle  
 Approach used for recieving webhooks.
 
+### Stripe/Checkout Flow
+
+Used version Clover for a balance of being new and not be the newest to have more support.  Deviating from the Boutique Ado Project i chose to use Stripes newer checkout sessions feature. Imbedding the checkout session so it uses Stripes payment element. This makes manualy handling payment intents and mounting unnecassery and is recommended by Stripes documentation. Our order is then created by the webhook handler on recipt of the checkout.session.success webhook. 
 
 
 ### Defensive Programming
