@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,8 +11,21 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Checkout Success</h1>
-        <p>Thank you for your purchase!</p>
-    </div>
+<div class="container">
+    <h1>Payment successful!</h1>
+    <p>Confirming your order...</p>
+    <input
+        type="hidden"
+        id="payment-intent"
+        value="{{ payment_intent }}"
+    >
+</div>
+{% endblock %}
+
+{% block postload_js %}
+    <script>
+        const checkOrderUrl = "{% url 'check_order' %}";
+        const successUrl = "{% url 'checkout_return' %}";
+    </script>
+    <script src="{% static 'checkout/js/order_check.js' %}"></script>
 {% endblock %}

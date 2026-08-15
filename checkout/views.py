@@ -2,7 +2,7 @@
 import stripe
 import json
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse
@@ -10,6 +10,7 @@ from django.views.decorators.http import require_POST
 
 from .forms import OrderForm
 from bag.contexts import bag_contents
+from .models import Order
 
 stripe_client = stripe.StripeClient(settings.STRIPE_SECRET_KEY)
 
@@ -100,6 +101,61 @@ def create_checkout_session(request):
 
     return JsonResponse({'clientSecret': session.client_secret})
 
-def checkout_return(request):
 
-    return render(request, 'checkout/checkout_return.html')
+def checkout_return(request):
+    '''
+    A view to handle the return from stripe after a successful payment for a summary.
+    '''
+    # Retrieve the session_id from the query parameters and use it to retrieve the session object from Stripe
+    session_id = request.GET.get('session_id')
+    session = stripe_client.v1.checkout.sessions.retrieve(session_id)
+
+    if session.status != 'complete':
+        messages.error(
+            request,
+            'Your payment did not go through, please try again.'
+        )
+        return redirect(reverse('checkout'))
+
+    try:
+        order = Order.objects.get(
+            stripe_pid=session.payment_intent
+        )
+    except Order.DoesNotExist:
+        return render(
+            request,
+            'checkout/checkout_return.html',
+            {'payment_intent': session.payment_intent}
+        )
+
+    # Delete the bag as it has been fulfilled
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    return render(
+        request,
+        'checkout/checkout_success.html',
+        {'order': order}
+    )
+
+
+def check_order(request):
+    payment_intent = request.GET.get('payment_intent')
+
+    if not payment_intent:
+        return JsonResponse(
+            {'error': 'Missing payment intent'},
+            status=400
+        )
+
+    try:
+        order = Order.objects.get(
+            stripe_pid=payment_intent
+        )
+    except Order.DoesNotExist:
+        return JsonResponse({'ready': False})
+
+    return JsonResponse({
+        'ready': True,
+        'order_number': order.order_number,
+    })

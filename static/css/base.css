@@ -1,15 +1,22 @@
-
 :root {
     --bg-light: #fff;
-    --bg-mid: #F7F7F7;
+    --bg-mid: #f9f9f9;
     --bg-dark: #353d48;
-    --text-colour: #353d48;
+    --text-colour: #292D38;
+    --btn-inactive: #D0D0DC;
 
+}
+.custom-border {
+    box-shadow: 
+        0 0 0 1px var(--bg-dark), 
+        0 0 0 2px var(--bg-mid), 
+        0 0 0 4px var(--bg-dark);
 }
 
 body {
     font-family: "Open Sans", sans-serif;
     color: var(--text-colour);
+    background-color: var(--bg-mid);
 }
 /* Header and Nav Styling */
 
@@ -26,7 +33,7 @@ body {
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 1px solid var(--bg-dark) !important;
 }
 
 .unstyled {
@@ -93,8 +100,8 @@ body {
 }
 
 .btn-black {
-    background: black;
-    color: white;
+    background: var(--bg-dark);
+    color: var(--bg-mid);
 }
 
 /* Remove Focus Outline for Quantity Input */
@@ -103,22 +110,22 @@ body {
 }
 
 .btn-black:disabled {
-    background-color: #555 !important;
-    border-color: #555 !important;
-    color: white !important;
+    background-color: var(--btn-inactive) !important;
+    border-color: var(--btn-inactive) !important;
+    color: var(--bg-mid) !important;
     opacity: 1 !important;
 }
 
 .btn-black:active {
-    background-color: white;
-    border-color: white;
-    color: black;
+    background-color: var(--bg-mid);
+    border-color: var(--bg-mid);
+    color: var(--text-colour);
 }
 
 .btn-black:focus {
-    background-color: #000;
-    border-color: #000;
-    color: white;
+    background-color: var(--bg-dark);
+    border-color: var(--bg-dark);
+    color: var(--text-colour);
     box-shadow: none;
 }
 
@@ -146,7 +153,7 @@ body {
     height: 0; 
     border-left: 4px solid transparent;
     border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid var(--bg-dark);
     position: absolute;
     top: -10px;
     right: 36px;
@@ -287,4 +294,20 @@ body {
     outline-offset: 2px;
 }
 
+table, th, td {
+  color: inherit !important;
+}
 
+.border-blur {
+    box-shadow: 0 0 15px 10px rgba(255, 255, 0, 1);
+}
+
+#navigation {
+    position: relative;
+    z-index: 1;
+}
+
+#delivery-banner {
+    position: relative;
+    z-index: 2;
+}

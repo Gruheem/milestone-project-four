@@ -248,7 +248,7 @@ Approach used for recieving webhooks.
 
 ### Stripe/Checkout Flow
 
-Used version Clover for a balance of being new and not be the newest to have more support.  Deviating from the Boutique Ado Project i chose to use Stripes newer checkout sessions feature. Imbedding the checkout session so it uses Stripes payment element. This makes manualy handling payment intents and mounting unnecassery and is recommended by Stripes documentation. Our order is then created by the webhook handler on recipt of the checkout.session.success webhook. 
+Used version Clover for a balance of being new and not be the newest to have more support.  Deviating from the Boutique Ado Project i chose to use Stripes newer checkout sessions feature. Imbedding the checkout session so it uses Stripes payment element. This makes manualy handling payment intents and mounting unnecassery and is recommended by Stripes documentation. Our order is then created by the webhook handler on recipt of the checkout.session.success webhook. Stripes payment element gives alot of user error feedback instantly before the return redirect, eliminating the need to create lots of different webhook error handlers. Aswell as my core checout.session.success I have chosen to build one to try and measure cart abandonment using checkout.session.expired.
 
 
 ### Defensive Programming
@@ -286,6 +286,9 @@ item_id = str(item_id)
 ```
 
 - bag/views.py line 23 bug and fix
+
+- Problem - stripe redirecting to the return page before the webhook handler has generated the order that needs to be fed to the template.  
+Solution - 
 
 ## Resources
 

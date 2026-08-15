@@ -1,6 +1,7 @@
 import json
 from django.http import HttpResponse
 from django.conf import settings
+from requests import session
 
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -66,3 +67,19 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
+
+    # Logs the bags of expired sessions to possibly track cart abandonment/help with stock management.
+    def handle_checkout_session_expired(self, event):
+        session = event['data']['object']
+        
+        try:
+            bag = json.loads(session['metadata']['bag'])
+        except (KeyError, TypeError):
+            bag = {}  
+
+        print(f"Checkout session expired: {session['id']} | bag contents: {bag}")
+        
+        return HttpResponse(
+            content=f"Webhook received: {event['type']} | session expired, no order created",
+            status=200,
+        )

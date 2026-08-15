@@ -12,16 +12,16 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-12 text-uppercase my-4">
-                <h2>Shopping Bag</h2>
+            <div class="col-12 text-uppercase my-4 border-blur bg-white">
+                <h2 class="d-inline-block">Shopping Bag</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <!-- Bag Table -->
                 {% if bag_items %}
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless">
+                    <div>
+                        <table class="table table-sm table-borderless border-blur">
                             <thead>
                                 <tr>
                                     <th scope="col">Product</th>
@@ -93,7 +93,7 @@
                             {% endfor %}
                         </table>
                         <div class="row">
-                            <div class="col-12 text-end">
+                            <div class="col-12 text-end border-blur bg-white">
                                 <h4>Bag Total: £{{ total|floatformat:2 }}</h4>
                                 <h4>Delivery: £{{ delivery|floatformat:2 }}</h4>
                                 <h3 class="mt-4">Grand Total: £{{ grand_total|floatformat:2 }}
@@ -112,6 +112,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 my-3 text-end">
+                                <div class="d-inline-block border-blur bg-white">
                                 <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
                                     <span>
                                         <i class="fas fa-chevron-left"></i>
@@ -124,13 +125,9 @@
                                         <i class="fas fa-lock"></i>
                                     </span>
                                 </a>
+                                </div>
                             </div>
                         </div>
-
-                        
-                                
-                                    
-                                
                     </div>
                 {% else %}
                     <p>Your shopping bag is currently empty.</p>

@@ -27,6 +27,7 @@ def webhook(request):
     # Map the webhook events to the relevant handler functions
     event_map = {
         'checkout.session.completed': handler.handle_checkout_session_completed,
+        'checkout.session.expired': handler.handle_checkout_session_expired,
     }
 
     # Get the relevant handler function based on the event type as described in the event map dictionary, or use the generic handler if not found

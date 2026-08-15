@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row custom-border my-3">
+            <div class="col-12">
+                <h2 class="text-uppercase mt-4 py-4">Order Confirmed!</h2>
+                <p>Thank you for placing an order with us!</p>
+            </div>
+        </div>
+        <div class="row custom-border my-2">
+            <div class="col-12 col-md-6 p-4">
+                <h3>Order Details:</h3>
+                <p>{{ order.order_number }}</p>
+                <p>{{ order.date }}</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in order.lineitems.all %}
+                            <tr>
+                                <td><img src="{{ item.product.image.url }}" alt="{{ item.product.product_name }}" class="img-fluid" style="max-height: 100px;"></td>
+                                <td>{{ item.product.product_name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>£{{ item.product.price|floatformat:2 }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-6 p-4">
+                <h3>Shipping Address:</h3>
+                <p class="mb-0">{{ order.full_name }}</p>
+                <p class="mb-0">{{ order.street_address1 }}</p>
+                <p class="mb-0">{{ order.street_address2 }}</p>
+                <p class="mb-0">{{ order.town_or_city }}</p>
+                <p class="mb-0">{{ order.county }}</p>
+                <p class="mb-0">{{ order.postcode }}</p>
+                <p class="mb-0">{{ order.country }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

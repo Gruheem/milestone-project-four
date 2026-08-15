@@ -43,9 +43,11 @@
                         </strong>
                     </p>
                     {% if free_delivery_delta > 0 %}
-                        <p class="bg-warning shadow-sm text-center ">
-                            Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get free next day delivery!
-                        </p>
+                        <div class="bg-warning shadow-sm">
+                            <p class="text-center mb-0 py-2">
+                                Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get free next day delivery!
+                            </p>
+                        </div>
                     {% endif %}
                 </div>
                 <div class="col-12">

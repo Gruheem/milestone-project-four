@@ -54,7 +54,7 @@
                         <input class="form-control border-black rounded-0" type="text" name="q" placeholder=" Search Our Products">
                         <button class="btn" type="submit">
                             <span>
-                                <i class="fas fa-search fa-lg"></i>
+                                <i class="fas fa-search fa-lg border-blur bg-white"></i>
                             </span>
                         </button>
                     </div>
@@ -63,20 +63,20 @@
             <!-- Main Logo -->
             <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h1 class="logo-font mb-0 text-nowrap">Reason Interiors</h1>
+                    <h1 class="logo-font mb-0 text-nowrap border-blur bg-white d-inline-block">Reason Interiors</h1>
                 </a>
             </div>
             <!-- Top Right Icons -->
             <div class="col-12 col-md-4">
                 <ul class="list-inline d-flex justify-content-end align-items-center mb-0">
                     <li class="list-inline-item">
-                        <a href="#" class="nav-link d-flex flex-column align-items-center px-3">
+                        <a href="#" class="nav-link d-flex flex-column align-items-center px-3 border-blur bg-white">
                             <i class="fas fa-user fa-lg mt-4"></i>
                             <span class="small my-3">Account</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{% url 'view_bag' %}" class="nav-link d-flex flex-column align-items-center px-3">
+                        <a href="{% url 'view_bag' %}" class="nav-link d-flex flex-column align-items-center px-3 border-blur bg-white">
                             <i class="fas fa-bag-shopping fa-lg mt-4"></i>
                             <span class="small my-3">
                                 {% if grand_total %}
@@ -92,7 +92,7 @@
         </div>
         <!-- Main Nav -->
         <div class="row">
-            <nav class="navbar navbar-expand-md w-100 d-flex align-items-center">
+            <nav id="navigation"class="navbar navbar-expand-md w-100 d-flex align-items-center">
                 <button 
                     class="navbar-toggler border-0 nav-icon" 
                     type="button" 
