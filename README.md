@@ -290,7 +290,7 @@ item_id = str(item_id)
 - Problem - stripe redirecting to the return page before the webhook handler has generated the order that needs to be fed to the template.  
 Solution - 
 
-## Resources
+## Technologies
 
 Stripe:
 https://docs.stripe.com/payments/accept-a-payment?payment-ui=checkout&ui=embedded-page&lang=python  
@@ -298,6 +298,23 @@ https://docs.stripe.com/api
 
 
 The checkout flow: capture info using our checkout form - validate it, to makesure its trustworthy before handing it to stripe - use it to start a checkout session, this renders the stripe payment widget - payment is made - meta data from the webhook we recieve back creates our order, this is most reliable way of knowing a successfulll payment has been made hearing from stripe rather than the users web browser - return to success/confirmation page.  
+
+Authentication - Django AllAuth:  
+
+                          base.html
+                              │
+                     allauth/layouts/base.html
+                              │
+                 ┌────────────┴────────────┐
+                 ▼                         ▼
+             entrance                    manage
+                 │                         │
+          base_entrance               base_manage
+                 │                         │
+           ┌─────┴─────┐            ┌──────┴──────┐
+           ▼           ▼            ▼             ▼
+         login       signup     password       email
+                                change          etc.
 
 
 

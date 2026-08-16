@@ -14,7 +14,7 @@
 }
 
 .form-control::placeholder {
-    color: var(--btn-inactive);
+    color: var(--placeholder-colour);
 }
 
 select {
@@ -23,5 +23,5 @@ select {
 
 select:invalid,
 select option[value=""] {
-    color: var(--btn-inactive);
+    color: var(--placeholder-colour);
 }

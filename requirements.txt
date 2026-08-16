@@ -20,5 +20,7 @@ regex==2026.7.19
 requests==2.34.2
 sqlparse==0.5.5
 stripe==15.4.0
+svgwrite==1.4.3
+Tree==0.2.4
 typing_extensions==4.16.0
 urllib3==2.7.0
