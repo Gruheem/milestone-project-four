@@ -80,12 +80,12 @@
                     <fieldset class="checkout-fieldset" id="delivery-fieldset">
                         <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
                         <div class="form-check form-check-inline float-end">
 							{% if user.is_authenticated %}
 								<label class="form-check-label mb-2" for="id-save-info">Save this delivery information to my profile</label>
@@ -120,7 +120,7 @@
 {% endblock %}
 
 {% block postload_js %} 
-    {{ block.super}}
+{{ block.super}}
     <script>
         const checkoutSessionUrl = "{% url 'create_checkout_session' %}";
         const stripe = Stripe("{{ stripe_public_key }}");

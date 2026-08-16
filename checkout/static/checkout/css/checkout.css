@@ -12,3 +12,16 @@
 #pay-button {
     display: none;
 }
+
+.form-control::placeholder {
+    color: var(--btn-inactive);
+}
+
+select {
+    color: var(--text-colour)
+}
+
+select:invalid,
+select option[value=""] {
+    color: var(--btn-inactive);
+}
