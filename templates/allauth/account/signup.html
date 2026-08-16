@@ -1,45 +1,61 @@
 {% extends "account/base_entrance.html" %}
 {% load allauth i18n %}
+
 {% block head_title %}
     {% trans "Signup" %}
 {% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 p-3 p-sm-5 my-5 bg-white border-blur">
+            {% element h1 %}
+                {% trans "Sign Up" %}
+            {% endelement %}
+
+            {% setvar link %}
+                <a href="{{ login_url }}">
+                {% endsetvar %}
+                {% setvar end_link %}
+                </a>
+            {% endsetvar %}
+
+            {% element p %}
+                {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
+            {% endelement %}
+
+            {% if not SOCIALACCOUNT_ONLY %}
+                {% url 'account_signup' as action_url %}
+                {% element form form=form method="post" action=action_url tags="entrance,signup" %}
+                    {% slot body %}
+                        {% csrf_token %}
+                        {% element fields form=form unlabeled=True %}
+                        {% endelement %}
+                        {{ redirect_field }}
+                    {% endslot %}
+                    {% slot actions %}
+                        <button class="btn btn-black rounded-0" tags="prominent,signup" type="submit">
+                            {% trans "Sign Up" %}
+                        </button>
+                        <a class="btn btn-black rounded-0" href="{% url 'home' %}">
+                            {% trans "Home" %}
+                        </a>
+                    {% endslot %}
                 {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
+            {% endif %}
+
+            {% if PASSKEY_SIGNUP_ENABLED %}
+                {% element hr %}
                 {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
-            {% trans "Sign up using a passkey" %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
+                {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
+                    {% trans "Sign up using a passkey" %}
+                {% endelement %}
+            {% endif %}
+
+            {% if SOCIALACCOUNT_ENABLED %}
+                {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock content %}
