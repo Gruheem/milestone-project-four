@@ -7,16 +7,16 @@
 {% endblock head_title %}
 
 {% block content %}
-<div class="container">
+<div class="container authentication-container">
     <div class="row">
-        <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 p-3 p-sm-5 my-5 bg-white border-blur">
+        <div class="col-12 col-lg-7 p-3 p-sm-5 my-5 bg-white border-blur">
             {% if form.non_field_errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ form.non_field_errors }}
                 </div>
             {% endif %}
-            {% element h1 %}
-                {% trans "Sign In" %}
+            {% element h2 %}
+                {% trans "Sign Into Your Account" %}
             {% endelement %}
 
             {% if not SOCIALACCOUNT_ONLY %}
@@ -33,22 +33,33 @@
                 {% endelement %}
 
                 {% url 'account_login' as login_url %}
-                {% element form form=form method="post" action=login_url tags="entrance,login" %}
-                    {% slot body %}
-                        {% csrf_token %}
-                        {% element fields form=form unlabeled=True %}
-                        {% endelement %}
-                        {{ redirect_field }}
-                    {% endslot %}
-                    {% slot actions %}
-                        <button class="btn btn-black rounded-0" type="submit" tags="prominent,login">
-                            {% trans "Sign In" %}
-                        </button>
-                        <a href="{% url 'home' %}" class="btn btn-black rounded-0">
-                    {% trans "Home" %}
-                </a>
-                    {% endslot %}
-                {% endelement %}
+                <div class="form-styling border-0">
+                    {% element form form=form method="post" action=login_url tags="entrance,login" %}
+                        {% slot body %}
+                            {% csrf_token %}
+                            <fieldset class="form-fieldset">
+                                <legend class="fieldset-label">
+                                    Sign In
+                                </legend>
+                                {% element fields form=form unlabeled=True %}
+                                
+                                {% endelement %}
+                                {{ redirect_field }}
+                            </fieldset>
+                            
+                        {% endslot %}
+                        {% slot actions %}
+                        <div class="text-end">
+                            <button class="btn btn-black rounded-0" type="submit" tags="prominent,login">
+                                {% trans "Sign In" %}
+                            </button>
+                            <a href="{% url 'home' %}" class="btn btn-black-outline rounded-0">
+                                {% trans "Home" %}
+                            </a>
+                        </div>
+                        {% endslot %}
+                    {% endelement %}
+                </div>
 
                 
 

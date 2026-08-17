@@ -8,10 +8,10 @@
 {% endblock head_title %}
 
 {% block content %}
-<div class="container">
+<div class="container authentication-container">
     <div class="row">
-        <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 p-3 p-sm-5 my-5 bg-white border-blur">
-            {% element h1 %}
+        <div class="col-12 col-lg-7 p-3 p-sm-5 my-5 bg-white border-blur">
+            {% element h2 %}
                 {% trans "Confirm Email Address" %}
             {% endelement %}
 
@@ -30,9 +30,11 @@
                         {% slot actions %}
                             {% csrf_token %}
                             {{ redirect_field }}
-                            <button type="submit" class="btn btn-black rounded-0">
-                                {% trans 'Confirm' %}
-                            </button>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-black rounded-0">
+                                    {% trans 'Confirm' %}
+                                </button>
+                            </div>
                         {% endslot %}
                     {% endelement %}
 

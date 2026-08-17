@@ -72,12 +72,12 @@
                 <p class="text-muted py-2 mb-0">Please fill out the form below to complete your order:</p>
                 <form action="{% url 'checkout' %}" method="post" id="payment-form">
                     {% csrf_token %}
-                    <fieldset class="checkout-fieldset" id="details-fieldset">
+                    <fieldset class="form-fieldset" id="details-fieldset">
                         <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="checkout-fieldset" id="delivery-fieldset">
+                    <fieldset class="form-fieldset" id="delivery-fieldset">
                         <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
@@ -98,7 +98,7 @@
 							{% endif %}
 						</div>
                     </fieldset>
-                    <fieldset class="checkout-fieldset" id="checkout-fieldset">
+                    <fieldset class="form-fieldset" id="checkout-fieldset">
                         <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Payment</legend>
                         <div id="checkout">
                             <!-- Checkout will insert the payment form here -->

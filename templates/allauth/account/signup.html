@@ -6,11 +6,11 @@
 {% endblock head_title %}
 
 {% block content %}
-<div class="container">
+<div class="container authentication-container">
     <div class="row">
-        <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 p-3 p-sm-5 my-5 bg-white border-blur">
-            {% element h1 %}
-                {% trans "Sign Up" %}
+        <div class="col-12 col-lg-7 p-3 p-sm-5 my-5 bg-white border-blur">
+            {% element h2 %}
+                {% trans "Sign Up for a Speedy Checkout" %}
             {% endelement %}
 
             {% setvar link %}
@@ -26,22 +26,32 @@
 
             {% if not SOCIALACCOUNT_ONLY %}
                 {% url 'account_signup' as action_url %}
-                {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-                    {% slot body %}
-                        {% csrf_token %}
-                        {% element fields form=form unlabeled=True %}
-                        {% endelement %}
-                        {{ redirect_field }}
-                    {% endslot %}
-                    {% slot actions %}
-                        <button class="btn btn-black rounded-0" tags="prominent,signup" type="submit">
-                            {% trans "Sign Up" %}
-                        </button>
-                        <a class="btn btn-black rounded-0" href="{% url 'home' %}">
-                            {% trans "Home" %}
-                        </a>
-                    {% endslot %}
-                {% endelement %}
+                <div class="form-styling border-0">
+                    {% element form form=form method="post" action=action_url tags="entrance,signup" %}
+                        {% slot body %}
+                            {% csrf_token %}
+                            <fieldset class="form-fieldset">
+                                <legend class="fieldset-label">
+                                    Sign Up
+                                </legend>
+                                {% element fields form=form unlabeled=True %}
+                                {% endelement %}
+
+                                {{ redirect_field }}
+                            </fieldset>
+                        {% endslot %}
+                        {% slot actions %}
+                            <div class="text-end">
+                            <button class="btn btn-black rounded-0" type="submit">
+                                {% trans "Sign Up" %}
+                            </button>
+                            <a class="btn btn-black-outline rounded-0" href="{% url 'home' %}">
+                                {% trans "Home" %}
+                            </a>
+                            </div>
+                        {% endslot %}
+                    {% endelement %}
+                </div>
             {% endif %}
 
             {% if PASSKEY_SIGNUP_ENABLED %}
