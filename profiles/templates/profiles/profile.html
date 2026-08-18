@@ -20,6 +20,20 @@
                 <h2 class="text-uppercase mt-4 py-4">Profile</h2>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>Default Delivery Information</p>
+                <form action="{% url 'profile' %}" method="post" id="profile_update_form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-black rounded-0 text-uppercase float-end">Update Information</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p>Order History:</p>
+                {{ orders }}
+            </div>
+        </div>
     </div>
     {{ profile }}
 {% endblock %}

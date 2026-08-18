@@ -1,12 +1,16 @@
 :root {
     --bg-light: #fff;
     --bg-mid: #f9f9f9;
-    --bg-dark: #353d48;
-    --text-colour: #292D38;
+    --bg-dark: #031C13;
+    --text-colour: #18221F;
     --btn-inactive: #D0D0DC;
     --placeholder-colour: #757575;
 
-}
+} 
+/* 
+dark bg #353d48 
+text 292D38
+*/
 .custom-border {
     box-shadow: 
         0 0 0 1px var(--bg-dark), 
@@ -309,10 +313,6 @@ table, th, td {
   color: inherit !important;
 }
 
-.border-blur {
-    box-shadow: 0 0 15px 10px rgba(255, 255, 255, 1);
-}
-
 #navigation {
     position: relative;
     z-index: 1;
@@ -324,11 +324,13 @@ table, th, td {
 }
 
 /* AllAuth Styling  */
-.form-fieldset input {
-    border: 1px solid #ced4da;
-        border-radius: 0rem;
-        width: 100%;
-        padding: 0.25rem;
+.form-fieldset {
+    input, select {
+    border: 1px solid var(--bg-dark);
+    border-radius: 0rem;
+    width: 100%;
+    padding: 0.35rem;
+    }
 }
 
 .form-fieldset label {
