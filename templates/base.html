@@ -51,8 +51,8 @@
             <div class="col-12 col-md-4 my-auto">
                 <form method="get" action="{% url 'products' %}" class="w-75">
                     <div class="input-group">
-                        <input class="form-control border-black rounded-0" type="text" name="q" placeholder=" Search Our Products">
-                        <button class="btn" type="submit">
+                        <input class="form-control border-black rounded-0 d-none" type="text" name="q" placeholder=" Search Our Products" id="search-input">
+                        <button class="btn" type="button" id="search-btn">
                             <span>
                                 <i class="fas fa-search fa-lg"></i>
                             </span>
