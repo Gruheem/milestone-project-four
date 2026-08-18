@@ -5,6 +5,7 @@
     --text-colour: #18221F;
     --btn-inactive: #D0D0DC;
     --placeholder-colour: #757575;
+    --card-bg: #ffffff;
 
 } 
 /* 
@@ -55,6 +56,18 @@ body {
     }
 }
 
+nav {
+    margin-bottom: 0rem !important;
+}
+
+#nav-list {
+    background-color: var(--bg-mid);
+}
+
+#main-nav {
+    background-color: var(--bg-mid);
+}
+
 #main-nav > ul >li {
     > a {
         font-size: 0.9rem;
@@ -70,6 +83,10 @@ body {
     font-size: 1.25rem;
 }
 
+#main-nav .dropdown-menu {
+    background-color: var(--bg-mid) !important;
+}
+
 #delivery-banner {
     background-color: var(--bg-dark);
 }
@@ -77,6 +94,10 @@ body {
 #delivery-banner h4 {
     font-size: 1.3rem;
     transform: translateY(1px);
+}
+
+#navigaiton {
+    background-color: var(--bg-mid) !important;
 }
 
 /* Products Styling */
@@ -311,16 +332,6 @@ body {
 
 table, th, td {
   color: inherit !important;
-}
-
-#navigation {
-    position: relative;
-    z-index: 1;
-}
-
-#delivery-banner {
-    position: relative;
-    z-index: 2;
 }
 
 /* AllAuth Styling  */

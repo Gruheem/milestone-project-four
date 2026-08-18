@@ -2,6 +2,10 @@
 {% load static %}
 {% load products_extras %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -13,7 +17,7 @@
 {% block content %}
     <div class="container">
         <!-- Sort Dropdown -->
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-6">
                 <p>Showing {{ products|length }} Products</p>
             </div>
@@ -34,8 +38,8 @@
         <div class="row">
             <!-- Filter -->
             <div class="col-lg-3 " id="filter-panel">
-                <p>Filter by:</p>
-                <ul id="attribute-list" class="unstyled">
+                <button type="button" id="filter-button" class="mb-2"><i class="fa-solid fa-sliders"></i>  Filters</button>
+                <ul id="attribute-list" class="unstyled d-none d-lg-block">
                     {% for attribute in attributes %}
                         <li>
                             <a
@@ -99,7 +103,7 @@
                                 <div class="card-body pb-0">
                                     <h3 class="mb-0">{{ product.product_name }}</h3>
                                 </div>
-                                <div class="card-footer border-0">
+                                <div class="card-footer border-0 bg-white">
                                     <div class="row">
                                         <div class="col-12">
                                             <p class="mb-0 text-muted">£{{ product.price }}</p>
@@ -126,4 +130,5 @@
 {% block postload_js %}
     {{ block.super }}
         <script src="{% static 'products/js/filters.js' %}"></script>
+        <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
