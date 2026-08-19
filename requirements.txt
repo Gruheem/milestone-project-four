@@ -11,6 +11,7 @@ django-countries==9.0.0
 django-crispy-forms==2.7
 djlint==1.43.1
 EditorConfig==0.17.1
+gunicorn==26.1.0
 idna==3.18
 jsbeautifier==2.0.3
 json5==0.15.0
