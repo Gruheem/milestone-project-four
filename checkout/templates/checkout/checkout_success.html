@@ -54,5 +54,18 @@
                 <p class="mb-0">{{ order.country }}</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                {% if not from_profile %}
+                    <a href="{% url 'home' %}" class="btn btn-black rounded-0 mt-4 float-end">
+                        <span class="text-uppercase">Continue Shopping</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 mt-4 float-end">
+                        <span class="text-uppercase">Back to Profile</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}
