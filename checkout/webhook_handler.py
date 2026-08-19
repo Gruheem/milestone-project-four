@@ -3,6 +3,9 @@ import json
 from django.http import HttpResponse
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from requests import session
 
@@ -15,6 +18,24 @@ from profiles.forms import UserProfileForm
 class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
+
+    def _send_confirmation_email(self, order):
+        """
+        Send the user a confirmation email
+        """
+        cust_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
 
     #  Handles all other webhook events that we do not explicitly handle. 
     def handle_event(self, event):
@@ -77,6 +98,7 @@ class StripeWH_Handler:
         # Saves the information from the order just created if th user is logged in and has ticked the save info checkbox
         if profile and save_info:
             profile_data = {
+                'default_full_name': order.full_name,
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
                 'default_postcode': order.postcode,
@@ -100,6 +122,9 @@ class StripeWH_Handler:
 
         # Updates the order total and delivery cost based on the line items, called from the order model method update_total()
         order.update_total()
+
+        # Sends the confirmation email to the user
+        self._send_confirmation_email(order)
 
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
