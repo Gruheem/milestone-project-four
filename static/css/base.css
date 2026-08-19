@@ -8,10 +8,12 @@
     --card-bg: #ffffff;
 
 } 
+
 /* 
 dark bg #353d48 
 text 292D38
 */
+
 .custom-border {
     box-shadow: 
         0 0 0 1px var(--bg-dark), 
@@ -185,6 +187,10 @@ nav {
 
 .custom-toast {
     overflow: visible;
+}
+
+.toast {
+    background-color: var(--bg-light) !important;
 }
 
 /* Arrow for toast */
