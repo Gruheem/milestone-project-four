@@ -10,92 +10,101 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container"> 
+    <div class="container mb-5"> 
         <!-- Hero Section -->
         <div class="row my-3">
-            <div class="col-12 hero-container my-3">
-                <img src="{% static 'images/noimage.webp' %}" alt="Hero Image" class="hero-image">
-                <span class="hero-text">A Touch of Vintage for Your Home</span>
+            <div class="col-12 hero-container mb-5">
+                <img src="{% static 'images/noimage.webp' %}" alt="Hero Image" class="hero-image mt-3 mb-5">
+                <span class="hero-text spacing-2">A Touch of Vintage for Your Home</span>
             </div>
         </div>
+        <hr class="my-5">
         <!-- Who we are Section -->
         <div class="row my-3">
-            <div class="col-12">
-                <h2 class="text-center mt-4">Welcome</h2>
+            <div class="col-6 d-flex flex-column justify-content-center">
+                <div class="col-12">
+                    <h2 class="text-center mt-4 mb-3 spacing-2 reveal-up">Welcome</h2>
+                </div>
+                <div class="col-12 my-5">
+                    <p class="text-center my-4 reveal-left">
+                        Reason Interiors is an independent, family-run shop that has been part of the 
+                        Gloucester Road community since 2010. For over 15 years, we've been sharing our 
+                        love of thoughtfully chosen homeware, vintage finds and unique gifts, right in the 
+                        heart of one of the UK's best-known independent shopping streets.
+                    </p>
+                    <p class="text-center my-4 reveal-left">
+                        Everything we stock is chosen with care, from pre-loved pieces given a new lease of 
+                        life to beautiful new home accessories. Whether you're looking for something special 
+                        for your own home or the perfect gift, we're passionate about helping you discover something 
+                        you'll love.
+                    </p>
+                </div>
             </div>
-            <div class="col-12">
-                <p class="text-center my-3">
-                    Reason Interiors is an independent, family-run shop that has been part of the 
-                    Gloucester Road community since 2010. For over 15 years, we've been sharing our 
-                    love of thoughtfully chosen homeware, vintage finds and unique gifts, right in the 
-                    heart of one of the UK's best-known independent shopping streets.
-                </p>
-                <p class="text-center my-3">
-                    Everything we stock is chosen with care, from pre-loved pieces given a new lease of 
-                    life to beautiful new home accessories. Whether you're looking for something special 
-                    for your own home or the perfect gift, we're passionate about helping you discover something 
-                    you'll love.
-                </p>
+            <div class="col-6">
+                <div class="col-12">
+                    <img src="{% static 'images/noimage.webp' %}" alt="Shop Image" class="w-100">
+                </div>
             </div>
         </div>
+        <hr class="my-5">
         <!-- Categories Section -->
-        <div class="row my-3">
-            <div class="col-12">
-                <h2 class="text-center mb-4 d-block">Shop by Category</h2>
+        <div class="row mb-5">
+            <div class="col-12 mb-4">
+                <h2 class="text-center my-5 d-block spacing-2 reveal-up">Shop by Category</h2>
             </div>
             <div class="col-12 d-flex flex-wrap justify-content-center">
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Candles & Home Fragrance" class="tile-image">
-                        <span class="tile-span text-black">Candles & Home Fragrances</span>
+                        <span class="tile-span text-black spacing-1">Candles & Home Fragrances</span>
                     </a>
                 </div>
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Kitchen & Dining" class="tile-image">
-                        <span class="tile-span text-black">Kitchen & Dining</span>
+                        <span class="tile-span text-black spacing-1">Kitchen & Dining</span>
                     </a>
                 </div>
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Cards & Gift Wrap" class="tile-image">
-                        <span class="tile-span text-black">Cards & Gift Wrap</span>
+                        <span class="tile-span text-black spacing-1">Cards & Gift Wrap</span>
                     </a>
                 </div>
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Home Decor" class="tile-image">
-                        <span class="tile-span text-black">Home Decor</span>
+                        <span class="tile-span text-black spacing-1">Home Decor</span>
                     </a>
                 </div>
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Soft Furnishings" class="tile-image">
-                        <span class="tile-span text-black">Soft Furnishings</span>
+                        <span class="tile-span text-black spacing-1">Soft Furnishings</span>
                     </a>
                 </div>
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Perfume and Body" class="tile-image">
-                        <span class="tile-span text-black">Perfume and Body</span>
+                        <span class="tile-span text-black spacing-1">Perfume and Body</span>
                     </a>
                 </div>
-                <div class="tile m-3">
+                <div class="tile m-3 reveal-scale">
                     <a href="#">
                         <img src="{% static 'images/noimage.webp' %}" alt="Stationary" class="tile-image">
-                        <span class="tile-span text-black">Stationary</span>
+                        <span class="tile-span text-black spacing-1">Stationary</span>
                     </a>
                 </div>
             </div>
         </div>
-
+        <hr class="my-5">
         <!-- Testimony -->
-        <div class="row">
-            <div class="col-12">
-                <h2 class="text-center mb-4">What Our Customers Say</h2>
+        <div class="row my-5">
+            <div class="col-12 my-4">
+                <h2 class="text-center my-5 spacing-2 reveal-up">What Our Customers Say</h2>
             </div>
             <div class="col-12 d-flex flex-column align-items-center">
-                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="true">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
                     
                     <div class="carousel-inner text-center">
                         <div class="carousel-item active">
@@ -133,5 +142,6 @@
                 </div>
             </div>
         </div>
+        <hr class="my-5">
     </div>
 {% endblock %}

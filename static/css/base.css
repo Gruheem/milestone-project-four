@@ -1,13 +1,39 @@
 :root {
     --bg-light: #fff;
     --bg-mid: #f9f9f9;
-    --bg-dark: #031C13;
+    --bg-dark: #033021;
     --text-colour: #18221F;
     --btn-inactive: #D0D0DC;
     --placeholder-colour: #757575;
     --card-bg: #ffffff;
-
 } 
+
+h1 {
+    letter-spacing: 6px;
+}
+
+.spacing-1 {
+    letter-spacing: 1px;
+}
+
+.spacing-2 {
+    letter-spacing: 2px;
+}
+
+hr {
+    width: 50%;
+    margin: 2rem auto;
+    height: 2px;
+    border: 0;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--bg-dark) 25%,
+        var(--bg-dark) 75%,
+        transparent 100%
+    );
+    /* box-shadow: 0 1px 0 var(--text-colour); */
+}
 
 /* 
 dark bg #353d48 
@@ -126,6 +152,14 @@ nav {
 .card-body h3 {
     font-size: 1rem;
 }
+
+#sort-select {
+    color: var(--text-colour);
+}
+
+/* #sort-select.placeholder {
+    color: var(--placeholder-colour);
+} */
 
 /* Remove Focus Outline for Quantity Input */
 .qty-input {
@@ -248,7 +282,7 @@ nav {
 
 /* Home Page Styling */
 .hero-container {
-    max-height: 25rem;
+    max-height: 70vh;
     position: relative;
 }
 
@@ -266,8 +300,7 @@ nav {
 }
 
 .tile {
-    max-width: 12rem;
-    max-height: 8rem;
+    max-width: 20rem;
     position: relative;
 }
 
@@ -383,3 +416,54 @@ input[id="id_remember"] {
         padding-bottom: 0.5rem
     }
 }
+
+/* Animations */
+
+/* Base state: hidden before scroll-in */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Fade up (great for headings) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Fade in from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Fade in from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Subtle scale-in — nice for product cards or featured items */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease-out, transform 0.4s ease-out;
+}
+
+/* When JS adds this class, element animates to its natural state */
+.reveal.is-visible,
+.reveal-up.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Optional: stagger children (e.g. a row of testimonials) */
+.reveal-up:nth-child(1) { transition-delay: 0s; }
+.reveal-up:nth-child(2) { transition-delay: 0.15s; }
+.reveal-up:nth-child(3) { transition-delay: 0.3s; }

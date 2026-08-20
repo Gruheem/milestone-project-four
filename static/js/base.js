@@ -16,4 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBtn.type = 'submit';
         }, 0);
     });
+
+    // Listener for Activating Animations on scroll
+    const revealElements = document.querySelectorAll(
+        '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // only animate once
+        }
+        });
+    }, {
+        threshold: 0.15 // trigger when 15% of element is visible
+    });
+
+    revealElements.forEach(el => observer.observe(el));
 });
