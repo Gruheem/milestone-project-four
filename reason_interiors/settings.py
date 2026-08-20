@@ -202,10 +202,17 @@ if 'USE_AWS' in os.environ:
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
     # Static and Media Files Storage
-    STATICFILES_STORAGE = 'custom-storages.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'custom-storages.MediaStorage'
     STATICFILES_LOCATION = 'static' 
     MEDIAFILES_LOCATION = 'media'
+
+    STORAGES = {
+        "default": {
+            "BACKEND": "custom_storages.MediaStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "custom_storages.StaticStorage",
+        },
+    }
 
     #Overide static and media URLs to use the S3 bucket
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
