@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',  # Django Crispy Forms
     'crispy_bootstrap5',  # Django Crispy Forms Bootstrap 5
+    'storages',  # Django Storages for AWS S3
 ]
 
 MIDDLEWARE = [
@@ -191,6 +192,24 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) # Expected to be a Tuple
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if 'USE_AWS' in os.environ:
+    # AWS S3 settings
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and Media Files Storage
+    STATICFILES_STORAGE = 'custom-storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'custom-storages.MediaStorage'
+    STATICFILES_LOCATION = 'static' 
+    MEDIAFILES_LOCATION = 'media'
+
+    #Overide static and media URLs to use the S3 bucket
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
