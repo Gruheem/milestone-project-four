@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         button.addEventListener('click', function() {
             // Define our inputs to alter and feed to the updateButtonState function
-            const item_id = this.dataset.item_id;
-            const input = document.getElementById(`id_qty_${item_id}`);
-            const decButton = document.getElementById(`decrement-qty_${item_id}`);
+            const form = this.closest('.update-form');
+            const input = form.querySelector('.qty-input');
+            const decButton = form.querySelector('.decrement-qty');
 
             // Get the current value of the input
             let currentValue = parseInt(input.value);
@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         button.addEventListener('click', function() {
             // Define our inputs to alter and feed to the updateButtonState function
-            const item_id = this.dataset.item_id;
-            const input = document.getElementById(`id_qty_${item_id}`);
-            const incButton = document.getElementById(`increment-qty_${item_id}`);
+            const form = this.closest('.update-form');
+            const input = form.querySelector('.qty-input');
+            const incButton = form.querySelector('.increment-qty');
 
             // Get the current value of the input
             let currentValue = parseInt(input.value);
@@ -71,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Iterates through all the quantity inputs to set their state on page load
     document.querySelectorAll('.qty-input').forEach(input => {
-        const item_id = input.dataset.item_id;
-        const incButton = document.getElementById(`increment-qty_${item_id}`);
-        const decButton = document.getElementById(`decrement-qty_${item_id}`);
+        const form = input.closest('.update-form');
+        const incButton = form.querySelector('.increment-qty');
+        const decButton = form.querySelector('.decrement-qty');
         updateButtonState(input, incButton, decButton);
     });
 });

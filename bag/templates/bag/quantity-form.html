@@ -1,0 +1,41 @@
+<form action="{% url 'adjust_bag' item.item_id %}" method="post" class="form update-form">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12">
+            <p class="d-none d-md-block">Quantity:</p>
+            <div class="input-group">
+                <button
+                    class="btn btn-sm btn-black rounded-0 decrement-qty"
+                    type="button"
+                    data-item_id="{{ item.item_id }}"
+                    id="decrement-qty_{{ item.item_id }}">
+                    <i class="fas fa-minus fa-sm"></i>
+                </button>
+
+                <input
+                    class="form-control form-control-sm qty-input"
+                    type="number"
+                    name="quantity"
+                    value="{{ item.quantity }}"
+                    min="1"
+                    max="99"
+                    readonly
+                    tabindex="-1"
+                    data-item_id="{{ item.item_id }}"
+                    id="id_qty_{{ item.item_id }}"
+                    >
+
+                <button
+                    class="btn btn-sm btn-black rounded-0 increment-qty"
+                    type="button"
+                    data-item_id="{{ item.item_id }}"
+                    id="increment-qty_{{ item.item_id }}">
+                    <i class="fas fa-plus fa-sm"></i>
+                </button>
+            </div>
+        </div>
+        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+    </div>
+</form>
+<!-- Remove item from bag -->
+                                        <a class="remove-item text-danger float-end" id="remove_{{ item.item_id }}" href="{% url 'remove_from_bag' item.item_id %}"><small>Remove</small></a>

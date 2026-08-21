@@ -12,6 +12,10 @@ h1 {
     letter-spacing: 6px;
 }
 
+.mobile-button {
+    font-size: 1rem !important;
+}
+
 .spacing-1 {
     letter-spacing: 1px;
 }
@@ -540,4 +544,5 @@ input[id="id_remember"] {
         padding-bottom: 0.5rem
     }
 }
+
 
