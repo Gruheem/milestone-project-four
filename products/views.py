@@ -74,6 +74,8 @@ def all_products(request):
             products = products.filter(product_type__slug__in=product_types)
             # Turns the Product typ list into a list of ProductType table Objects
             product_types = ProductType.objects.filter(slug__in=product_types)
+            # Gives us the category by taking the first ProductType object in the list and getting its category
+            category = product_types.first().category
 
             # Captures a product list for the filters
             available_filter_products = products
@@ -157,6 +159,7 @@ def all_products(request):
     context = {
         'products' : products,
         'current_product_types' : product_types,
+        'category' : category,
         'attributes' : grouped_attributes.values(),
         'selected_values' : selected_values,
         'search_term': query,
