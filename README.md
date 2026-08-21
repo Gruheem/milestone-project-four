@@ -290,6 +290,10 @@ item_id = str(item_id)
 - Problem - stripe redirecting to the return page before the webhook handler has generated the order that needs to be fed to the template.  
 Solution - 
 
+- Setting django DEBUG for False breaks the static files so i couldn't see how my custom 404 page looked. Still don't know why this happened.
+  - solution: Create a temporary view, url and template in the home app to recreate the 404 page then delete after it has been styled.
+
+ 
 ## Technologies
 
 Stripe:

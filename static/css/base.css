@@ -54,8 +54,13 @@ body {
 }
 /* Header and Nav Styling */
 
+.header-bg {
+    background-color: var(--bg-mid);
+}
+
 .header-container {
     background-color: var(--bg-mid);
+    height: 11.285rem;
 }
 
 .logo-font {
@@ -124,7 +129,7 @@ nav {
     transform: translateY(1px);
 }
 
-#navigaiton {
+#navigation {
     background-color: var(--bg-mid) !important;
 }
 
@@ -329,31 +334,22 @@ nav {
     max-width: 27rem;
 }
 
-/* Header Container to push the main content down*/
-.header-container {
-    height: 197px;
-}
-
 /* Media Queries */
 @media (max-width: 1237px) {
     .header-container {
-        height: 226px;
+        height: 13.136rem;
     }
 }
 
 @media (max-width: 767px) {
     .header-container {
-        height: 109px;
+        height: 4.81rem;
     }
 }
 
 @media (max-width: 540px) {
 .header-container {
-        height: 88px;
-    }
-
-    h1.logo-font {
-        font-size: 1.35rem;
+        height: 4.33rem;
     }
 
     .nav-icon {
@@ -366,6 +362,12 @@ nav {
 
     #delivery-banner h4 {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
+    #mobile-title {
+        display: none !important;
     }
 }
 

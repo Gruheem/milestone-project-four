@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Listener for Activating Animations on scroll
     const revealElements = document.querySelectorAll(
-        '.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale'
+        '.reveal-up, .reveal-left, .reveal-scale'
     );
 
     const observer = new IntersectionObserver((entries) => {
