@@ -11,6 +11,7 @@ class Category(models.Model):
     category_name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(max_length=254, unique=True, blank=True)
     category_friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
