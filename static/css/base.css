@@ -35,6 +35,10 @@ hr {
     /* box-shadow: 0 1px 0 var(--text-colour); */
 }
 
+main {
+    flex: 1;
+}
+
 /* 
 dark bg #353d48 
 text 292D38
@@ -51,6 +55,9 @@ body {
     font-family: "Open Sans", sans-serif;
     color: var(--text-colour);
     background-color: var(--bg-mid);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 /* Header and Nav Styling */
 
@@ -285,6 +292,30 @@ nav {
     overflow-y: auto;
 }
 
+/* Footer styling  */
+.footer-wrapper {
+    position: relative;
+}
+.footer-background {
+    background-color: var(--bg-dark);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 16.5rem;
+    z-index:-1
+}
+
+.footer-container {
+    color: var(--bg-mid);
+}
+
+footer i {
+    color: var(--bg-mid);
+    size: 1.5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
 /* Home Page Styling */
 .hero-container {
     max-height: 70vh;
@@ -339,6 +370,10 @@ nav {
     max-width: 27rem;
 }
 
+#categories-section span {
+    font-size: 1.2rem;
+}
+
 /* Animations */
 
 /* Fade up (great for headings) */
@@ -386,6 +421,8 @@ nav {
         0 0 4px white,
         0 0 6px white,
         0 0 6px white,
+        0 0 15px white,
+        0 0 15px white,
         0 0 15px white;
 
 }
@@ -397,9 +434,38 @@ nav {
     }
 }
 
+@media (max-width: 1200px) {
+    .hero-text {
+        font-size: 1.35rem;
+    }
+
+    .hero-font {
+        font-size: 3.67rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-background {
+        height: 18rem;
+    }
+}
+
 @media (max-width: 767px) {
     .header-container {
         height: 4.81rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-background {
+        height: 32rem;
+    }
+    .hero-text {
+        font-size: 0.9rem;
+    }
+
+    .hero-font {
+        font-size: 2.25rem;
     }
 }
 

@@ -148,10 +148,43 @@
 
     {% block page_header %}
     {% endblock %}
-
+    
+    <main>
     {% block content %}
     {% endblock %}
+    </main>
 
+    <div class="footer-wrapper">
+        <div class="container-fluid footer-background"></div>
+        <footer class="container footer-container p-3">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 text-center p-4">
+                    <h2 class="logo-font">Reason Interiors</h2>
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                    <h5>Address</h5>
+                    <p>97 Gloucster Read<br>Bishopston<br>Bristol<br>BS& 8AT</p>
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                    <h5>Contact</h5>
+                    <p>
+                        Phone: 0117 329 4505
+                        <br>
+                        Email: info@reasoninteriors.com
+                        <br>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-twitter"></i></a>
+                    </p>
+                </div>
+                <div class="col-12 col-md-3 text-center">
+                    <h5>Opening Hours</h5>
+                    <p>Monday - Friday: 10am - 5pm<br>Saturday: 10am - 5pm<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
     {% block postload_js %}
         <script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
