@@ -298,10 +298,15 @@ nav {
 }
 
 .hero-text {
+    font-size: 1.8rem;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 25%;
+    left: 45%;
     transform: translate(-50%, -50%);
+}
+
+.hero-font {
+    font-size: 4.5rem;
 }
 
 .tile {
@@ -332,6 +337,57 @@ nav {
 #testimonialCarousel {
     max-height: 18rem;
     max-width: 27rem;
+}
+
+/* Animations */
+
+/* Fade up (great for headings) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Fade in from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Subtle scale-in — nice for product cards or featured items */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease-out, transform 0.4s ease-out;
+}
+
+/* When JS adds this class, element animates to its natural state */
+.reveal.is-visible,
+.reveal-up.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+#hero-carousel img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+
+.tile-text {
+    display: inline-block;
+    text-shadow:
+        0 0 2px white,
+        0 0 2px white,
+        0 0 4px white,
+        0 0 6px white,
+        0 0 6px white,
+        0 0 15px white;
+
 }
 
 /* Media Queries */
@@ -419,53 +475,3 @@ input[id="id_remember"] {
     }
 }
 
-/* Animations */
-
-/* Base state: hidden before scroll-in */
-.reveal {
-  opacity: 0;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Fade up (great for headings) */
-.reveal-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-/* Fade in from left */
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-/* Fade in from right */
-.reveal-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-/* Subtle scale-in — nice for product cards or featured items */
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.6s ease-out, transform 0.4s ease-out;
-}
-
-/* When JS adds this class, element animates to its natural state */
-.reveal.is-visible,
-.reveal-up.is-visible,
-.reveal-left.is-visible,
-.reveal-right.is-visible,
-.reveal-scale.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* Optional: stagger children (e.g. a row of testimonials) */
-.reveal-up:nth-child(1) { transition-delay: 0s; }
-.reveal-up:nth-child(2) { transition-delay: 0.15s; }
-.reveal-up:nth-child(3) { transition-delay: 0.3s; }
