@@ -1,7 +1,8 @@
 :root {
     --bg-light: #fff;
     --bg-mid: #fcfcfc;
-    --bg-dark: #033021;
+    --bg-dark: #02271b;
+    --spinner-colour: rgba(3, 48, 33, 0.5);
     --text-colour: #18221F;
     --btn-inactive: #D0D0DC;
     --placeholder-colour: #757575;

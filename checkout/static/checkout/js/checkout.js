@@ -4,6 +4,16 @@ const payBtn = document.getElementById("pay-button");
 const errorBox = document.getElementById("checkout-error");
 let checkout;  // set once the Session exists, used by the submit handler below
 
+function showLoadingOverlay() {
+    const overlay = document.getElementById("loading-overlay");
+    overlay.classList.add("is-visible");
+}
+
+function hideLoadingOverlay() {
+    const overlay = document.getElementById("loading-overlay");
+    overlay.classList.remove("is-visible");
+}
+
 // Event listener foor the continue button
 continueBtn.addEventListener("click", async () => {
     errorBox.textContent = "";
@@ -47,10 +57,15 @@ form.addEventListener("submit", async (e) => {
 
     if (!checkout) return;
 
+    payBtn.disabled = true;
+    showLoadingOverlay();
+
     // Load the actions for the Checkout Session. Functions like a ready check befoe confirmation.
     const loadActionsResult = await checkout.loadActions();
     if (loadActionsResult.type !== "success") {
         errorBox.textContent = "Something went wrong loading checkout. Please refresh and try again.";
+        hideLoadingOverlay();
+        payBtn.disabled = false;
         return;
     }
 
@@ -60,6 +75,8 @@ form.addEventListener("submit", async (e) => {
     const result = await actions.confirm();
     if (result.type === "error") {
         errorBox.textContent = result.error.message;
+        hideLoadingOverlay();
+        payBtn.disabled = false;
     }
 
 
