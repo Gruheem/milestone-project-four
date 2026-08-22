@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row my-5">
             <div class="col-12 col-md-8 d-flex flex-column justify-content-center">
-                <h2 class="my-4">{{ category.category_friendly_name }}</h2>
+                <h2 class="my-4 spacing-2 text-uppercase">{{ category.category_friendly_name }}</h2>
                 <p>{{ category.description }}</p>
             </div>
             <div class="col-12 col-md-3">
@@ -96,7 +96,7 @@
 
             <!-- Products -->
             <div class="col-lg-9">
-                <div class="row">
+                <div class="row mb-5">
                     {% for product in products %}
                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
                             <div class="card mb-2 border-0 rounded-0">

@@ -21,6 +21,10 @@ select option[value=""] {
     color: var(--placeholder-colour);
 }
 
+#save-info-container label{
+    display: inline !important;
+}
+
 #loading-overlay {
 	display: none;
 	position: fixed;

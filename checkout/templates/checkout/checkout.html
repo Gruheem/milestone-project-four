@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2 class="text-uppercase mt-4 py-4">Secure Checkout</h2>
+                <h2 class="text-uppercase mt-4 py-4 spacing-2">Secure Checkout</h2>
             </div>
         </div>
         <!-- Bag Summmary -->
@@ -58,7 +58,7 @@
                     <div class="col-7">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
-                        <p class="my-0">Grand Total:</p>
+                        <p class="my-0"><strong>Grand Total:</strong></p>
                     </div>
                     <div class="col-3">
                         <p class="my-0">£{{ total | floatformat:2 }}</p>
@@ -86,17 +86,19 @@
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
-                        <div class="form-check form-check-inline float-end">
-							{% if user.is_authenticated %}
-								<label class="form-check-label mb-2" for="id-save-info">Save this delivery information to my profile</label>
-                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-							{% else %}
-								<label class="form-check-label mb-2" for="id-save-info">
-                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        <div class="d-flex justify-content-end align-items-center" id="save-info-container">
+                            {% if user.is_authenticated %}
+                                <input class="form-check-input mx-2 mb-1" type="checkbox" id="id-save-info" name="save-info" checked>
+                                <label class="form-check-label" for="id-save-info">
+                                    Save this delivery information to my profile
                                 </label>
-							{% endif %}
-						</div>
+                            {% else %}
+                                <label class="form-check-label mb-2" for="id-save-info">
+                                    <a class="text-info green-link" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-info green-link" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+                            {% endif %}
+                        </div>
                     </fieldset>
                     <fieldset class="form-fieldset" id="checkout-fieldset">
                         <legend class="fieldset-label w-auto pt-3 pb-2 px-1">Payment</legend>
@@ -106,7 +108,7 @@
                         <!-- Used to display form errors -->
                         <div class="mb-3 text-danger" id="checkout-error" role="alert"></div>
                     </fieldset>
-                    <div class="submit-button text-end">
+                    <div class="submit-button text-end mt-3 mb-5">
                         <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">Adjust Bag</a>
                         <button type="button" id="continue-button" class="btn btn-black rounded-0">Continue to Payment</button>
                         <button type="submit" id="pay-button" class="btn btn-black rounded-0">

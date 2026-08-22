@@ -31,7 +31,8 @@ h1 {
 
 hr {
     width: 50%;
-    margin: 2rem auto;
+    margin: 8rem auto;
+    
     height: 2px;
     border: 0;
     background: linear-gradient(
@@ -46,6 +47,14 @@ hr {
 
 main {
     flex: 1;
+}
+
+a.green-link {
+    color: var(--bg-dark) !important;
+}
+
+a[href*="password/reset"] {
+    color: var(--bg-dark) !important;
 }
 
 /* 
@@ -508,7 +517,7 @@ table, th, td {
 
 /* AllAuth Styling  */
 .form-fieldset {
-    input, select {
+    input:not([type="checkbox"]), select {
     border: 1px solid var(--bg-dark);
     border-radius: 0rem;
     width: 100%;

@@ -10,9 +10,8 @@
 <div class="container authentication-container">
     <div class="row">
         <div class="col-12 col-lg-7 p-3 p-sm-5 my-5">
-            {% element h1 %}
-                {% trans "Verify Your Email Address" %}
-            {% endelement %}
+            <h2 class="text-uppercase mt-4 py-4 spacing-2">{% trans "Verify Your Email Address" %}</h2>
+                
 
             {% url 'account_email' as email_url %}
             {% element p %}
@@ -33,7 +32,7 @@
 
             {% element p %}
                 {% blocktrans %}
-                    <strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.
+                    <strong>Note:</strong> you can still <a class="green-link" href="{{ email_url }}">change your email address</a>.
                 {% endblocktrans %}
             {% endelement %}
         </div>

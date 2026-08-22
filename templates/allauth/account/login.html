@@ -15,14 +15,13 @@
                     {{ form.non_field_errors }}
                 </div>
             {% endif %}
-            {% element h2 %}
-                {% trans "Sign Into Your Account" %}
-            {% endelement %}
+            <h2 class="text-uppercase mt-4 py-4 spacing-2">{% trans "Sign In" %}</h2>
+                
 
             {% if not SOCIALACCOUNT_ONLY %}
 
                 {% setvar link %}
-                    <a href="{{ signup_url }}">
+                    <a class="green-link" href="{{ signup_url }}">
                     {% endsetvar %}
                     {% setvar end_link %}
                     </a>
@@ -33,7 +32,7 @@
                 {% endelement %}
 
                 {% url 'account_login' as login_url %}
-                <div class="form-styling border-0">
+                <div class="form-styling border-0 bg-mid">
                     {% element form form=form method="post" action=login_url tags="entrance,login" %}
                         {% slot body %}
                             {% csrf_token %}
