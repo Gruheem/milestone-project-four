@@ -11,13 +11,13 @@
 
 {% block content %}
     <div class="container">
-        <div class="row custom-border my-3">
+        <div class="row my-3">
             <div class="col-12">
                 <h2 class="text-uppercase mt-4 py-4">Order Confirmed!</h2>
                 <p>Thank you for placing an order with us!</p>
             </div>
         </div>
-        <div class="row custom-border my-2">
+        <div class="row my-2">
             <div class="col-12 col-md-6 p-4">
                 <h3>Order Details:</h3>
                 <p>{{ order.order_number }}</p>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 m-4">
                 {% if not from_profile %}
                     <a href="{% url 'home' %}" class="btn btn-black rounded-0 mt-4 float-end">
                         <span class="text-uppercase">Continue Shopping</span>

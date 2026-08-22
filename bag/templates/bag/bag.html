@@ -11,13 +11,13 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
+        <div class="row my-4">
             <div class="col-12 text-uppercase my-4">
                 <h2 class="d-inline-block">Shopping Bag</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row d-flex justify-content-between">
+            <div class="col-12" id="bag-table">
                 <!-- Bag Table -->
                 {% if bag_items %}
                     <!-- Mobile -->
@@ -39,68 +39,73 @@
                         </div>
                         {% for item in bag_items %}
                         <div class="row d-block d-md-none">
-                            <div class="col-12 col-sm-6 p-4">
+                            <div class="col-12 col-md-6 p-4">
                                 {% include 'bag/product-image.html' %}
                             </div>
-                            <div class="col-12 col-sm-6 pt-3 px-3">
+                            <div class="col-12 col-md-6 pt-3 px-3">
                                 {% include 'bag/product-info.html' %}
                             </div>
-                            <div class="col-12 col-sm-6 d-flex justify-content-between px-3 py-1">
+                            <div class="col-12 col-md-6 d-flex justify-content-between px-3 py-1">
                                 <p class="mb-0">Item Price: {% include 'bag/product-price.html' %}</p>
                                 <p class="mb-0">Subtotal: {% include 'bag/product-subtotal.html' %}</p>
                             </div>
-                            <div class="col-12 col-sm-6 pb-5 px-3">
+                            <div class="col-12 col-md-6 pb-5 px-3">
                                 {% include 'bag/quantity-form.html' %}
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                     <!-- Desktop -->
+                    
                     <div class="d-none d-md-block">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th scope="col">Product</th>
-                                <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Subtotal</th>
-                            </tr>
-                        </thead>
-                        {% for item in bag_items %}
-                            <tr>
-                                <td class="p-3 w-25">
-                                    {% include 'bag/product-image.html' %}
-                                </td>
-                                <td class="py-3">
-                                    {% include 'bag/product-info.html' %}
-                                </td>
-                                <td class="py-3">
-                                    {% include 'bag/product-price.html' %}
-                                </td>
-                                <td class="py-3 w-25">
-                                    {% include 'bag/quantity-form.html' %}
-                                </td>
-                                <td class="py-3">
-                                    {% include 'bag/product-subtotal.html' %}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                    <div class="row">
-                        <div class="col-12 text-end">
-                            {% include 'bag/bag-total.html' %}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 my-3 text-end">
-                            <div class="d-inline-block">
-                            {% include 'bag/checkout-button.html' %}
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12 col-xl-10">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col"></th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Qty</th>
+                                            <th scope="col">Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    {% for item in bag_items %}
+                                        <tr>
+                                            <td class="p-3 w-25">
+                                                {% include 'bag/product-image.html' %}
+                                            </td>
+                                            <td class="py-3">
+                                                {% include 'bag/product-info.html' %}
+                                            </td>
+                                            <td class="py-3">
+                                                {% include 'bag/product-price.html' %}
+                                            </td>
+                                            <td class="py-3 w-25">
+                                                {% include 'bag/quantity-form.html' %}
+                                            </td>
+                                            <td class="py-3">
+                                                {% include 'bag/product-subtotal.html' %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-end">
+                                    {% include 'bag/bag-total.html' %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 my-3 text-end">
+                                    <div class="d-inline-block">
+                                    {% include 'bag/checkout-button.html' %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {% else %}
+                    {% else %}
                     <p>Your shopping bag is currently empty.</p>
                     <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0">
                         <span class="icon">

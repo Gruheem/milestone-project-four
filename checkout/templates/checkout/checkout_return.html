@@ -12,8 +12,13 @@
 
 {% block content %}
 <div class="container">
-    <h1>Payment successful!</h1>
-    <p>Confirming your order...</p>
+    <div class="row my-5">
+        <div class="col-12 text-center">
+            <h2 class="my-4">Payment successful!</h2>
+            <p>Confirming your order...</p>
+            <span class="loader"></span>
+        </div>
+    </div>
     <input
         type="hidden"
         id="payment-intent"

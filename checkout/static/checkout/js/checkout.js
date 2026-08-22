@@ -44,6 +44,7 @@ continueBtn.addEventListener("click", async () => {
 // Event listener for the form submission
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     if (!checkout) return;
 
     // Load the actions for the Checkout Session. Functions like a ready check befoe confirmation.
@@ -60,5 +61,7 @@ form.addEventListener("submit", async (e) => {
     if (result.type === "error") {
         errorBox.textContent = result.error.message;
     }
+
+
 });
 

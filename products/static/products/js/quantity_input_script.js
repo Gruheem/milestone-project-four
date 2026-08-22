@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         button.addEventListener('click', function() {
             // Define our inputs to alter and feed to the updateButtonState function
-            const form = this.closest('.update-form');
+            const form = this.closest('.form');
             const input = form.querySelector('.qty-input');
             const decButton = form.querySelector('.decrement-qty');
 
@@ -40,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             updateButtonState(input, this, decButton);
 
-            this.closest('.update-form').submit();
+            if (form.classList.contains('update-form')) {
+                form.submit();
+            }
         });
     });
     
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         button.addEventListener('click', function() {
             // Define our inputs to alter and feed to the updateButtonState function
-            const form = this.closest('.update-form');
+            const form = this.closest('.form');
             const input = form.querySelector('.qty-input');
             const incButton = form.querySelector('.increment-qty');
 
@@ -65,13 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             updateButtonState(input, incButton, this);
 
-            this.closest('.update-form').submit();
+            if (form.classList.contains('update-form')) {
+                form.submit();
+            }
         });
     });
 
     // Iterates through all the quantity inputs to set their state on page load
     document.querySelectorAll('.qty-input').forEach(input => {
-        const form = input.closest('.update-form');
+        const form = input.closest('.form');
         const incButton = form.querySelector('.increment-qty');
         const decButton = form.querySelector('.decrement-qty');
         updateButtonState(input, incButton, decButton);
