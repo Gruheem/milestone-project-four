@@ -141,33 +141,71 @@ This is the pallette I chose:
 `#02271B` - This is the companies hero colour, used for brand recognition. We also want to introduce colour as we do not want a monochrome site as this would feel too cold.
 
 
----
-
 ## Features
+
+**Homepage/Merchandising** - Homepage section with welcome:  
+<img src="static/images/hero.png" width="450">  
+<img src="static/images/welcome.png" width="450">  
+<img src="static/images/cateories-shop.png" width="450">  
+<img src="static/images/testimonies.png" width="450">  
+<img src="static/images/google-maps.png" width="450">  
+<img src="static/images/footer.png" width="450"> 
   
-User Authentication & Roles - Register, Log in, Log out and role based access(customer/admin).  
+**User Authentication & Roles** - Register, Log in, Log out and role based access(customer/admin):  
 
-Admin Product & Stock Management - Create/update/delete products, manage stock levels, categorise products.  
+<img src="static/images/sign-in.png" width="450">
+<img src="static/images/sign-out.png" width="450">
+<img src="static/images/register.png" width="450">
 
-Product Browsing & Navigation - Products page and navigation present.  
 
-Search & Filtering - Search bar and filtering using EAV.  
+**Admin Product & Stock Management** - Create/update/delete products, manage stock levels, categorise products:  
 
-Product Detail Pages - Page for the details of the prdouct and a place for size/colour selection to take place.  
+<img src="static/images/admin-pannel.png" width="450">
+<img src="static/images/admin-products-one.png" width="450">  
 
-Homepage/Merchandising - Homepage section with welcome.  
+I have made it so that when you are on a the add a product page that when you select is product type all existing attributes populate the form with dropdown for you to pick from the existing values. From here you can also create new Attributes and Values to fit the product the user is adding. Adding these attribute and values here is what creates the search filter on theproducts page.  
 
-Basket Management - update or remove items in basket,  total updates.  
+<img src="static/images/admin-products-two.png" width="450">  
 
-Checkout & Payments - Secure checkout page with robust process and checkout succcess oage.  
+**Product Browsing & Navigation** - Products page and navigation present:   
+
+Navigation:  
+<img src="static/images/nav-one.png" width="400">
+<img src="static/images/nav-two.png" width="400">
+<img src="static/images/nav-three.png" width="400">  
+Navigation result:  
+<img src="static/images/products.png" width="400">  
+
+**Search & Filtering** - Search bar and filtering using EAV:  
+The search bar is a drop down revealed once the icon is clcicked and activated when clicked again. There is feedback for an empty search prompting users to try again.  
+
+<img src="static/images/search-icon.png" width="400">  
+<img src="static/images/search-bar.png" width="400">  
+  
+The filter is dynamically generated from my EAV Model to suite the varied nature of them items in stock.
+<img src="static/images/filter.png" width="400">  
+
+**Product Detail Pages** - Page for the details of the prdouct and a place for size/colour selection to take place:  
+<img src="static/images/product-detail.png" width="400">  
+
+**Basket Management** - update or remove items in basket,  total updates:  
+<img src="static/images/bag-one.png" width="400">  
+<img src="static/images/bag-two.png" width="400">  
+
+**Checkout & Payments** - Secure checkout page with robust process and checkout succcess page:  
+<img src="static/images/checkout.png" width="400">  
+<img src="static/images/checkout-return.png" width="400">  
+<img src="static/images/checkout-success.png" width="400">  
     
-Order Management - Customer see past orders and manage orders in admin panel.  
+**Order Management** - Customer see past orders and manage orders in admin panel:  
+<img src="static/images/order-admin.png" width="400">  
+<img src="static/images/profile.png" width="400">  
 
-UX Quality & Accessibility - Intuitive interface, consistent design, action feedback, clear error messages, accessibility support.  
+**UX Quality & Accessibility** - Intuitive interface, consistent design, action feedback, clear error messages, accessibility support.  
+Toasts happen at every point an action is taken here are examples of a success toast and an info toast.  
+<img src="static/images/success-toast.png" width="400">  
+<img src="static/images/info-toast.png" width="400">  
 
-<!-- To do add screenshots -->
-
----
 
 ## Data Schema & Design Rationale
 
@@ -251,9 +289,9 @@ For the filter I chose the approach of Using JavaScript to create url based on t
 I am using PROTECT on Product.product_type so on delete the products linked to it won't all just get deleted if a product type were to be deleted by mistake.
 
 The final Database Schema used for the project is as follows:  
-[Database Schema](static/images/database-erd.webp)
 
----
+<img src="static/images/database-erd.webp">
+
 
 ## Technologies & Technical Decisions
 
@@ -316,11 +354,9 @@ I used django-AllAuth for my authenitication as it bosts a suite of security fea
 - verification_sent
 - verification_email_required  
 
----
 
 ## Testing
 
----
 
 ### Bugs / Known Issues
 
@@ -393,7 +429,7 @@ JSHint Validation - Errors were raised regarding some missing semi-colons. These
 | quantity_input_script | Pass |
 | profile.js | Pass |
 
-https://docs.astral.sh/ruff/
+https://docs.astral.sh/ruff/  
 PEP8 adhereance testing with Ruff was carried out on all .py files. it raised some formatting errors which I have fixed, mostly wanting things to wrap after 79 chars for code and 72 chars for docstrings and comments. Ruff wanted me to hange all the `"` to `'` to fully pass the tests, this seemed like a long, drawn out and slightly unnecassery task so the agent in vs code completed this swap for me.  
 
 All Python files acheieved PASS Status.
@@ -401,13 +437,12 @@ All Python files acheieved PASS Status.
 
 ### Colour Testing
 
-EightShapes Contrast Checker  
+[EightShapes]() Contrast Checker  
   
 <img src="static/images/contrast-grid.png" width="500" alt="Colour Contrast Grid">   
   
 Colour testing has pass WCEG standards for Text Readability Contrast 
 
----
 ## Ligthouse Testing
 
 Initial Testing:  
@@ -418,12 +453,6 @@ Some improvements wera able to be made through image loading priority adjustment
 
 <img src="static/images/lighthouse-two.png" width="300">  
 
----
-## Deployment
-<!-- To do -->
-
----
-
 ## Security
 
 - There are no Scret keys in the settings on anywhere on GitHub they are safely stored as Environment Variables.
@@ -433,32 +462,60 @@ Some improvements wera able to be made through image loading priority adjustment
 - Force HTTPS to keep the connection secure.
 - .gitignore used to keep sensitive files local.
 
-### Defensive Programming
-<!-- to do redo -->
-Perorming multiple checks to control button presses and inputs when submitting quantity changes for bag and button disabling on quantity select forms:
+### Defensive Programming  
 
-form validation before passing it to stripe checkout/views.py
+Defensive Programming  
 
-checking if there is a bag before continuing with chekcout and throing an error if not.
+Defensive programming is an approach to development that anticipates unexpected, invalid, or potentially manipulated input and adds checks to prevent it from causing errors or compromising the application.  
 
-creating final price to be charged from the bag_contents and product models, not reallying on the wat the users browser is telling us.
+In this project, defensive programming is used in several areas:
 
----
+- Performing multiple checks to control button presses and user inputs when submitting quantity changes to the bag, including disabling buttons where appropriate and validating quantity selections. 
+- Validating forms before passing the data to the Stripe checkout view.
+- Checking that a bag exists and contains items before allowing the user to proceed to checkout, returning an appropriate error if it does not.
+- Calculating the final price to be charged from the bag_contents and product data stored on the server, rather than relying on prices or values supplied by the user's browser.
+- Using server-side validation to ensure that submitted data is valid and cannot be manipulated to bypass checkout rules.
 
-## Future Features and Developement
-<!-- to do -->
+## Deployment
+Steps taken to deploy:
+Live deployment -  
+- Prepare settings.py for production deployment
+  - DEBUG > False
+  - Removing Secret Keys
+- Create Procfile
+- Add gunicorn
+- Push deployment-ready commit to GitHub
+- Make a json back up of our database to be used as a fixture to upload our data
+- Create PostgreSQL database and make migrations to it to fill it with our database tables
+- load the json file into the database
+- Create a Heroku app
+- Set Environment Variables in Heroku Settings
+- Link to GitHub
+- Deploy app from main branch
+- Create an S3 AWS Bucket with a group and a user 
+- Assign the correct Bucket policy and user permissions
+- Get secrets from stripe and put them in the stripe config
+- Update Environment Variables
+
+Local deployment -  
+To run this project locally, make sure you have your virtual environment activated and the correct version of Python running. Then install dependencies using requirements.txt (`pip3 install -r requirements.txt`). After this has successfully completed, run `python3 manage.py runserver` in the terminal. Hold Control/Command and click on the link created to launch the app in your default browser.
+
+## Future Features and Developement  
+
 Features to complete our user stories would be:  
 Gift Shopping Experienece - gift card purchasing, search by occasion. 
 Vintage Collector Experience - Vintage category, enhanced attributes.  
 
-The next steps for the project would be 
+I was quite ambitious with the scope of the project and one or two things didn't quite make intot the final submission. Once I could see their complexity they were decided to be left out like the sort by occaision and gift card sale of different amounts.
 
----
+The next steps for the project would be to comlete these outstanding user stories section and I would very much like to add a best sellers/what 'in' at the moment section on the homepage. A fully custom page outside of the admin to add/edit/delete products mirroring logic from the products admin.  
+
+Optimization is something I would have liked to have spent more time on and making some automated tests for the payment taking part of the site.
+
 
 ## Credits & Attribution
 <!-- To do -->
 
----
 
 ## Appendix: Categories, Product Types & Attributes
 
