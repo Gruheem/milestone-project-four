@@ -4,22 +4,21 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0003_attribute_slug_attributevalue_slug_and_more'),
+        ("products", "0003_attribute_slug_attributevalue_slug_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='attribute',
-            name='slug',
-            field=models.SlugField(default='', max_length=254),
+            model_name="attribute",
+            name="slug",
+            field=models.SlugField(default="", max_length=254),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='attributevalue',
-            name='slug',
-            field=models.SlugField(default=' ', max_length=254),
+            model_name="attributevalue",
+            name="slug",
+            field=models.SlugField(default=" ", max_length=254),
             preserve_default=False,
         ),
     ]

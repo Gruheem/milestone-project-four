@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0001_initial'),
+        ("checkout", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='stripe_pid',
-            field=models.CharField(default='', max_length=254),
+            model_name="order",
+            name="stripe_pid",
+            field=models.CharField(default="", max_length=254),
         ),
     ]

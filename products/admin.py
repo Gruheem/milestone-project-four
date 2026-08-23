@@ -1,56 +1,62 @@
-from django.contrib import admin
-from .models import Category, ProductType, Product, Attribute, AttributeValue, ProductAttributeValue
-from django.forms.models import BaseInlineFormSet
 from django import forms
+from django.contrib import admin
+from django.forms.models import BaseInlineFormSet
 
+from .models import (
+    Attribute,
+    AttributeValue,
+    Category,
+    Product,
+    ProductAttributeValue,
+    ProductType,
+)
 
 
 class ProductAttributeValueInlineForm(forms.ModelForm):
     class Meta:
         model = ProductAttributeValue
-        fields = '__all__'
+        fields = "__all__"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['attribute_value'].required = False
+        self.fields["attribute_value"].required = False
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = [
-        'category_name',
-        'slug',
-        'category_friendly_name',
+        "category_name",
+        "slug",
+        "category_friendly_name",
     ]
 
-    ordering = ['category_name']
+    ordering = ["category_name"]
 
 
 class ProductTypeAdmin(admin.ModelAdmin):
     list_display = [
-        'product_type',
-        'category',
-        'slug',
-        'product_type_friendly_name',
+        "product_type",
+        "category",
+        "slug",
+        "product_type_friendly_name",
     ]
 
-    ordering = ['product_type']
+    ordering = ["product_type"]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == 'category':
-            kwargs['queryset'] = Category.objects.order_by('category_name')
+        if db_field.name == "category":
+            kwargs["queryset"] = Category.objects.order_by("category_name")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 class ProductAttributeValueInlineFormSet(BaseInlineFormSet):
-
     def __init__(self, *args, **kwargs):
-        instance = kwargs.get('instance')
+        instance = kwargs.get("instance")
         initial = []
 
         if instance and instance.pk:
             existing_attributes = set(
                 instance.productattributevalue_set.values_list(
-                    'attribute_id', flat=True
+                    "attribute_id", flat=True
                 )
             )
 
@@ -58,12 +64,9 @@ class ProductAttributeValueInlineFormSet(BaseInlineFormSet):
                 product_type=instance.product_type
             ).exclude(id__in=existing_attributes)
 
-            initial = [
-                {'attribute': attribute.id}
-                for attribute in missing_attributes
-            ]
+            initial = [{"attribute": attribute.id} for attribute in missing_attributes]
 
-        kwargs['initial'] = initial
+        kwargs["initial"] = initial
         super().__init__(*args, **kwargs)
 
 
@@ -73,77 +76,78 @@ class ProductAttributeValueInline(admin.TabularInline):
     form = ProductAttributeValueInlineForm
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        ''' Overides formfield_for_foreighnkey to order the dropdowns in alphebetical order. '''
-        if db_field.name == 'attribute':
-            kwargs['queryset'] = Attribute.objects.order_by('attribute')
-        if db_field.name == 'attribute_value':
-            kwargs['queryset'] = AttributeValue.objects.order_by('attribute_value')
+        """Order dropdowns alphabetically."""
+        if db_field.name == "attribute":
+            kwargs["queryset"] = Attribute.objects.order_by("attribute")
+        if db_field.name == "attribute_value":
+            kwargs["queryset"] = AttributeValue.objects.order_by("attribute_value")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def get_extra(self, request, obj=None, **kwargs):
         if not obj or not obj.pk:
             return 0
         existing_attributes = set(
-            obj.productattributevalue_set.values_list('attribute_id', flat=True)
+            obj.productattributevalue_set.values_list("attribute_id", flat=True)
         )
-        return Attribute.objects.filter(
-            product_type=obj.product_type
-        ).exclude(id__in=existing_attributes).count()
-    
+        return (
+            Attribute.objects.filter(product_type=obj.product_type)
+            .exclude(id__in=existing_attributes)
+            .count()
+        )
 
 
 class ProductAdmin(admin.ModelAdmin):
     fields = [
-        'image',
-        'product_name',
-        'stock',
-        'price',
-        'brand',
-        'description',
-        'product_type',
+        "image",
+        "product_name",
+        "stock",
+        "price",
+        "brand",
+        "description",
+        "product_type",
     ]
 
     exclude = [
-        'sku',
-        'available',
-        'slug',
-        'rating',
-        'imageURL',
+        "sku",
+        "available",
+        "slug",
+        "rating",
+        "imageURL",
     ]
 
     list_display = [
-        'product_name',
-        'sku',
-        'stock',
-        'price',
-        'product_type',
-        'brand',
-        'rating',
-        'image',
+        "product_name",
+        "sku",
+        "stock",
+        "price",
+        "product_type",
+        "brand",
+        "rating",
+        "image",
     ]
 
-    list_display_links = ['product_name']
+    list_display_links = ["product_name"]
 
     inlines = [
         ProductAttributeValueInline,
     ]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        '''Overides formfield_for_foreighnkey to order the dropdowns in alphebetical order.'''
-        if db_field.name == 'product_type':
-            kwargs['queryset'] = ProductType.objects.order_by('product_type')
+        """Order dropdowns alphabetically."""
+        if db_field.name == "product_type":
+            kwargs["queryset"] = ProductType.objects.order_by("product_type")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
     def save_formset(self, request, form, formset, change):
         if formset.model is not ProductAttributeValue:
             return super().save_formset(request, form, formset, change)
- 
+
         instances = formset.save(commit=False)
- 
+
         # Rows the user ticked "Delete" on
         for obj in formset.deleted_objects:
             obj.delete()
- 
+
         for instance in instances:
             if instance.attribute_value_id:
                 # A value was picked - save it
@@ -153,45 +157,42 @@ class ProductAdmin(admin.ModelAdmin):
                 # Previously saved row, value has been cleared - remove it
                 instance.delete()
             # else: brand-new row with no value selected - skip, don't save
- 
+
         formset.save_m2m()
 
     class Media:
-        js = (
-            'products/js/admin_attributes.js',
-        )
+        js = ("products/js/admin_attributes.js",)
+
 
 class AttributeAdmin(admin.ModelAdmin):
     list_display = [
-        'attribute', 
-        'product_type',
-        'attribute_friendly_name',
-        'value_type',
+        "attribute",
+        "product_type",
+        "attribute_friendly_name",
+        "value_type",
     ]
 
-    ordering = ['attribute']
+    ordering = ["attribute"]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == 'product_type':
-            kwargs['queryset'] = ProductType.objects.order_by('product_type')
+        if db_field.name == "product_type":
+            kwargs["queryset"] = ProductType.objects.order_by("product_type")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 class AttributeValueAdmin(admin.ModelAdmin):
     list_display = [
-        'attribute_value',
-        'attribute',
+        "attribute_value",
+        "attribute",
     ]
 
-    search_fields = (
-        "attribute_value",
-    )
+    search_fields = ("attribute_value",)
 
-    ordering = ['attribute__attribute']
+    ordering = ["attribute__attribute"]
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == 'attribute':
-            kwargs['queryset'] = Attribute.objects.order_by('attribute')
+        if db_field.name == "attribute":
+            kwargs["queryset"] = Attribute.objects.order_by("attribute")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 

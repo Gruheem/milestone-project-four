@@ -1,12 +1,14 @@
-from django.db import models
-from django.utils.text import slugify
 import random
 import string
+
+from django.db import models
+from django.utils.text import slugify
+
 
 # Create your models here.
 class Category(models.Model):
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = "Categories"
 
     category_name = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(max_length=254, unique=True, blank=True)
@@ -21,13 +23,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
-    
+
     def get_category_friendly_name(self):
         return self.category_friendly_name
-    
+
 
 class ProductType(models.Model):
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey("Category", on_delete=models.CASCADE)
     product_type = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True, blank=True)
     product_type_friendly_name = models.CharField(max_length=254, null=True, blank=True)
@@ -35,11 +37,7 @@ class ProductType(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=[
-                    'category',
-                    'product_type'
-                ],
-                name='unique_category_product_type'
+                fields=["category", "product_type"], name="unique_category_product_type"
             )
         ]
 
@@ -50,31 +48,30 @@ class ProductType(models.Model):
 
     def __str__(self):
         return self.product_type
-    
+
     def get_product_type_friendly_name(self):
         return self.product_type_friendly_name
-    
+
 
 class Attribute(models.Model):
     class ValueType(models.TextChoices):
-        TEXT = 'text', 'Text'  
-        NUMBER = 'number', 'Number'  
-        BOOLEAN = 'boolean', 'Boolean'
+        TEXT = "text", "Text"
+        NUMBER = "number", "Number"
+        BOOLEAN = "boolean", "Boolean"
 
-    product_type = models.ForeignKey('ProductType', on_delete=models.CASCADE)
+    product_type = models.ForeignKey("ProductType", on_delete=models.CASCADE)
     attribute = models.CharField(max_length=254)
     attribute_friendly_name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254)
-    value_type = models.CharField(max_length=10, choices=ValueType.choices, default=ValueType.TEXT)    
+    value_type = models.CharField(
+        max_length=10, choices=ValueType.choices, default=ValueType.TEXT
+    )
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=[
-                    'product_type',
-                    'attribute'
-                ],
-                name='unique_product_type_attribute'
+                fields=["product_type", "attribute"],
+                name="unique_product_type_attribute",
             )
         ]
 
@@ -85,27 +82,25 @@ class Attribute(models.Model):
 
     def __str__(self):
         return f"{self.attribute} ({self.product_type})"
-    
+
     def get_attribute_friendly_name(self):
         return self.attribute_friendly_name
-    
+
 
 class AttributeValue(models.Model):
-    attribute = models.ForeignKey('Attribute', related_name="values", on_delete=models.CASCADE)
+    attribute = models.ForeignKey(
+        "Attribute", related_name="values", on_delete=models.CASCADE
+    )
     attribute_value = models.CharField(max_length=254, db_index=True)
     slug = models.SlugField(max_length=254)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=[
-                    'attribute',
-                    'attribute_value'
-                ],
-                name='unique_attribute_value'
+                fields=["attribute", "attribute_value"], name="unique_attribute_value"
             )
         ]
-    
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.attribute_value)
@@ -113,14 +108,15 @@ class AttributeValue(models.Model):
 
     def __str__(self):
         return self.attribute_value
-    
+
 
 def generate_sku():
-    '''Genrates a random string for a SKU to make the slug unique'''
-    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+    """Genrates a random string for a SKU to make the slug unique"""
+    return "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
+
 
 class Product(models.Model):
-    product_type = models.ForeignKey('ProductType', on_delete=models.PROTECT)
+    product_type = models.ForeignKey("ProductType", on_delete=models.PROTECT)
     sku = models.CharField(max_length=254, null=True, blank=True)
     stock = models.IntegerField(default=0)
     available = models.BooleanField(default=True)
@@ -135,9 +131,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
-    
+
     def save(self, *args, **kwargs):
-        ''' Ensures the SKU is unique and creates slug out of Product name + SKU '''
+        """Ensures the SKU is unique and creates slug out of Product name + SKU"""
         if not self.sku:
             new_sku = generate_sku()
             while Product.objects.filter(sku=new_sku).exists():
@@ -145,8 +141,12 @@ class Product(models.Model):
             self.sku = new_sku
 
         if not self.slug:
-            self.slug = slugify(f"{self.product_name}-{self.sku}") # Combine Product Name with SKU to maintain uniqueness accross same product with different sttributes e.g. dinner candles with different colours.
-        
+            self.slug = slugify(
+                f"{self.product_name}-{self.sku}"
+            )  # Combine product name with SKU to keep slugs unique for
+            # the same product with different attributes, e.g. dinner
+            # candles with different colours.
+
         super().save(*args, **kwargs)
 
 
@@ -158,10 +158,6 @@ class ProductAttributeValue(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=[
-                    'product',
-                    'attribute'
-                ],
-                name='unique_product_attribute'
+                fields=["product", "attribute"], name="unique_product_attribute"
             )
         ]

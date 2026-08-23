@@ -4,18 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0001_initial'),
+        ("products", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name_plural': 'Categories'},
+            name="category",
+            options={"verbose_name_plural": "Categories"},
         ),
         migrations.AddConstraint(
-            model_name='attributevalue',
-            constraint=models.UniqueConstraint(fields=('attribute', 'attribute_value'), name='unique_attribute_value'),
+            model_name="attributevalue",
+            constraint=models.UniqueConstraint(
+                fields=("attribute", "attribute_value"), name="unique_attribute_value"
+            ),
         ),
     ]
