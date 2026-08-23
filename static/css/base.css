@@ -228,7 +228,6 @@ nav {
 
 .btn-black-outline:active {
     background-color: var(--bg-dark);
-    border-color: var(--bg-dark);
     color: var(--bg-mid);
 }
 
@@ -353,7 +352,7 @@ nav {
 
 footer i {
     color: var(--bg-mid);
-    size: 1.5rem;
+    font-size: 1.5rem;
     padding: 0.5rem;
     margin-top: 0.5rem;
 }

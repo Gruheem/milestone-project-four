@@ -7,15 +7,4 @@ document.addEventListener('DOMContentLoaded', function() {
             attributeList.classList.toggle('d-none');
         }
     });
-
-    // const sortSelect = document.getElementById('sort-select');
-    // console.log(sortSelect);
-    // sortSelect.addEventListener('change', function() {
-    //     if (this.value === 'reset') {
-    //         this.classList.add('placeholder');
-    //     } else {
-    //         this.classList.remove('placeholder');
-    //     }
-    // });
-
 })

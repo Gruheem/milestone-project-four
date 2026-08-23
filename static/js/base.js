@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }).show();
     });
 
-    const searchBtn = document.getElementById('search-btn')
-    const searchInput = document.getElementById('search-input')
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.getElementById('search-input');
     searchBtn.addEventListener('click', function() {
         searchInput.classList.remove('d-none');
         searchInput.focus();

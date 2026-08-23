@@ -15,4 +15,4 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.color = 'var(--placeholder-colour)';
         }
     });
-})
+});

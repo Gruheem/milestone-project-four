@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             incButton.disabled = false;
         }
-    }
+    };
     
     // Iterates through the increment button list
     incButtons.forEach(button => {
