@@ -1,39 +1,58 @@
-# milestone-project-four
+# Milestone Project 4: E-Commerce Site for Reason Interiors
+[Live Site](https://reason-interiors-157a3dc5010c.herokuapp.com/)
 
-# E-Commerce Site for Reson Interiors
+[GitHub Repository](https://github.com/Gruheem/milestone-project-four)
 
 ## Table of Contents
-- [Purpose & Value Proposition](#purpose--value-proposition)
+
+- [Purpose/Project Goals](#purposeproject-goals)
 - [UX](#ux)
   - [Business Goals](#business-goals)
   - [User Personas](#user-personas)
   - [User Stories](#user-stories)
   - [Wireframes](#wireframes)
+  - [Style Choices](#style-choices)
 - [Features](#features)
+  - [Homepage/Merchandising](#homepagemerchandising)
+  - [User Authentication & Roles](#user-authentication--roles)
+  - [Admin Product & Stock Management](#admin-product--stock-management)
+  - [Product Browsing & Navigation](#product-browsing--navigation)
+  - [Search & Filtering](#search--filtering)
+  - [Product Detail Pages](#product-detail-pages)
+  - [Basket Management](#basket-management)
+  - [Checkout & Payments](#checkout--payments)
+  - [Order Management](#order-management)
+  - [UX Quality & Accessibility](#ux-quality--accessibility)
 - [Data Schema & Design Rationale](#data-schema--design-rationale)
-  - [Database Models](#database-models)
-- [Technologies & Key Technical Decisions](#technologies--key-technical-decisions)
-  - [Technologies and Approaches Used](#technologies-and-approaches-used)
+  - [EAV Model](#eav-model)
+- [Technologies & Technical Decisions](#technologies--technical-decisions)
+  - [Django](#django)
+  - [BootStrap](#bootstrap)
+  - [Approaches Used](#approaches-used)
   - [Stripe/Checkout Flow](#stripecheckout-flow)
-  - [Defensive Programming](#defensive-programming)
-  - [APIs](#apis)
+  - [Custom Filter](#custom-filter)
+  - [Avoiding the 'n+1 probem'](#avoiding-the-n1-probem)
+  - [Shell](#shell)
   - [Authentication (Django AllAuth)](#authentication-django-allauth)
-  - [Stripe Integration Notes](#stripe-integration-notes)
+  - [Defensive Programming](#defensive-programming)
 - [Testing](#testing)
-- [Bugs / Known Issues](#bugs--known-issues)
-- [Deployment](#deployment)
+  - [Bugs / Known Issues](#bugs--known-issues)
+  - [Manual Testing](#manual-testing)
+  - [Validator Testing](#validator-testing)
+  - [Colour Testing](#colour-testing)
+  - [Ligthouse Testing](#ligthouse-testing)
 - [Security](#security)
+- [Deployment](#deployment)
+- [Future Features and Developement](#future-features-and-developement)
 - [Credits & Attribution](#credits--attribution)
-- [Appendix: Product Categories, Types & Attributes](#appendix-product-categories-types--attributes)
+- [Appendix: Categories, Product Types & Attributes](#appendix-categories-product-types--attributes)
 
----
 
-<!-- To do look at expanding this maybe-->
-
-### Purpose/Project Goals
+## Purpose/Project Goals
 The goal of the project is to create a full-stack e-commerce django site comprised of multiple apps that include a well structured relational database, CRUD operations, authentication, authorisation, permission bondaries and a real e-commerce payment flow. The project will demonstrate excellent UX design, featuring a clean seperation of concerns with a well organised directory structure with reliably structured and accurately maintained content across all files, as well as robust and graceful error handling.
 
----
+Its purpose is to increase the value of the business through increasing sales by reaching a larger audience and new markets.
+
 
 ## UX
 
@@ -74,54 +93,54 @@ Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attrib
 🔵 COULD HAVE
 
 (from casual browser)  
-🟢 [x] As a visitor, I want to browse products without needing to create an account so that I can explore the site freely.  
-🟢 [x] As a visitor, I want clear navigation menus and categories so that I can easily find products of interest.  
-🟢 [x] As a visitor, I want search and filtering tools so that I can refine product listings easily.  
-🟡 [-] As a visitor, I want to see featured and best-selling products so that I can quickly understand what the store offers.  
-🟢 [x] As a visitor, I want the site to work well on mobile and desktop so that I can browse comfortably on any device.  
-🟢 [x] As a visitor, I want product pages to load quickly and display clear information so that I can make informed browsing decisions.  
+🟢 As a visitor, I want to browse products without needing to create an account so that I can explore the site freely.  
+🟢 As a visitor, I want clear navigation menus and categories so that I can easily find products of interest.  
+🟢 As a visitor, I want search and filtering tools so that I can refine product listings easily.  
+🟡 As a visitor, I want to see featured and best-selling products so that I can quickly understand what the store offers.  
+🟢 As a visitor, I want the site to work well on mobile and desktop so that I can browse comfortably on any device.  
+🟢 As a visitor, I want product pages to load quickly and display clear information so that I can make informed browsing decisions.  
 
 (from regular customer)  
-🟡 [x] As a customer, I want an “Order History” section so that I can view past purchases and track what I have already bought.  
-🟡 [x] As a customer, I want the checkout process to be fast and pre-filled with my saved details so that I can complete purchases efficiently.  
-🟢 [x] As a customer, I want my basket updates to appear instantly so that I always know what I am about to purchase.  
+🟡 As a customer, I want an “Order History” section so that I can view past purchases and track what I have already bought.  
+🟡 As a customer, I want the checkout process to be fast and pre-filled with my saved details so that I can complete purchases efficiently.  
+🟢 As a customer, I want my basket updates to appear instantly so that I always know what I am about to purchase.  
   
 (from gift giver)  
-🟡 [-] As a customer, I want to browse products by occasion (e.g. birthdays, anniversaries) so that I can quickly find suitable gifts.  
-🟡 [-] As a customer, I want a gift card option so that I can purchase flexible gifts when I am unsure what to buy.  
-🟢 [x] As a customer, I want filtering options such as price range and category so that I can stay within my budget.  
-🟢 [x] As a customer, I want clear delivery information so that I can ensure gifts arrive on time.  
+🟡 As a customer, I want to browse products by occasion (e.g. birthdays, anniversaries) so that I can quickly find suitable gifts.  
+🟡 As a customer, I want a gift card option so that I can purchase flexible gifts when I am unsure what to buy.  
+🟢 As a customer, I want filtering options such as price range and category so that I can stay within my budget.  
+🟢 As a customer, I want clear delivery information so that I can ensure gifts arrive on time.  
   
 (from vintage hunter)  
-🔵 [-] As a customer, I want detailed product descriptions including condition and known history and high-quality images so that I can assess authenticity and value.  
-🔵 [-] As a customer, I want a dedicated vintage category so that I can easily browse rare items.  
-🔵 [-] As a customer, I want accurate stock availability so that I know when an item is truly one-of-a-kind.  
-🔵 [-] As a customer, I want advanced filtering (era, type, rarity) so that I can find specific collectibles.  
+🔵 As a customer, I want detailed product descriptions including condition and known history and high-quality images so that I can assess authenticity and value.  
+🔵 As a customer, I want a dedicated vintage category so that I can easily browse rare items.  
+🔵 As a customer, I want accurate stock availability so that I know when an item is truly one-of-a-kind.  
+🔵 As a customer, I want advanced filtering (era, type, rarity) so that I can find specific collectibles.  
 
 (authentication)  
-🟢 [x] As a user, I want to register an account so that I can access personalised features.  
-🟢 [x] As a user, I want to securely log in and log out so that my data is protected.  
-🟢 [x] As a user, I want role-based access (customer/admin) so that only authorised users can manage products and orders.  
+🟢 As a user, I want to register an account so that I can access personalised features.  
+🟢 As a user, I want to securely log in and log out so that my data is protected.  
+🟢 As a user, I want role-based access (customer/admin) so that only authorised users can manage products and orders.  
 
 (checkout and basket)  
-🟢 [x] As a user, I want to add and remove items from my basket so that I can control my purchase before checkout.  
-🟢 [x] As a user, I want cart updates to update immediately in the UI so that I always see accurate totals.  
-🟡 [x] As a user, I want a smooth checkout process so that I can complete purchases quickly.  
-🟢 [x] As a user, I want to pay securely using an integrated payment system so that I can trust the  transaction.  
-🟢 [x] As a user, I want an order confirmation page so that I know my purchase was successful.  
+🟢 As a user, I want to add and remove items from my basket so that I can control my purchase before checkout.  
+🟢 As a user, I want cart updates to update immediately in the UI so that I always see accurate totals.  
+🟡 As a user, I want a smooth checkout process so that I can complete purchases quickly.  
+🟢 As a user, I want to pay securely using an integrated payment system so that I can trust the  transaction.  
+🟢 As a user, I want an order confirmation page so that I know my purchase was successful.  
 
 (admin)  
-🟢 [x] As an admin, I want to create, update, and delete products so that I can manage the store catalogue.  
-🟢 [x] As an admin, I want to manage stock levels so that availability is always accurate.  
-🟢 [x] As an admin, I want to view and manage customer orders so that I can fulfil purchases efficiently.  
-🟢 [x] As an admin, I want to categorise products so that users can navigate the store easily.  
+🟢 As an admin, I want to create, update, and delete products so that I can manage the store catalogue.  
+🟢 As an admin, I want to manage stock levels so that availability is always accurate.  
+🟢 As an admin, I want to view and manage customer orders so that I can fulfil purchases efficiently.  
+🟢 As an admin, I want to categorise products so that users can navigate the store easily.  
 
 (general)  
-🟢 [x] As a user, I want the interface to be intuitive so that I can navigate without instructions.  
-🟢 [x] As a user, I want consistent layout and design across pages so that the experience feels professional.  
-🟡 [x] As a user, I want immediate feedback when I perform actions (add to cart, update quantity, delete item) so that I know the system has responded.  
-🟡 [x] As a user, I want error messages that are clear and helpful so that I can fix problems easily.  
-🟢 [x] As a user, I want accessibility support so that I can use the site regardless of ability.  
+🟢 As a user, I want the interface to be intuitive so that I can navigate without instructions.  
+🟢 As a user, I want consistent layout and design across pages so that the experience feels professional.  
+🟡 As a user, I want immediate feedback when I perform actions (add to cart, update quantity, delete item) so that I know the system has responded.  
+🟡 As a user, I want error messages that are clear and helpful so that I can fix problems easily.  
+🟢 As a user, I want accessibility support so that I can use the site regardless of ability.  
 
 ### Wireframes
 <!-- To Do add wireframes -->
@@ -143,7 +162,8 @@ This is the pallette I chose:
 
 ## Features
 
-**Homepage/Merchandising** - Homepage section with welcome:  
+### Homepage/Merchandising 
+Homepage section with welcome:  
 <img src="static/images/hero.png" width="450">  
 <img src="static/images/welcome.png" width="450">  
 <img src="static/images/cateories-shop.png" width="450">  
@@ -151,14 +171,16 @@ This is the pallette I chose:
 <img src="static/images/google-maps.png" width="450">  
 <img src="static/images/footer.png" width="450"> 
   
-**User Authentication & Roles** - Register, Log in, Log out and role based access(customer/admin):  
+### User Authentication & Roles 
+Register, Log in, Log out and role based access(customer/admin):  
 
 <img src="static/images/sign-in.png" width="450">
 <img src="static/images/sign-out.png" width="450">
 <img src="static/images/register.png" width="450">
 
 
-**Admin Product & Stock Management** - Create/update/delete products, manage stock levels, categorise products:  
+### Admin Product & Stock Management 
+Create/update/delete products, manage stock levels, categorise products:  
 
 <img src="static/images/admin-pannel.png" width="450">
 <img src="static/images/admin-products-one.png" width="450">  
@@ -167,7 +189,8 @@ I have made it so that when you are on a the add a product page that when you se
 
 <img src="static/images/admin-products-two.png" width="450">  
 
-**Product Browsing & Navigation** - Products page and navigation present:   
+### Product Browsing & Navigation 
+Products page and navigation present:   
 
 Navigation:  
 <img src="static/images/nav-one.png" width="400">
@@ -176,32 +199,37 @@ Navigation:
 Navigation result:  
 <img src="static/images/products.png" width="400">  
 
-**Search & Filtering** - Search bar and filtering using EAV:  
+### Search & Filtering - Search bar and filtering using EAV:  
 The search bar is a drop down revealed once the icon is clcicked and activated when clicked again. There is feedback for an empty search prompting users to try again.  
 
 <img src="static/images/search-icon.png" width="400">  
 <img src="static/images/search-bar.png" width="400">  
   
-The filter is dynamically generated from my EAV Model to suite the varied nature of them items in stock.
+The filter is dynamically generated from my EAV Model to suit the varied nature of them items in stock.
 <img src="static/images/filter.png" width="400">  
 
-**Product Detail Pages** - Page for the details of the prdouct and a place for size/colour selection to take place:  
+### Product Detail Pages 
+Page for the details of the prdouct and a place for size/colour selection to take place:  
 <img src="static/images/product-detail.png" width="400">  
 
-**Basket Management** - update or remove items in basket,  total updates:  
+### Basket Management 
+Update or remove items in basket,  total updates:  
 <img src="static/images/bag-one.png" width="400">  
 <img src="static/images/bag-two.png" width="400">  
 
-**Checkout & Payments** - Secure checkout page with robust process and checkout succcess page:  
+### Checkout & Payments 
+Secure checkout page with robust process and checkout succcess page:  
 <img src="static/images/checkout.png" width="400">  
 <img src="static/images/checkout-return.png" width="400">  
 <img src="static/images/checkout-success.png" width="400">  
     
-**Order Management** - Customer see past orders and manage orders in admin panel:  
+### Order Management 
+Customer see past orders and manage orders in admin panel:  
 <img src="static/images/order-admin.png" width="400">  
 <img src="static/images/profile.png" width="400">  
 
-**UX Quality & Accessibility** - Intuitive interface, consistent design, action feedback, clear error messages, accessibility support.  
+### UX Quality & Accessibility 
+Intuitive interface, consistent design, action feedback, clear error messages, accessibility support.   
 Toasts happen at every point an action is taken here are examples of a success toast and an info toast.  
 <img src="static/images/success-toast.png" width="400">  
 <img src="static/images/info-toast.png" width="400">  
@@ -288,6 +316,8 @@ For the filter I chose the approach of Using JavaScript to create url based on t
 
 I am using PROTECT on Product.product_type so on delete the products linked to it won't all just get deleted if a product type were to be deleted by mistake.
 
+I have also Created a table for the UserProfile which will be linked to the django user table and utalised for saving inforamtion and tracking order history.   
+
 The final Database Schema used for the project is as follows:  
 
 <img src="static/images/database-erd.webp">
@@ -295,10 +325,13 @@ The final Database Schema used for the project is as follows:
 
 ## Technologies & Technical Decisions
 
-### Django
-Django was chosen as the framework to support the MVT architecture chosen for the project. Django's clearly seperated MVT architecture and appropriate functionality for an e-commerce website. The Built in security provides layers of protection and has a customisable admin section that works very well.
+### Django  
+Django was chosen as the framework to support the MVT architecture chosen for the project. Django's clearly seperated MVT architecture and appropriate functionality for an e-commerce website. The Built in security provides layers of protection and has a customisable admin section that works very well.  
 
-### Approaches Used
+### BootStrap  
+BootStrap 5.3 was used for creating this project  
+
+### Approaches Used  
 
 EAV Model:  
 Entity Attribute Value Style Schema
@@ -341,18 +374,32 @@ attributes = Attribute.objects.filter(
 
 
 ### Shell 
-I used the Python Shell for various operation and tests during the developement process. an example was when i added a slug field to my db models and used the shell to populate that slug field for al enties based fo the entries name.
+I used the Python Shell for various operation and tests during the development process. An example was when I added a slug field to my db models and used the shell to populate that slug field for al enties based fo the entries name.
 
 I used it check the existance of database entries and the values of variables at different stages of different data flows.
 
 ### Authentication (Django AllAuth)
 
-I used django-AllAuth for my authenitication as it bosts a suite of security features such as password hashing, csrf protection, email verification and reset password fetaures. Aswell as its own template system. The templates that were adapted for the project to use were:
+I used django-AllAuth for my authenitication as it has some good security features such as password hashing, csrf protection, email verification and reset password fetaures. Aswell as its own template system. The templates that were adapted for the project to use were:
 - log_in
 - log_out
 - sign-up
 - verification_sent
 - verification_email_required  
+
+### Defensive Programming  
+
+Defensive Programming  
+
+Defensive programming is an approach to development that anticipates unexpected, invalid, or potentially manipulated input and adds checks to prevent it from causing errors or compromising the application.  
+
+In this project, defensive programming is used in several areas:
+
+- Performing multiple checks to control button presses and user inputs when submitting quantity changes to the bag, including disabling buttons where appropriate and validating quantity selections. 
+- Validating forms before passing the data to the Stripe checkout view.
+- Checking that a bag exists and contains items before allowing the user to proceed to checkout, returning an appropriate error if it does not.
+- Calculating the final price to be charged from the bag_contents and product data stored on the server, rather than relying on prices or values supplied by the user's browser.
+- Using server-side validation to ensure that submitted data is valid and cannot be manipulated to bypass checkout rules.
 
 
 ## Testing
@@ -434,6 +481,61 @@ PEP8 adhereance testing with Ruff was carried out on all .py files. it raised so
 
 All Python files acheieved PASS Status.
 
+### User Story Testing
+Testing reveals all but 6 user stories passed their tests and this creates the foundation for our next steps of developement.  
+
+'x' = Pass, '-' = Fail
+
+(from casual browser)  
+🟢 [x] As a visitor, I want to browse products without needing to create an account so that I can explore the site freely.  
+🟢 [x] As a visitor, I want clear navigation menus and categories so that I can easily find products of interest.  
+🟢 [x] As a visitor, I want search and filtering tools so that I can refine product listings easily.  
+🟡 [-] As a visitor, I want to see featured and best-selling products so that I can quickly understand what the store offers.  
+🟢 [x] As a visitor, I want the site to work well on mobile and desktop so that I can browse comfortably on any device.  
+🟢 [x] As a visitor, I want product pages to load quickly and display clear information so that I can make informed browsing decisions.  
+
+(from regular customer)  
+🟡 [x] As a customer, I want an “Order History” section so that I can view past purchases and track what I have already bought.  
+🟡 [x] As a customer, I want the checkout process to be fast and pre-filled with my saved details so that I can complete purchases efficiently.  
+🟢 [x] As a customer, I want my basket updates to appear instantly so that I always know what I am about to purchase.  
+  
+(from gift giver)  
+🟡 [-] As a customer, I want to browse products by occasion (e.g. birthdays, anniversaries) so that I can quickly find suitable gifts.  
+🟡 [-] As a customer, I want a gift card option so that I can purchase flexible gifts when I am unsure what to buy.  
+🟢 [x] As a customer, I want filtering options such as price range and category so that I can stay within my budget.  
+🟢 [x] As a customer, I want clear delivery information so that I can ensure gifts arrive on time.  
+  
+(from vintage hunter)  
+🔵 [-] As a customer, I want detailed product descriptions including condition and known history and high-quality images so that I can assess authenticity and value.  
+🔵 [-] As a customer, I want a dedicated vintage category so that I can easily browse rare items.  
+🔵 [-] As a customer, I want accurate stock availability so that I know when an item is truly one-of-a-kind.  
+🔵 [-] As a customer, I want advanced filtering (era, type, rarity) so that I can find specific collectibles.  
+
+(authentication)  
+🟢 [x] As a user, I want to register an account so that I can access personalised features.  
+🟢 [x] As a user, I want to securely log in and log out so that my data is protected.  
+🟢 [x] As a user, I want role-based access (customer/admin) so that only authorised users can manage products and orders.  
+
+(checkout and basket)  
+🟢 [x] As a user, I want to add and remove items from my basket so that I can control my purchase before checkout.  
+🟢 [x] As a user, I want cart updates to update immediately in the UI so that I always see accurate totals.  
+🟡 [x] As a user, I want a smooth checkout process so that I can complete purchases quickly.  
+🟢 [x] As a user, I want to pay securely using an integrated payment system so that I can trust the  transaction.  
+🟢 [x] As a user, I want an order confirmation page so that I know my purchase was successful.  
+
+(admin)  
+🟢 [x] As an admin, I want to create, update, and delete products so that I can manage the store catalogue.  
+🟢 [x] As an admin, I want to manage stock levels so that availability is always accurate.  
+🟢 [x] As an admin, I want to view and manage customer orders so that I can fulfil purchases efficiently.  
+🟢 [x] As an admin, I want to categorise products so that users can navigate the store easily.  
+
+(general)  
+🟢 [x] As a user, I want the interface to be intuitive so that I can navigate without instructions.  
+🟢 [x] As a user, I want consistent layout and design across pages so that the experience feels professional.  
+🟡 [x] As a user, I want immediate feedback when I perform actions (add to cart, update quantity, delete item) so that I know the system has responded.  
+🟡 [x] As a user, I want error messages that are clear and helpful so that I can fix problems easily.  
+🟢 [x] As a user, I want accessibility support so that I can use the site regardless of ability. 
+
 
 ### Colour Testing
 
@@ -458,23 +560,11 @@ Some improvements wera able to be made through image loading priority adjustment
 - There are no Scret keys in the settings on anywhere on GitHub they are safely stored as Environment Variables.
 - DEBUG is False on the deployed app.
 - Log in permissions are set so only a superuser can access the admin.  Log in requirements are set of profile pages to keep the views secured.
-- Rate limiting to protect from brute force/DDOS attacks.
-- Force HTTPS to keep the connection secure.
+- Force HTTPS to keep the connection secure in settings.py.
 - .gitignore used to keep sensitive files local.
+- Rate Limiting used on certain views add to bag for bots scraping inventory levels, log in/ registration to try to help against brute force attacks and on checkout creation to prevent testing stolen cards.
 
-### Defensive Programming  
 
-Defensive Programming  
-
-Defensive programming is an approach to development that anticipates unexpected, invalid, or potentially manipulated input and adds checks to prevent it from causing errors or compromising the application.  
-
-In this project, defensive programming is used in several areas:
-
-- Performing multiple checks to control button presses and user inputs when submitting quantity changes to the bag, including disabling buttons where appropriate and validating quantity selections. 
-- Validating forms before passing the data to the Stripe checkout view.
-- Checking that a bag exists and contains items before allowing the user to proceed to checkout, returning an appropriate error if it does not.
-- Calculating the final price to be charged from the bag_contents and product data stored on the server, rather than relying on prices or values supplied by the user's browser.
-- Using server-side validation to ensure that submitted data is valid and cannot be manipulated to bypass checkout rules.
 
 ## Deployment
 Steps taken to deploy:

@@ -11,6 +11,7 @@ Django==5.2.16
 django-allauth==65.18.0
 django-countries==9.0.0
 django-crispy-forms==2.7
+django-ratelimit==4.1.0
 django-storages==1.14.6
 djlint==1.43.1
 EditorConfig==0.17.1
@@ -26,6 +27,7 @@ python-dateutil==2.9.0.post0
 PyYAML==6.0.3
 regex==2026.7.19
 requests==2.34.2
+ruff==0.16.4
 s3transfer==0.19.2
 six==1.17.0
 sqlparse==0.5.5
