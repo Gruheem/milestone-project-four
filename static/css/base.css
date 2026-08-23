@@ -13,6 +13,14 @@
     background-color: var(--bg-mid) !important;
 }
 
+.custom-table > :not(caption) > * > * {
+    background-color: transparent !important;
+}
+
+.max-width {
+    max-width: 10rem !important;
+}
+
 h1 {
     letter-spacing: 6px;
 }

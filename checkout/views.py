@@ -116,7 +116,7 @@ def create_checkout_session(request):
         params={
             "line_items": line_items,
             "mode": "payment",
-            "ui_mode": "custom",
+            "ui_mode": "elements",
             # The return URL is where the user is redirected after
             # completing payment.
             "return_url": (
