@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
-from django_ratelimit.decorators import ratelimit
 
 
 from checkout.models import Order
@@ -9,7 +8,7 @@ from checkout.models import Order
 from .forms import UserProfileForm
 from .models import UserProfile
 
-@ratelimit(key="ip_and_username", rate="5/m")
+
 @login_required
 def profile(request):
     """

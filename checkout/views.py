@@ -56,7 +56,7 @@ def checkout(request):
 
     return render(request, "checkout/checkout.html", context)
 
-@ratelimit(key="ip_or_user", rate="3/m")
+@ratelimit(key="ip", rate="3/m")
 @require_POST
 def create_checkout_session(request):
     """

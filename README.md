@@ -628,7 +628,9 @@ The next steps for the project would be to comlete these outstanding user storie
 
 Optimization is something I would have liked to have spent more time on and making some automated tests for the payment taking part of the site.
 
-Something else I would do is to make a suite of automated tesitng than ran regularly and informed me with an alert if any feature on the site wsn't working.
+Something else I would do is to make a suite of automated tesitng than ran regularly and informed me with an alert if any feature on the site wsn't working. 
+
+Further Security steps would be taken in the future including rate limiting. I tried to implement this but could not get it wokring in time for submission. It will be used on certain views such as add to bag for bots scraping inventory levels, log in/ registration to try to help against brute force attacks and on checkout creation to limit testing stolen cards.
 
 
 ## Credits & Attribution
