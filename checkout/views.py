@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import redirect, render, reverse
 from django.views.decorators.http import require_POST
-from django_ratelimit.decorators import ratelimit
 
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
@@ -56,7 +55,6 @@ def checkout(request):
 
     return render(request, "checkout/checkout.html", context)
 
-@ratelimit(key="ip", rate="3/m")
 @require_POST
 def create_checkout_session(request):
     """

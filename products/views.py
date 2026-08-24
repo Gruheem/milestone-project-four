@@ -76,7 +76,7 @@ def all_products(request):
             query = request.GET["q"]
             if not query:
                 messages.error(request, "Please Enter Your Search Terms")
-                return redirect(reverse("products"))
+                return redirect(reverse("home"))
 
             # Search the product name and description.
             queries = (

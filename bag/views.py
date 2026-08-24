@@ -1,19 +1,16 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django_ratelimit.decorators import ratelimit
 
 from products.models import Product
 
 
 # Create your views here.
-@ratelimit(key="ip", rate="30/m")
 def view_bag(request):
     """A view to return the bag page"""
 
     return render(request, "bag/bag.html")
 
-@ratelimit(key="ip", rate="30/m")
 def add_to_bag(request, item_id):
     """Add a quantity of the specified product to the shopping bag"""
 
@@ -39,7 +36,6 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
-@ratelimit(key="ip ", rate="30/m")
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified product in the shopping bag"""
 
