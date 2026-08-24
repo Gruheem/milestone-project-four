@@ -40,10 +40,11 @@
   - [Manual Testing](#manual-testing)
   - [Validator Testing](#validator-testing)
   - [Colour Testing](#colour-testing)
-  - [Ligthouse Testing](#ligthouse-testing)
+  - [Lighthouse Testing](#ligthouse-testing)
+  - [User Story Testing](#user-story-testing)
 - [Security](#security)
 - [Deployment](#deployment)
-- [Future Features and Developement](#future-features-and-developement)
+- [Future Features and Development](#future-features-and-developement)
 - [Credits & Attribution](#credits--attribution)
 - [Appendix: Categories, Product Types & Attributes](#appendix-categories-product-types--attributes)
 
@@ -143,7 +144,33 @@ Needs - Vintage Site Section. Vintage Product Category with Comprehensive Attrib
 🟢 As a user, I want accessibility support so that I can use the site regardless of ability.  
 
 ### Wireframes
-<!-- To Do add wireframes -->
+Wire frames were made using paint, I chose this software because its familiarity eliminated technical friction, letting me focus straight away on the creative process. Here are the wireframes I made for the project: 
+
+**Home Page**:  
+<img src="static/images/d-home.png" width="300" alt="Desktop home page wireframe">
+<img src="static/images/m-home.png" width="300" alt="Mobile home page wireframe">
+
+**Products**:  
+<img src="static/images/d-products.png" width="300" alt="Desktop products page wireframe">
+<img src="static/images/m-products.png" width="300" alt="Mobile products page wireframe">
+
+**Product Detail**:  
+<img src="static/images/d-product-detail.png" width="300" alt="Desktop product detail page wireframe">
+<img src="static/images/m-product-detail.png" width="300" alt="Mobile product detail page wireframe">
+
+**Bag**:   
+<img src="static/images/d-bag.png" width="300" alt="Desktop shopping bag page wireframe">
+<img src="static/images/m-bag.png" width="300" alt="Mobile shopping bag page wireframe">
+
+**Checkout**:  
+<img src="static/images/d-checkout.png" width="300" alt="Desktop checkout page wireframe">
+<img src="static/images/m-checkout.png" width="300" alt="Mobile checkout page wireframe">
+
+**Profile**:  
+<img src="static/images/d-profile.png" width="300" alt="Desktop user profile page wireframe">
+<img src="static/images/m-profile.png" width="300" alt="Mobile user profile page wireframe">
+
+
 
 ### Style Choices
 I have kept the colour palette small in order to create a strong sense of the brand and really trying to keep the design decisions quantafiably justifiable.  
@@ -164,75 +191,77 @@ This is the pallette I chose:
 
 ### Homepage/Merchandising 
 Homepage section with welcome:  
-<img src="static/images/hero.png" width="450">  
-<img src="static/images/welcome.png" width="450">  
-<img src="static/images/cateories-shop.png" width="450">  
-<img src="static/images/testimonies.png" width="450">  
-<img src="static/images/google-maps.png" width="450">  
-<img src="static/images/footer.png" width="450"> 
+<img src="static/images/hero.png" width="450" alt="Homepage hero section">
+<img src="static/images/welcome.png" width="450" alt="Homepage welcome section">
+<img src="static/images/cateories-shop.png" width="450" alt="Homepage shop categories section">
+<img src="static/images/testimonies.png" width="450" alt="Homepage customer testimonials section">
+<img src="static/images/google-maps.png" width="450" alt="Homepage Google Maps location section">
+<img src="static/images/footer.png" width="450" alt="Homepage footer section"> 
   
 ### User Authentication & Roles 
 Register, Log in, Log out and role based access(customer/admin):  
 
-<img src="static/images/sign-in.png" width="450">
-<img src="static/images/sign-out.png" width="450">
-<img src="static/images/register.png" width="450">
+<img src="static/images/sign-in.png" width="450" alt="User sign-in page">
+<img src="static/images/sign-out.png" width="450" alt="User sign-out confirmation">
+<img src="static/images/register.png" width="450" alt="User registration page">
 
 
 ### Admin Product & Stock Management 
 Create/update/delete products, manage stock levels, categorise products:  
 
-<img src="static/images/admin-pannel.png" width="450">
-<img src="static/images/admin-products-one.png" width="450">  
-
+<img src="static/images/admin-pannel.png" width="450" alt="Admin panel dashboard">
+<img src="static/images/admin-products-one.png" width="450" alt="Admin product management page">
+ 
 I have made it so that when you are on a the add a product page that when you select is product type all existing attributes populate the form with dropdown for you to pick from the existing values. From here you can also create new Attributes and Values to fit the product the user is adding. Adding these attribute and values here is what creates the search filter on theproducts page.  
 
-<img src="static/images/admin-products-two.png" width="450">  
+<img src="static/images/admin-products-two.png" width="450" alt="Admin product attributes and values form">
+ 
 
 ### Product Browsing & Navigation 
 Products page and navigation present:   
 
 Navigation:  
-<img src="static/images/nav-one.png" width="400">
-<img src="static/images/nav-two.png" width="400">
-<img src="static/images/nav-three.png" width="400">  
+<img src="static/images/nav-one.png" width="400" alt="Main navigation menu">
+<img src="static/images/nav-two.png" width="400" alt="Expanded product navigation menu">
+<img src="static/images/nav-three.png" width="400" alt="Product category navigation menu">
 Navigation result:  
-<img src="static/images/products.png" width="400">  
+<img src="static/images/products.png" width="400" alt="Products page displaying filtered product results"> 
 
-### Search & Filtering - Search bar and filtering using EAV:  
+
+### Search & Filtering
+Search bar and filtering using EAV:  
 The search bar is a drop down revealed once the icon is clcicked and activated when clicked again. There is feedback for an empty search prompting users to try again.  
+<img src="static/images/search-icon.png" width="400" alt="Search icon in the navigation bar">
+<img src="static/images/search-bar.png" width="400" alt="Expanded search bar">
 
-<img src="static/images/search-icon.png" width="400">  
-<img src="static/images/search-bar.png" width="400">  
-  
 The filter is dynamically generated from my EAV Model to suit the varied nature of them items in stock.
-<img src="static/images/filter.png" width="400">  
-
+<img src="static/images/filter.png" width="400" alt="Dynamically generated product filters">  
+  
 ### Product Detail Pages 
 Page for the details of the prdouct and a place for size/colour selection to take place:  
-<img src="static/images/product-detail.png" width="400">  
+<img src="static/images/product-detail.png" width="400" alt="Product detail page with product information and options">
 
 ### Basket Management 
-Update or remove items in basket,  total updates:  
-<img src="static/images/bag-one.png" width="400">  
-<img src="static/images/bag-two.png" width="400">  
+Update or remove items in basket, total updates:  
+<img src="static/images/bag-one.png" width="400" alt="Shopping bag displaying selected products">
+<img src="static/images/bag-two.png" width="400" alt="Shopping bag with updated product quantity and total"> 
 
 ### Checkout & Payments 
 Secure checkout page with robust process and checkout succcess page:  
-<img src="static/images/checkout.png" width="400">  
-<img src="static/images/checkout-return.png" width="400">  
-<img src="static/images/checkout-success.png" width="400">  
+<img src="static/images/checkout.png" width="400" alt="Checkout page with customer and payment details">
+<img src="static/images/checkout-return.png" width="400" alt="Checkout return page">
+<img src="static/images/checkout-success.png" width="400" alt="Successful checkout confirmation page"> 
     
 ### Order Management 
 Customer see past orders and manage orders in admin panel:  
-<img src="static/images/order-admin.png" width="400">  
-<img src="static/images/profile.png" width="400">  
+<img src="static/images/order-admin.png" width="400" alt="Admin order management page">
+<img src="static/images/profile.png" width="400" alt="Customer profile displaying previous orders"> 
 
 ### UX Quality & Accessibility 
 Intuitive interface, consistent design, action feedback, clear error messages, accessibility support.   
 Toasts happen at every point an action is taken here are examples of a success toast and an info toast.  
-<img src="static/images/success-toast.png" width="400">  
-<img src="static/images/info-toast.png" width="400">  
+<img src="static/images/success-toast.png" width="400" alt="Success toast notification confirming a completed action">
+<img src="static/images/info-toast.png" width="400" alt="Information toast notification providing user feedback">  
 
 
 ## Data Schema & Design Rationale
@@ -389,8 +418,6 @@ I used django-AllAuth for my authenitication as it has some good security featur
 
 ### Defensive Programming  
 
-Defensive Programming  
-
 Defensive programming is an approach to development that anticipates unexpected, invalid, or potentially manipulated input and adds checks to prevent it from causing errors or compromising the application.  
 
 In this project, defensive programming is used in several areas:
@@ -545,7 +572,7 @@ Testing reveals all but 6 user stories passed their tests and this creates the f
   
 Colour testing has pass WCEG standards for Text Readability Contrast 
 
-## Ligthouse Testing
+## Lighthouse Testing
 
 Initial Testing:  
 
@@ -589,7 +616,7 @@ Live deployment -
 Local deployment -  
 To run this project locally, make sure you have your virtual environment activated and the correct version of Python running. Then install dependencies using requirements.txt (`pip3 install -r requirements.txt`). After this has successfully completed, run `python3 manage.py runserver` in the terminal. Hold Control/Command and click on the link created to launch the app in your default browser.
 
-## Future Features and Developement  
+## Future Features and Development  
 
 Features to complete our user stories would be:  
 Gift Shopping Experienece - gift card purchasing, search by occasion. 
@@ -597,14 +624,25 @@ Vintage Collector Experience - Vintage category, enhanced attributes.
 
 I was quite ambitious with the scope of the project and one or two things didn't quite make intot the final submission. Once I could see their complexity they were decided to be left out like the sort by occaision and gift card sale of different amounts.
 
-The next steps for the project would be to comlete these outstanding user stories section and I would very much like to add a best sellers/what 'in' at the moment section on the homepage. A fully custom page outside of the admin to add/edit/delete products mirroring logic from the products admin.  
+The next steps for the project would be to comlete these outstanding user stories section and I would very much like to add a best sellers/what 'in' at the moment section on the homepage. I woukd also add a fully custom page outside of the admin to add/edit/delete products mirroring logic from the products admin.  
 
 Optimization is something I would have liked to have spent more time on and making some automated tests for the payment taking part of the site.
 
+Something else I would do is to make a suite of automated tesitng than ran regularly and informed me with an alert if any feature on the site wsn't working.
+
 
 ## Credits & Attribution
-<!-- To do -->
+There are some code attributions that need to be made:
 
+The loading wheel(css spinner) on the checkout_return.html page was found on https://cssloaders.github.io/
+
+The loading spinner as you press the confirm pament button wwas adapted from [The Code Institute](https://lms.codeinstitute.net/).
+
+admin_attributes.js is not original code. It was generated by an LLM(claude).
+
+The Boutique Ado tutorial informed the work flow of the project but as it was writtena few years ago now several things had changed and updated making the code substantially different in most areas e.g. checkout flow, db schemas.
+
+design inspiration was taken from other similar shops such as [domestic science](https://domesticsciencehome.co.uk/?srsltid=AfmBOorxd7XfITr37hcJsb-h9dYANKWNgiltKruAirGYriprLu5WadEv) and [mon pote](https://monpote.co.uk/).
 
 ## Appendix: Categories, Product Types & Attributes
 
