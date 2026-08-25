@@ -39,6 +39,22 @@ class TestBagViews(TestCase):
         # Assert - bag should be capped at 99, not 500
         self.assertEqual(self.client.session['bag'][str(self.product.id)], 99)
 
-
+    def test_add_to_bag_caps_quantity_at_99(self):
+            # Arrange - create the test session bag
+            session = self.client.session
+            session['bag'] = {str(self.product.id): 1}
+            session.save()
+    
+            # Act - make a POST request `with an over-limit quantity
+            response = self.client.post(
+                reverse('add_to_bag', args=[self.product.id]),
+                {
+                    'quantity': 500,
+                    'redirect_url': reverse('view_bag')
+                }
+            )
+    
+            # Assert - bag should be capped at 99
+            self.assertEqual(self.client.session['bag'][str(self.product.id)], 99)
 
 
