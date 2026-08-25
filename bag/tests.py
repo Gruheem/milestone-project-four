@@ -40,3 +40,5 @@ class TestBagViews(TestCase):
         self.assertEqual(self.client.session['bag'][str(self.product.id)], 99)
 
 
+
+

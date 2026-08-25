@@ -658,4 +658,9 @@ Following the pattern of Arrange, Act and Assert we use django's built in test s
 
 A test was written to confirm the that the max items allowed in the bag through the adjust bag view was capped at 99 when manipulating the url at add a quantity greater than 99.  
 
-This test failed with an Assertion error: '`AssertionError: 500 != 99`'. This Red stage of TDD informs the fix I must make to ensure the feature funtions as intented. 
+This test failed with an Assertion error: '`AssertionError: 500 != 99`'. This Red stage of TDD informs the fix I must make to ensure the feature funtions as intented. I fixed the adjust_bag view to limit the bags quantity to 99 (as seen in commit: ) and now the test has passed/is green returning:  
+`Ran 1 test in 0.006s
+
+OK`
+
+This test highlighted another bag limit test we should perform on our add_to_bag view to ensure its full functionality. I test whether i can add to the bag past 99 items using the url and the test fails/red with the error: `AssertionError: 501 != 99`.  

@@ -45,7 +45,7 @@ def adjust_bag(request, item_id):
     bag = request.session.get("bag", {})
 
     if quantity >= 1:
-        bag[item_id] = quantity
+        bag[item_id] = min(quantity, 99)
         messages.success(
             request, f"Updated {product.product_name} quantity to {bag[item_id]}."
         )
