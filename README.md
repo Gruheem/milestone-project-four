@@ -649,3 +649,13 @@ design inspiration was taken from other similar shops such as [domestic science]
 ## Appendix: Categories, Product Types & Attributes
 
 [Initial Categories, Product Types & Attributes](appendix.txt)
+
+### Automated Testing
+
+Following the pattern of Arrange, Act and Assert we use django's built in test suite to create some tests to test the bag and checkout functionality.
+
+### Test Driven Developement
+
+A test was written to confirm the that the max items allowed in the bag through the adjust bag view was capped at 99 when manipulating the url at add a quantity greater than 99.  
+
+This test failed with an Assertion error: '`AssertionError: 500 != 99`'. This Red stage of TDD informs the fix I must make to ensure the feature funtions as intented. 
