@@ -22,12 +22,12 @@ def add_to_bag(request, item_id):
     item_id = str(item_id)
 
     if item_id in bag:
-        bag[item_id] += quantity
+        bag[item_id] += min(quantity, 98)
         messages.success(
             request, f"Updated {product.product_name} quantity to {bag[item_id]}."
         )
     else:
-        bag[item_id] = quantity
+        bag[item_id] = min(quantity, 98)
         messages.success(request, f"{product.product_name} has been added to your bag.")
 
     request.session["bag"] = bag
