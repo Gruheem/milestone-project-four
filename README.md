@@ -36,12 +36,14 @@
   - [Authentication (Django AllAuth)](#authentication-django-allauth)
   - [Defensive Programming](#defensive-programming)
 - [Testing](#testing)
+  - [Test Driven Development](#test-driven-development)
   - [Bugs Encounters & resolutions](#bugs-encounters--resolutions)
   - [Manual Testing](#manual-testing)
   - [Validator Testing](#validator-testing)
   - [Colour Testing](#colour-testing)
   - [Lighthouse Testing](#ligthouse-testing)
   - [User Story Testing](#user-story-testing)
+  - [Automated Testing](#automated-testing)
 - [Security](#security)
 - [Deployment](#deployment)
 - [Future Features and Development](#future-features-and-developement)
@@ -431,8 +433,18 @@ In this project, defensive programming is used in several areas:
 
 ## Testing
 
+### Test Driven Development
+
+Test Driven Development follows a red/green/refactor cycle, where tests are written to initially fail, guiding development towards the required functionality. Once the test passes, the code can then be refactored and improved while ensuring the functionality remains intact. This was used to develop the bag app and ensure it functions how we expect it to.
+
+A test was written to confirm the that the max items allowed in the bag through the adjust bag view was capped at 99 when manipulating the url at add a quantity greater than 99. This test failed with an Assertion error: '`AssertionError: 500 != 99`'. This Red stage of TDD informs the fix I must make to ensure the feature funtions as intended. I fixed the adjust_bag view to limit the bags quantity to 99 (as seen in commit: ) and now the test has passed/is green returning:  
+`Ran 1 test in 0.006s  OK`
+
+This test highlighted another bag limit test we should perform on our add_to_bag view to ensure its full functionality. I test whether i can add to the bag past 99 items using the url and the test fails/red with the error: `AssertionError: 501 != 99`. After a similar fix, this time limiting the quantity that could be added to ensure the total could not exceed 99. Our tests are showing as green/passes:  
+`Ran 2 tests in 0.008s  OK`
 
 ### Bugs Encounters & resolutions
+These bugs were the result of the manual testing that took place throughout the deelopment.
 
 | # | Feature/Area | What was tested | Bug found | Fix |
 |---|---|---|---|---|
@@ -572,7 +584,7 @@ Testing reveals all but 6 user stories passed their tests and this creates the f
   
 Colour testing has pass WCEG standards for Text Readability Contrast 
 
-## Lighthouse Testing
+### Lighthouse Testing
 
 Initial Testing:  
 
@@ -581,6 +593,19 @@ Initial Testing:
 Some improvements wera able to be made through image loading priority adjustments. A LCP issue was identified but not fully resolved within the project timeframe. Further optimisation would focus on getting the load time down through image optimisation and other exploration.
 
 <img src="static/images/lighthouse-two.png" width="300">  
+
+### Automated Testing
+
+As well as manual testing some automated testing was introduced. Following the pattern of Arrange, Act and Assert we use Django's built in test suite to create some tests to test our checkout flow. 
+
+Tests in /checkout/tests.py were created to test webhook handling. One to see if receiving the same webhook twice would create the order twice. This involved creating an order event with mock user data. This test Passes:  
+`Ran 1 test in 0.014s  OK`  
+
+Another was to see if an unhandled webhook was handled correctly/returns the correct `200` code. This test passed and as it returns a `200` code:  
+`Ran 2 tests in 0.008s  OK`
+
+A final test was added to /checkout/tests.py to ensure that the total was being calculated correctly. This could re-use some of the existing setUp and demonstrates that this feature functions correctly:
+`Ran 3 tests in 0.009s  OK`
 
 ## Security
 
@@ -650,17 +675,3 @@ design inspiration was taken from other similar shops such as [domestic science]
 
 [Initial Categories, Product Types & Attributes](appendix.txt)
 
-### Automated Testing
-
-Following the pattern of Arrange, Act and Assert we use django's built in test suite to create some tests to test the bag and checkout functionality.
-
-### Test Driven Developement
-
-A test was written to confirm the that the max items allowed in the bag through the adjust bag view was capped at 99 when manipulating the url at add a quantity greater than 99.  
-
-This test failed with an Assertion error: '`AssertionError: 500 != 99`'. This Red stage of TDD informs the fix I must make to ensure the feature funtions as intented. I fixed the adjust_bag view to limit the bags quantity to 99 (as seen in commit: ) and now the test has passed/is green returning:  
-`Ran 1 test in 0.006s
-
-OK`
-
-This test highlighted another bag limit test we should perform on our add_to_bag view to ensure its full functionality. I test whether i can add to the bag past 99 items using the url and the test fails/red with the error: `AssertionError: 501 != 99`.  

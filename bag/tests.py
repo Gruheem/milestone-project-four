@@ -5,7 +5,7 @@ from products.models import Category, Product, ProductType
 
 
 class TestBagViews(TestCase):
-    # Assert
+    # Assert - create a product(needs it FK hence includeing category and product type)
     def setUp(self):
         self.category = Category.objects.create(
             category_name="Test Category"
@@ -16,6 +16,7 @@ class TestBagViews(TestCase):
             product_type="Test Product Type"
         )
 
+        # Have to specify everything that is not nullable or has a default inc FKs(above)
         self.product = Product.objects.create(
             product_type=self.product_type,
             product_name="Test Product",
