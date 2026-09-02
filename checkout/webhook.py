@@ -19,9 +19,12 @@ def webhook(request):
         # Confirm with our wh-secret that the webhook is from Stripe and
         # not a fraudulent request.
         event = stripe_client.construct_event(payload, sig_header, wh_secret)
-    except ValueError:
+    except ValueError as e:
+        print(f"Webhook ValueError: {e}")
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError:
+
+    except stripe.error.SignatureVerificationError as e:
+        print(f"Webhook SignatureVerificationError: {e}")
         return HttpResponse(status=400)
 
     # Assign a handler to the webhook event
